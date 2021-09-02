@@ -336,7 +336,10 @@ if ($_REQUEST['action'] == 'register') {
             $options[$key] = trim(stripslashes($_REQUEST[$key]));
         }
     }
-    $message = sprintf(esc_html__('This is a test message. It was sent from %s (%s) using the following mailing parameters.', 'fb'), esc_html($options['title']), esc_html($options['url'])).'<br />';
+
+    $title = translatable_parse($options['title']);
+
+    $message = sprintf(esc_html__('This is a test message. It was sent from %s (%s) using the following mailing parameters.', 'fb'), (array_key_exists($language, $title) && !empty($title[$language]) ? esc_html($title[$language]) : esc_html($title['default'])), esc_html($options['url'])).'<br />';
     if ($options['mail-method'] == 'smtp') {
         $message .= esc_html__('Method: SMTP', 'fb').'<br />'.esc_html__('Sender Name', 'fb').': '.$options['smtp-from-name'].'<br />'.esc_html__('Sender Email', 'fb').': '.$options['smtp-from-email'].'<br />'.esc_html__('Encryption', 'fb').': '.$options['smtp-secure'].'<br />'.esc_html__('Server', 'fb').': '.$options['smtp-server'].'<br />'.esc_html__('Port', 'fb').': '.$options['smtp-port'].'<br />'.esc_html__('Username', 'fb').': '.$options['smtp-username'].'<br />'.esc_html__('Password', 'fb').': '.$options['smtp-password'];
     } else {

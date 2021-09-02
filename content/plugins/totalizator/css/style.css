@@ -33,7 +33,7 @@
 	bottom: -2px;
 }
 .totalizator-panel-finished>a {
-	background: rgba(255,255,255,0.7);
+	background: rgba(255,255,255,0.4);
 }
 .totalizator-panel .totaliator-panel-logo {
 	display: table-cell;

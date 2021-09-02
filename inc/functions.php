@@ -463,7 +463,7 @@ function send_mail($_to, $_subject, $_message, $_headers = '', $_attachments = a
 	}
 }
 function email_body($_message) {
-	global $wpdb, $options;
+	global $wpdb, $options, $language;
 	$upload_dir = upload_dir();
 	$image = null;
 	if ($options['pattern'] > 0) {
@@ -471,6 +471,9 @@ function email_body($_message) {
 				JOIN ".$wpdb->prefix."users t2 ON t2.id = t1.user_id
 			WHERE t1.id = '".esc_sql($options['pattern'])."' AND t1.deleted != '1'", ARRAY_A);
 	}
+
+	$title = translatable_parse($options['title']);
+	$tagline = translatable_parse($options['tagline']);
 
 	$content = '
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -501,8 +504,8 @@ function email_body($_message) {
 				<table cellpadding="0" cellspacing="0" align="center" border="0" width="600" style="border-collapse: collapse; margin:0 auto; min-width:600px;"> 
 					<tr> 
 						<td valign="top" style="text-align: center; vertical-align: top; border-collapse: collapse; background-color: #888; border: 1px solid transparent; padding: 30px; background-image: url('.(!empty($image) ? esc_html($upload_dir['baseurl'].'/'.$image['user_uid'].'/'.$image['filename']) : url('').'images/default-pattern.png').');" bgcolor="#888">
-							<h1 style="font-weight: 400; font-size: 24px; line-height: 32px; color: #fff; text-align: center; text-transform: uppercase; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); margin: 0;">'.esc_html($options['title']).'</h1>
-							'.(!empty($options['tagline']) ? '<h2 style="font-weight: 400; font-size: 16px; line-height: 24px; color: #fff; text-align: center; text-transform: uppercase; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); margin: 0;">'.esc_html($options['tagline']).'</h2>' : '').'
+							<h1 style="font-weight: 400; font-size: 24px; line-height: 32px; color: #fff; text-align: center; text-transform: uppercase; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); margin: 0;">'.(array_key_exists($language, $title) && !empty($title[$language]) ? esc_html($title[$language]) : esc_html($title['default'])).'</h1>
+							'.(!empty($tagline['default']) ? '<h2 style="font-weight: 400; font-size: 16px; line-height: 24px; color: #fff; text-align: center; text-transform: uppercase; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); margin: 0;">'.(array_key_exists($language, $tagline) && !empty($tagline[$language]) ? esc_html($tagline[$language]) : esc_html($tagline['default'])).'</h2>' : '').'
 						</td>
 					</tr>
 					<tr> 
