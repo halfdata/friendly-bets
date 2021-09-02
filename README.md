@@ -8,7 +8,6 @@ Try demo: <a href="https://zf2.club/">ZF2.CLUB</a>.
 Your server must match the following requirements. All modern servers already do it.
 <ul>
 <li>PHP version 5.5 or higher.</li>
-<li>Open it in your browser – Wizard will be launched automatically.</li>
 <li>MySQL version 5.0 or higher.</li>
 </ul>
 
