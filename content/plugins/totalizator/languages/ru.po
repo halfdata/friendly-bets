@@ -1,0 +1,978 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2021-09-02 11:45+0500\n"
+"PO-Revision-Date: 2021-09-02 11:46+0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Poedit-KeywordsList: esc_html__\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: index.php:16
+msgid "Group A"
+msgstr "Группа A"
+
+#: index.php:17
+msgid "Group B"
+msgstr "Группа B"
+
+#: index.php:18
+msgid "Group C"
+msgstr "Группа C"
+
+#: index.php:19
+msgid "Group D"
+msgstr "Группа D"
+
+#: index.php:20
+msgid "Group E"
+msgstr "Группа E"
+
+#: index.php:21
+msgid "Group F"
+msgstr "Группа F"
+
+#: index.php:22
+msgid "Group G"
+msgstr "Группа G"
+
+#: index.php:23
+msgid "Group H"
+msgstr "Группа H"
+
+#: index.php:24
+msgid "1/16 Final"
+msgstr "1/16 Финала"
+
+#: index.php:25
+msgid "1/8 Final"
+msgstr "1/8 Финала"
+
+#: index.php:26
+msgid "1/4 Final"
+msgstr "1/4 Финала"
+
+#: index.php:27
+msgid "Semi-final"
+msgstr "Полуфинал"
+
+#: index.php:28
+msgid "Bronze game"
+msgstr "Матч за 3 место"
+
+#: index.php:29
+msgid "Final"
+msgstr "Финал"
+
+#: index.php:202 index.php:208
+#, php-format
+msgid "Your nickname: %s"
+msgstr "Ваш псевдоним: %s"
+
+#: index.php:204
+msgid "Loading..."
+msgstr "Загрузка..."
+
+#: index.php:205
+msgid "Quit Totalizator"
+msgstr "Покинуть Тотализатор"
+
+#: index.php:210 index.php:499 index.php:975 index.php:977 index.php:996
+#: index.php:997
+msgid "Join Totalizator"
+msgstr "Присоединиться"
+
+#: index.php:234 index.php:447
+msgid "Totalizators"
+msgstr "Тотализаторы"
+
+#: index.php:262 index.php:339 index.php:492 index.php:1702 index.php:1704
+msgid "Participants"
+msgstr "Участники"
+
+#: index.php:280 index.php:1211 index.php:1213
+msgid "Games"
+msgstr "Матчи"
+
+#: index.php:308 index.php:1916 index.php:1918
+msgid "My Bets"
+msgstr "Мои Ставки"
+
+#: index.php:329 index.php:377
+msgid "Guessing"
+msgstr "Угадайки"
+
+#: index.php:348 index.php:2407
+msgid "My Guessing"
+msgstr "Мои Угадайки"
+
+#: index.php:359
+msgid "Results"
+msgstr "Результаты"
+
+#: index.php:407
+msgid "FAQ"
+msgstr "FAQ"
+
+#: index.php:452 index.php:512
+msgid "Create New Totalizator"
+msgstr "Создать тотализатор"
+
+#: index.php:469 index.php:1254
+msgid "Edit"
+msgstr "Редактировать"
+
+#: index.php:470 index.php:594
+msgid "Deactivating..."
+msgstr "Деактивация..."
+
+#: index.php:470 index.php:584
+msgid "Activating..."
+msgstr "Активация..."
+
+#: index.php:470 index.php:593
+msgid "Deactivate"
+msgstr "Деактивировать"
+
+#: index.php:470 index.php:583
+msgid "Activate"
+msgstr "Активировать"
+
+#: index.php:472 index.php:1255
+msgid "Deleting..."
+msgstr "Удаление..."
+
+#: index.php:472 index.php:1255 index.php:1736
+msgid "Delete"
+msgstr "Удалить"
+
+#: index.php:477
+msgid "Finished"
+msgstr "Окончен"
+
+#: index.php:478 index.php:586
+msgid "Inactive"
+msgstr "Неактивный"
+
+#: index.php:479 index.php:494
+msgid "Owner"
+msgstr "Создатель"
+
+#: index.php:480 index.php:725
+msgid "Private"
+msgstr "Приватный"
+
+#: index.php:488
+msgid "Details"
+msgstr "Подробности"
+
+#: index.php:490 index.php:681
+msgid "Period"
+msgstr "Период"
+
+#: index.php:491
+msgid "Missed bet penalty"
+msgstr "Штраф за пропущенную ставку"
+
+#: index.php:491
+msgid "points"
+msgstr "баллов"
+
+#: index.php:493
+msgid "Passed games"
+msgstr "Проведено матчей"
+
+#: index.php:500
+msgid "Join link"
+msgstr "Присоединиться"
+
+#: index.php:503
+msgid "Copy to clipboard"
+msgstr "Копировать в буфер обмена"
+
+#: index.php:518
+msgid "Welcome. There are no available totalizators yet."
+msgstr "Добро пожаловать. Активных тотализаторов пока нет."
+
+#: index.php:519
+msgid "Create First Totalizator"
+msgstr "Создайте первый тотализатор"
+
+#: index.php:529 index.php:559 index.php:808 index.php:1008 index.php:1095
+#: index.php:1426 index.php:1628 index.php:1753 index.php:2051
+msgid "Oops. Please enter your account to perform this action."
+msgstr "Войдите в свой аккаунт, чтобы выполнить это действие."
+
+#: index.php:537 index.php:542 index.php:568 index.php:573 index.php:850
+msgid "You do not have permissions to perform this action."
+msgstr "У вас нет прав на выполнение этого действия."
+
+#: index.php:549 index.php:550
+msgid "Totalizator successfully deleted."
+msgstr "Тотализатор успешно удален."
+
+#: index.php:582
+msgid "Totalizator successfully deactivated."
+msgstr "Тотализатор успешно деактивирован."
+
+#: index.php:592
+msgid "Totalizator successfully activated."
+msgstr "Тотализатор успешно активирован."
+
+#: index.php:596
+msgid "Active"
+msgstr "Активный"
+
+#: index.php:623 index.php:625
+msgid "Create Totalizator"
+msgstr "Создать тотализатор"
+
+#: index.php:623 index.php:625
+msgid "Edit Totalizator"
+msgstr "Редактировать тотализатор"
+
+#: index.php:633
+msgid ""
+"This is a private (hidden) totalizator. It does not appear in the list of "
+"totalizators. Users can join it using special link."
+msgstr ""
+"Это приватный (скрытый) тотализатор. Он не появляется в списке тотализаторов "
+"для неучастников. Используйте специальную ссылку, чтобы присоединиться к "
+"тотализатору."
+
+#: index.php:639 index.php:648
+msgid "Title"
+msgstr "Название"
+
+#: index.php:644
+msgid "Specify totalizator title."
+msgstr "Введите название тотализатора."
+
+#: index.php:653
+msgid "Description"
+msgstr "Описание"
+
+#: index.php:658
+msgid "Describe totalizator."
+msgstr "Опишите тотализатор в паре предложений."
+
+#: index.php:662
+msgid "Describe totalizator"
+msgstr "Опишите тотализатор"
+
+#: index.php:667
+msgid "Image"
+msgstr "Изображение"
+
+#: index.php:672
+msgid "Upload image/logo of totalizator."
+msgstr "Загрузите логотип тотализатора."
+
+#: index.php:686
+msgid "Set begin and end dates of totalizator."
+msgstr "Установите датыначала и окончания тотализатора."
+
+#: index.php:694 index.php:1321
+msgid "Begin"
+msgstr "Начало"
+
+#: index.php:696
+msgid "Start"
+msgstr "Начало"
+
+#: index.php:702 index.php:704
+msgid "End"
+msgstr "Конец"
+
+#: index.php:714 index.php:1330
+msgid "Type"
+msgstr "Тип"
+
+#: index.php:719
+msgid ""
+"Set type of totalizator. Public totalizator appears in the list and any user "
+"can join it. Private totalizator is not visible. User can join it using "
+"special link."
+msgstr ""
+"Выберите тип тотализатора. Публичный тотализатор появляется в общем списке и "
+"любой пользователь может к нему присоединиться. Приватный тотализатор не "
+"появляется в общем списке. Пользователи могут присоединиться к нему, "
+"используя специальную ссылку."
+
+#: index.php:725
+msgid "Public"
+msgstr "Публичный"
+
+#: index.php:732
+msgid "Enable guessing"
+msgstr "Включить угадайки"
+
+#: index.php:737
+msgid "Allow users to guess who is hidden behind of participant nickname."
+msgstr ""
+"Позвольте пользователям угадывать, кто скрывается за тем или иным "
+"псевдонимом."
+
+#: index.php:752 index.php:764
+msgid "Disclosure date"
+msgstr "Дата раскрытия"
+
+#: index.php:757
+msgid "Set guessing disclosure date."
+msgstr "Укажите дату, когда результаты угадаек будут раскрыты."
+
+#: index.php:774 index.php:786
+msgid "Missing bet penalty"
+msgstr "Штраф за пропущенную ставку"
+
+#: index.php:779
+msgid "Set how many penalty points participant get in case of missing bet."
+msgstr ""
+"Сколько штрафных баллов получит участник, если он забыл сделать ставку."
+
+#: index.php:796 index.php:797 index.php:996 index.php:997 index.php:1414
+#: index.php:1415 index.php:2036 index.php:2037 index.php:2447 index.php:2448
+#: index.php:2566 index.php:2567
+msgid "Save Details"
+msgstr "Сохранить"
+
+#: index.php:833 index.php:1036 index.php:1458 index.php:1654 index.php:1779
+#: index.php:2072
+msgid "Invalid request: some fields are missing."
+msgstr "Невеный запрос: некоторые обязательные поля пропущены."
+
+#: index.php:861
+msgid "Title is too short."
+msgstr "Название слишком короткое."
+
+#: index.php:862
+msgid "Title is too long."
+msgstr "Название слишком длинное."
+
+#: index.php:865 index.php:874
+msgid "The translation is too short."
+msgstr "Перевод слишком короткий."
+
+#: index.php:866 index.php:875
+msgid "The translation is too long."
+msgstr "Перевод слишком длинный."
+
+#: index.php:870
+msgid "Description is too short."
+msgstr "Описание слишком короткое."
+
+#: index.php:871
+msgid "Description is too long."
+msgstr "Описание слишком длинное."
+
+#: index.php:879 index.php:1486 index.php:1487 index.php:1488 index.php:1489
+#: index.php:2099 index.php:2100 index.php:2102 index.php:2103 index.php:2107
+#: index.php:2108
+msgid "Must be a not negative integer value."
+msgstr "Должен быть целым не отрицательным числом."
+
+#: index.php:882
+msgid "Value is too big."
+msgstr "Значение слишком большое."
+
+#: index.php:884 index.php:885 index.php:887 index.php:891
+msgid "Invalid date."
+msgstr "Неверная дата."
+
+#: index.php:892
+msgid "Must be after end date."
+msgstr "Должно быть после даты окончания."
+
+#: index.php:951 index.php:952
+msgid "Totalizator details successfully saved."
+msgstr "Тотализатор успешно сохранен."
+
+#: index.php:966 index.php:1018
+msgid "Totalizator already finished."
+msgstr "Тотализатор уже окончен."
+
+#: index.php:971 index.php:1023
+msgid "You can not change the nickname when totalizator already started."
+msgstr "Вы не можете менять псевдоним после начала тотализатора."
+
+#: index.php:975 index.php:977
+msgid "Change nickname"
+msgstr "Сменить псевдоним"
+
+#: index.php:981
+msgid "Participant nickname"
+msgstr "Псевдоним участника"
+
+#: index.php:986
+msgid "Enter your participant nickname."
+msgstr "Введите ваш псевдоним участника."
+
+#: index.php:990 index.php:2350 index.php:2360 index.php:2416 index.php:2425
+msgid "Nickname"
+msgstr "Псевдоним"
+
+#: index.php:1013 index.php:1100 index.php:1431 index.php:1438 index.php:1473
+#: index.php:1633 index.php:1640 index.php:1669 index.php:1758 index.php:1765
+#: index.php:1795 index.php:2057 index.php:2087 index.php:2463 index.php:2480
+#: index.php:2582 index.php:2595
+msgid "Invalid request."
+msgstr "Неверный запрос."
+
+#: index.php:1044
+msgid "Nickname is too short."
+msgstr "Псевдоним слишком короткий."
+
+#: index.php:1045
+msgid "Nickname is too long."
+msgstr "Псевдоним слишком длинный."
+
+#: index.php:1048
+msgid "Nickname is already in use."
+msgstr "Псевдоним уже используется другим участником."
+
+#: index.php:1063 index.php:1064
+msgid "Details are successfully saved."
+msgstr "Данные успешно сохранены."
+
+#: index.php:1085 index.php:1086
+msgid "You are successfully joined totalizator."
+msgstr "Вы успешно присоединились к тотализатору."
+
+#: index.php:1105
+msgid "You are not a participant of this totalizator."
+msgstr "Вы не являетесь участником этого тотализатора."
+
+#: index.php:1110
+msgid "Totalizator already started."
+msgstr "Тотализатор уже начался."
+
+#: index.php:1115 index.php:1116
+msgid "You are no longer a participant of this totalizator."
+msgstr "Вы больше не являетесь участником этого тотализатора."
+
+#: index.php:1215
+msgid "Create New Game"
+msgstr "Создать новый матч"
+
+#: index.php:1221 index.php:1247 index.php:1849 index.php:1881 index.php:1923
+#: index.php:1954
+msgid "Game"
+msgstr "Матч"
+
+#: index.php:1222 index.php:1248 index.php:1387 index.php:1612 index.php:1851
+#: index.php:1883 index.php:1925 index.php:1956
+msgid "Score"
+msgstr "Счет"
+
+#: index.php:1223 index.php:1249 index.php:1596 index.php:1613 index.php:1712
+#: index.php:1734 index.php:1852 index.php:1884 index.php:1926 index.php:1957
+msgid "Penalty"
+msgstr "Штраф"
+
+#: index.php:1250
+msgid "Actions"
+msgstr "Действия"
+
+#: index.php:1263 index.php:1618 index.php:1742 index.php:1889 index.php:1962
+#: index.php:2221 index.php:2284 index.php:2367 index.php:2439 index.php:2558
+msgid "List is empty."
+msgstr "Список пуст."
+
+#: index.php:1303 index.php:1305
+msgid "Edit Game"
+msgstr "Редактировать матч"
+
+#: index.php:1303 index.php:1305
+msgid "Add Game"
+msgstr "Добавить матч"
+
+#: index.php:1309
+msgid "Start time"
+msgstr "Время начала"
+
+#: index.php:1314
+msgid ""
+"Select the time when the game is started. Make sure your tinezone is set "
+"properly."
+msgstr ""
+"Выберите дату и время начала матча. Удостоверьтесь, что ваш часовой пояс "
+"выставлен верно."
+
+#: index.php:1335
+msgid "Type of the game."
+msgstr "Тип матча."
+
+#: index.php:1340
+msgid "Select the type of the game"
+msgstr "Выберите тип матча"
+
+#: index.php:1350
+msgid "Teams"
+msgstr "Команды"
+
+#: index.php:1355
+msgid "Select teams."
+msgstr "Выберите команды."
+
+#: index.php:1363 index.php:1374
+msgid "Select the team"
+msgstr "Выберите команду"
+
+#: index.php:1392
+msgid "Set the final score."
+msgstr "Установите итоговый счет."
+
+#: index.php:1485
+msgid "Invalid time."
+msgstr "Неверное время."
+
+#: index.php:1490 index.php:1491
+msgid "Must be a valid team."
+msgstr "Команда не найдена."
+
+#: index.php:1492
+msgid "Must be a valid game type."
+msgstr "Типа матча не найден."
+
+#: index.php:1540 index.php:1541
+msgid "Game details successfully saved."
+msgstr "Матч успешно сохранен."
+
+#: index.php:1567
+msgid "Final score was not set yet."
+msgstr "Итоговый счет еще не проставлен."
+
+#: index.php:1587 index.php:1843 index.php:2344
+msgid "Back"
+msgstr "Назад"
+
+#: index.php:1593 index.php:1610 index.php:1709 index.php:2188 index.php:2212
+#: index.php:2238 index.php:2274
+msgid "#"
+msgstr "№"
+
+#: index.php:1594 index.php:1611 index.php:1710 index.php:1732 index.php:2189
+#: index.php:2213 index.php:2239 index.php:2275
+msgid "Participant"
+msgstr "Участник"
+
+#: index.php:1595 index.php:1850 index.php:1882 index.php:1924 index.php:1955
+msgid "Bet"
+msgstr "Ставка"
+
+#: index.php:1674 index.php:1675
+msgid "Game successfully deleted."
+msgstr "Матч успешно удален."
+
+#: index.php:1711 index.php:1733 index.php:2190 index.php:2214 index.php:2240
+#: index.php:2276
+msgid "Guessed"
+msgstr "Угадано"
+
+#: index.php:1713 index.php:1735
+msgid "Gap"
+msgstr "Отставание"
+
+#: index.php:1800 index.php:1801
+msgid "Participant successfully deleted."
+msgstr "Участник успешно удален."
+
+#: index.php:1995 index.php:2093
+msgid "You can not set the bet for already started game."
+msgstr "Вы не можете делать ставку на начавшийся (прошедший) матч."
+
+#: index.php:2010
+#, php-format
+msgid "My bet on %s"
+msgstr "Моя ставка на %s"
+
+#: index.php:2101 index.php:2104
+msgid "The value is too huge."
+msgstr "Значение слишком большое."
+
+#: index.php:2141 index.php:2142
+msgid "Bet successfully saved."
+msgstr "Ставка успешно сохранена."
+
+#: index.php:2158 index.php:2303 index.php:2386 index.php:2529
+msgid "Guessing starts soon."
+msgstr "Угадайки скоро начнутся."
+
+#: index.php:2167 index.php:2312 index.php:2393
+msgid "Guessing results will be available soon."
+msgstr "Результаты угадаек скоро будут доступны."
+
+#: index.php:2180 index.php:2182
+msgid "Guessing Results"
+msgstr "Результаты угадаек"
+
+#: index.php:2183
+msgid "Who guesses better"
+msgstr "Участники, угадавшие больше всего псевдонимов"
+
+#: index.php:2191 index.php:2215
+msgid "Guessed Participants"
+msgstr "Угаданные участники"
+
+#: index.php:2233
+msgid "Who was guessed less often"
+msgstr "Участники, которых реже всего угадывали"
+
+#: index.php:2241 index.php:2277
+msgid "Who Guessed"
+msgstr "Угадавшие участники"
+
+#: index.php:2242 index.php:2278
+msgid "Who they thought"
+msgstr "Кем считали"
+
+#: index.php:2340
+#, php-format
+msgid "Guessing of %s (%s)"
+msgstr "Угадайки %s (%s)"
+
+#: index.php:2351 index.php:2361 index.php:2415 index.php:2424 index.php:2550
+msgid "User"
+msgstr "Пользователь"
+
+#: index.php:2470 index.php:2589
+msgid "Guessing is not available yet."
+msgstr "Угадайки еще недоступны."
+
+#: index.php:2474
+msgid "Guessing is already finished."
+msgstr "Угадайки уже окончены."
+
+#: index.php:2513
+msgid "Guessing successfully saved."
+msgstr "Угадайки успешно сохранены."
+
+#: index.php:2539
+msgid "Guessing Participants"
+msgstr "Участники угадаек"
+
+#: index.php:2551
+msgid "Enable"
+msgstr "Включить"
+
+#: index.php:2611
+msgid "Guessing participants successfully saved."
+msgstr "Список участников угадаек успешно сохранен."
+
+#: index.php:2620
+msgid "Frequently Asked Questions"
+msgstr "Вопросы и Ответы"
+
+#: index.php:2624
+msgid "What is it and how it works?"
+msgstr "Что это и как это работает?"
+
+#: index.php:2626
+msgid ""
+"These are totalizators dedicated to important championships (for example, "
+"the FIFA World Cup or the African Ice Hockey Championship).\n"
+"\t\t\tEveryone can become a member of any totalizator and check how much he "
+"knows the topic better than others.\n"
+"\t\t\tThe idea is pretty simple: totalizator participants try to guess the "
+"score of each match, and, depending on their sense of foresight, receive "
+"penalty points.\n"
+"\t\t\tThe winner of the totalizator is the participant with the lowest "
+"number of penalty points."
+msgstr ""
+"Это тотализаторы, посвященные значимым чемпионатам (например, Чемпионат Мира "
+"по футболу или Чемпионат Африки по хоккею).\n"
+"Каждый может стать участником любого тотализатора и проверить, насколько он "
+"лучше других разбирается в теме.\n"
+"Идея проста, как пять копеек: участники тотализатора пытаются угадать счет "
+"каждого матча чемпионата, и в зависимости от своего чувства предвидения "
+"получают штрафные баллы.\n"
+"Победитель тотализатора - участник, набравший меньшее количество штрафных "
+"баллов."
+
+#: index.php:2632
+msgid "How to join totalizator?"
+msgstr "Как принять участие в тотализаторе?"
+
+#: index.php:2634
+msgid "Register and log into your account."
+msgstr "Зарегистрируйтесь и войдите в свой аккаунт."
+
+#: index.php:2635
+msgid ""
+"On the main page, select an active totalizator and click the \"Join "
+"Totalizator\" button."
+msgstr ""
+"На главной странице выберите активный тотализатор и кликните кнопку "
+"\"Присоединиться\"."
+
+#: index.php:2636
+msgid "Enter your nickname and click the \"Join Totalizator\" button again."
+msgstr "Введите свой псевдоним и снова кликните \"Присоединиться\"."
+
+#: index.php:2638
+msgid "Voila! You have become a participant."
+msgstr "Вуаля! Вы стали участником тотализатора."
+
+#: index.php:2640
+msgid "What is a nickname for?"
+msgstr "Зачем нужен псевдоним?"
+
+#: index.php:2641
+msgid ""
+"Just for fun. If you play with friends, colleagues or acquaintances, no one "
+"will know who is hiding behind a nickname.\n"
+"\t\t\tIf the \"Guessing\" option is enabled for the totalizator, then you "
+"can also try to guess the real participants hiding behind nicknames.\n"
+"\t\t\tAt the end of the totalizator, real names will be revealed."
+msgstr ""
+"Так интересней. Если вы играете с друзьями, коллегами или знакомыми, никто "
+"не будет знать, кто скрывается за псевдонимом. \n"
+"Если для тотализатора включена опция \"Угадайки\", то по его ходу вы можете "
+"так же попытаться угадать реальных участников, скрывающихся за "
+"псевдонимами.\n"
+"В конце тотализатора реальные имена будут открыты."
+
+#: index.php:2645
+msgid "Can I change my nickname?"
+msgstr "Могу ли я сменить псевдоним?"
+
+#: index.php:2646
+msgid ""
+"Yes. You can do this before the start of the totalizator by clicking on your "
+"current nickname in the header of the site."
+msgstr ""
+"Да. Вы можете сделать это до начала тотализатора, кликнув на ваш текущий "
+"псевдоним в шапке сайта."
+
+#: index.php:2648
+msgid "How do I place a bet?"
+msgstr "Как сделать ставку?"
+
+#: index.php:2650
+msgid "On the main page, select an active totalizator."
+msgstr "На главной странице выберите активный тотализатор."
+
+#: index.php:2651
+msgid "Click \"My Bets\" in the top menu."
+msgstr "В верхнем меню кликните \"Мои Ставки\"."
+
+#: index.php:2652
+msgid ""
+"Select a match by clicking on the appropriate line of the table and place "
+"your bet."
+msgstr ""
+"Выберите матч, кликнув на соответствующей строке таблицы, и сделайте ставку."
+
+#: index.php:2655
+msgid "How do I change my bet?"
+msgstr "Как изменить ставку?"
+
+#: index.php:2656
+msgid ""
+"Exactly as described above. The bet can only be changed before the start of "
+"the match."
+msgstr ""
+"Точно так же как описано выше. Ставку можно менять только до начала матча."
+
+#: index.php:2658
+msgid "What if I have not placed a bet before the start of the match?"
+msgstr "А что, если я не сделал ставку до начала матча?"
+
+#: index.php:2659
+msgid ""
+"In this case, you will get a fixed number of penalty points (depending on "
+"the totalizator settings, usually 26)."
+msgstr ""
+"В этом случае вы получите фиксированное количество штрафных баллов (зависит "
+"от настроек тотализатора, обычно - 26)."
+
+#: index.php:2661
+msgid "How are penalty points calculated?"
+msgstr "Как подсчитываются штрафные баллы?"
+
+#: index.php:2662
+msgid "The following formula is used for the calculation:"
+msgstr "Для подсчета используется следующая формула:"
+
+#: index.php:2664
+msgid "penalty points"
+msgstr "штрафные баллы"
+
+#: index.php:2665
+msgid ""
+"foresight factor. N = 0, if you guessed the score. N = 10, if you have not "
+"guessed the score, but guessed the side. N = 20, if you could not even guess "
+"the side"
+msgstr ""
+"фактор предвидения. N = 0, если вы полностью угадали счет. N = 10, если вы "
+"не угадали счет, но угадали сторону. N = 20, если вы даже сторону не смогли "
+"угадать"
+
+#: index.php:2666
+msgid "real score"
+msgstr "финальный счет"
+
+#: index.php:2667
+msgid "your bet"
+msgstr "ваша ставка"
+
+#: index.php:2668
+msgid ""
+"Example #1. Your bet for match Antarctica: Arctic - 1:2. Final score is - "
+"3:0. In this case you get 24 penalty points: P = 20 + |3-1| + |0-2| = 24."
+msgstr ""
+"Пример #1. Ваша ставка на матч Антарктида:Арктика - 1:2. Итоговый счет "
+"оказался - 3:0. В этом случае вы получаете 24 штрафных балла: P = 20 + |3-1| "
+"+ |0-2| = 24."
+
+#: index.php:2669
+msgid ""
+"Example #2. Your bet for match Antarctica: Arctic - 2:0. Final score is - "
+"1:1. In this case you get 22 penalty points: P = 20 + |1-2| + |1-0| = 22."
+msgstr ""
+"Пример #2. Ваша ставка на матч Антарктида:Арктика - 2:0. Итоговый счет "
+"оказался - 1:1. В этом случае вы получаете 22 штрафных балла: P = 20 + |1-2| "
+"+ |1-0| = 22."
+
+#: index.php:2670
+msgid ""
+"Example #3. Your bet for match Antarctica: Arctic - 1:0. Final score is - "
+"2:0. In this case you get 11 penalty points: P = 10 + |2-1| + |0-0| = 11."
+msgstr ""
+"Пример #3. Ваша ставка на матч Антарктида:Арктика - 1:0. Итоговый счет "
+"оказался - 2:0. В этом случае вы получаете 11 штрафных балла: P = 10 + |2-1| "
+"+ |0-0| = 11."
+
+#: index.php:2672
+msgid "How can I see the bets of other participants?"
+msgstr "Как увидеть ставки других участников?"
+
+#: index.php:2673
+msgid "There are 2 ways to do that:"
+msgstr "Существует 2 способа сделать это:"
+
+#: index.php:2675
+msgid ""
+"Go to the desired totalizator and click \"Participants\" in the top menu. A "
+"list of participants will open. Click on any participant to view their bets "
+"on all matches."
+msgstr ""
+"Зайдите в желаемый тотализатор и кликните \"Участники\" в верхнем меню. "
+"Откроется список участников. Кликните на любого участника, чтобы посмотреть "
+"его ставки на все матчи."
+
+#: index.php:2676
+msgid ""
+"Go to the desired totalizator and click \"Games\" in the top menu. A list of "
+"matches will open. Click on any match to see the bets of all participants on "
+"it."
+msgstr ""
+"Зайдите в желаемый тотализатор и кликните \"Матчи\" в верхнем меню. "
+"Откроется список матчей. Кликните на любоой матч, чтобы посмотреть ставки "
+"всех участников на него."
+
+#: index.php:2678
+msgid ""
+"Remember, you can see bets of other participants for completed matches only."
+msgstr ""
+"Помните, что к просмотру доступны стаки участников только на завершенные "
+"матчи, у которых проставлен итоговый счет."
+
+#: index.php:2680
+msgid ""
+"Hmmm. The start of the match on the pages \"My Bets\" and \"Games\" is "
+"incorrect. Why?"
+msgstr ""
+"Хм. Начало матча на страницах \"Мои ставки\" и \"Матчи\" неверное. Почему?"
+
+#: index.php:2681
+msgid "Make sure you have the correct time zone selected on the Settings page."
+msgstr ""
+"Убедитесь, что на странице \"Настройки\" у вас выбран правильный часовой "
+"пояс."
+
+#: index.php:2683
+msgid "Can I refuse to participate in the totalizator?"
+msgstr "Могу ли я отказаться от участия в тотализаторе?"
+
+#: index.php:2684
+msgid ""
+"Yes, but only before it starts. In the header of the site, click \"Quit "
+"Totalizator.\"."
+msgstr ""
+"Да, но только до его начала. В шапке сайта кликните \"Отказаться от участия."
+"\"."
+
+#: index.php:2686
+msgid "Can I join the totalizator if it has already started?"
+msgstr "Могу ли я присоединиться к тотализатору, если он уже начался?"
+
+#: index.php:2687
+msgid ""
+"Yes, but for each missed match you will receive a fixed number of penalty "
+"points (depending on the totalizator settings, usually 26)."
+msgstr ""
+"Да, но за каждый пропущенный матч вы получите фиксированное количество "
+"штрафных баллов (зависит от настроек тотализатора, обычно - 26)."
+
+#: index.php:2689
+msgid "Can I create my own totalizator?"
+msgstr "Могу ли я создать свой тотализатор?"
+
+#: index.php:2690
+msgid ""
+"Yes, you can. Click the button \"Create new totalizator\" on the main page. "
+"Your totalizator will have the \"Private\" status.\n"
+"\t\t\tThis status means that the totalizator will not appear in the list of "
+"public totalizators. Participants will be able to join it using a special "
+"link.\n"
+"\t\t\tAfter creating the totalizator, you are its administrator. You can "
+"create and edit matches."
+msgstr ""
+"Да, можете. Кликните кнопку \"Создать новый тотализатор\" на главной "
+"странице. Ваш тотализатор будет иметь статус \"Приватный\".\n"
+"Данный статус означает, что тотализатор не будет появлятся в списке "
+"общедоступных тотализаторов. Участники смогут присоединиться к нему, "
+"используя специальную ссылку.\n"
+"После создания тотализатора вы являетесь его администратором. Вы можете "
+"создавать и редактировать матчи."
+
+#: js/script.js:6
+msgid "Please confirm that you want to delete totalizator."
+msgstr "Пожалуйста, подтвердите, что хотите удалить тотализатор."
+
+#: js/script.js:41 js/script.js:44 js/script.js:51 js/script.js:90
+#: js/script.js:94 js/script.js:100 js/script.js:145 js/script.js:148
+#: js/script.js:155 js/script.js:200 js/script.js:203 js/script.js:210
+#: js/script.js:254 js/script.js:257 js/script.js:264
+msgid "Something went wrong. We got unexpected server response."
+msgstr "Что-то пошло не так. Недопустимый ответ сервера."
+
+#: js/script.js:110
+msgid ""
+"Please confirm that you want to quit totalizator. You lose existing bets, "
+"but can join later."
+msgstr ""
+"Пожалуйста, подтвердите, что вы хотите покинуть тотализатор. Вы потеряете "
+"все ваши ставки, но сможете снова присоединиться."
+
+#: js/script.js:164
+msgid "Please confirm that you want to delete the game."
+msgstr "Пожалуйста, подтвердите, что хотите удалить матч."
+
+#: js/script.js:220
+msgid "Please confirm that you want to delete the participant."
+msgstr "Пожалуйста, подтвердите, что хотите удалить участника."
+
+#: js/script.js:273
+msgid ""
+"Are you sure that you want to watch guessing results before disclosure date?"
+msgstr "Вы уверены, что хотите увидеть результаты угадаек до даты раскрытия?"

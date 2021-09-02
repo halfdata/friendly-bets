@@ -1,0 +1,322 @@
+.totalizator-nocampaigns {
+    flex: auto;
+    display: table;
+}
+.totalizator-nocampaigns .totalizator-nocampaigns-box {
+    display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.totalizator-panel {
+	display: table;
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	margin: 1em 0;
+	position: relative;
+	width: 100%;
+	transition-property: border, background, color, box-shadow, width, height, font-size;
+	-webkit-transition-property: border, background, color, box-shadow, width, height, font-size;
+	transition-duration: .3s;
+	-webkit-transition-duration: .3s;
+}
+.totalizator-panel:hover {
+	border-color: rgba(136, 176, 75, 1);
+}
+.totalizator-panel>a {
+	display: block;
+	position: absolute;
+	z-index: 50;
+	top: -2px;
+	left: -2px;
+	right: -2px;
+	bottom: -2px;
+}
+.totalizator-panel-finished>a {
+	background: rgba(255,255,255,0.7);
+}
+.totalizator-panel .totaliator-panel-logo {
+	display: table-cell;
+	vertical-align: top;
+	padding: 2em 1em 2em 2em;
+	width: 25%;
+	text-align: center;
+}
+.totalizator-panel .totaliator-panel-logo img {
+	max-width: 100%;
+	max-height: 320px;
+}
+.totalizator-panel .totaliator-panel-content {
+	display: table-cell;
+	vertical-align: top;
+	padding: 1em;
+}
+.totalizator-panel>div>h3 {
+	font-size: 1.5em;
+	font-weight: 400;
+	padding: 0;
+	margin: 0.5em 0 1em 0;
+}
+.totalizator-panel>div>div.totalizator-panel-description {
+	margin-bottom: 1em;
+}
+.totalizator-panel>div>ul {
+	margin: 0.3em 0 1em 0;
+    padding: 0 0 0 2em;
+}
+.totalizator-panel-actions {
+	position: absolute;
+	z-index: 51;
+	top: 1em;
+	right: 1em;
+}
+.totalizator-panel-badges {
+    position: absolute;
+    top: -2px;
+    left: 2em;
+}
+.totalizator-panel-badge {
+    display: inline-block;
+    padding: 0.3em 1em;
+    font-size: 14px;
+    font-family: arial;
+    text-transform: uppercase;
+    color: #FFF;
+    border-radius: 0 0 5px 5px;
+	margin: 0 0.2em;
+	transition-property: border, background, color, box-shadow, width, height, font-size;
+	-webkit-transition-property: border, background, color, box-shadow, width, height, font-size;
+	transition-duration: .3s;
+	-webkit-transition-duration: .3s;
+}
+.totalizator-panel-badge-danger,
+.totalizator-panel:hover .totalizator-panel-badge-danger {
+	background-color: #C02020;
+}
+.totalizator-panel-badge-info,
+.totalizator-panel:hover .totalizator-panel-badge-info {
+	background-color: #5DB0BF;
+}
+.totalizator-panel-badge-success,
+.totalizator-panel:hover .totalizator-panel-badge-success {
+	background-color: #208020;
+}
+.totalizator-panel .totalizator-panel-badge {
+	background-color: #ccc;
+}
+.totalizator-header-menu-bottom {
+	background: #f8f8f8;
+}
+.totalizator-join-link-container {
+	min-width: 320px;
+    position: relative;
+}
+.totalizator-panel-join {
+	position: absolute;
+    z-index: 51;
+    bottom: 1em;
+    right: 1em;	
+}
+.totalizator-panel-join label {
+	display: block;
+	text-align: left;
+}
+.totalizator-join-link-container input[type='text']{
+	background: #fff;
+    padding: 0 42px 0 0.7em;
+    line-height: 40px;
+    height: 40px;
+	font-family: monospace, arial;
+}
+.totalizator-join-link-container span {
+    display: block;
+    background: rgba(136, 176, 75, 1);
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    height: 40px;
+    line-height: 40px;
+    width: 38px;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 3px 3px 0;
+	cursor: pointer;
+	transition-property: border, background, color, box-shadow, width, height, font-size;
+	-webkit-transition-property: border, background, color, box-shadow, width, height, font-size;
+	transition-duration: .3s;
+	-webkit-transition-duration: .3s;
+}
+.totalizator-join-link-container span:hover {
+	background: rgba(187, 194, 52, 1);
+}
+.totalizator-join-link-container span:active i {
+	transform: scale(0.95);
+	-webkit-transform: scale(0.95);
+}
+
+.totalizator-index-header {
+	padding: 3em 0;
+    background-color: #222;
+    background-position: top left;
+    background-repeat: repeat;
+    background-size: auto;
+}
+.totalizator-index-header h1 {
+	font-weight: 400;
+    font-size: 3em;
+    line-height: 60px;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px rgb(0 0 0 / 70%);
+    margin: 0;
+}
+.totalizator-index-header h2 {
+	font-weight: 400;
+    font-size: 1.5em;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px rgb(0 0 0 / 70%);
+    margin: 0;
+}
+.totalizator-campaign-bar {
+	display: table-row;
+	width: 100%;
+}
+.totalizator-campaign-bar-logo {
+	display: table-cell;
+	padding: 1em;
+	min-width: 100px;
+	max-width: 160px;
+	max-height: 80px;
+}
+.totalizator-campaign-bar-logo img {
+	max-width: 100%;
+	max-height: 100%;
+}
+.totalizator-campaign-bar-content {
+	display: table-cell;
+	padding: 1em;
+	vertical-align: middle;
+	width: 100%;
+}
+.totalizator-campaign-bar-content h1 {
+	margin: 0;
+	padding: 0;
+	font-size: 2em;
+}
+.totalizator-campaign-bar-content h2 {
+	margin: 0;
+	padding: 0;
+	font-size: 1.3em;
+}
+.totalizator-campaign-bar-button {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	padding: 1em;
+}
+.totalizator-game {
+	line-height: 24px;
+	height: 24px;
+	vertical-align: top;
+	padding: 0;
+	display: inline-block;
+}
+.totalizator-game img {
+	max-height: 100%;
+    max-width: 24px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 0.5em;
+}
+.totalizator-bet-form {
+	flex: auto;
+	display: table;
+}
+.totalizator-bet-form-box {
+	vertical-align: middle;
+	text-align: center;
+	display: table-cell;
+}
+.totalizator-bet-form-columns {
+    display: table;
+    width: 100%;
+	max-width: 480px;
+	margin: 1em auto;
+}
+.totalizator-pale {
+	opacity: 0.4;
+}
+.totalizator-bet-form-column {
+    display: table-cell;
+    position: relative;
+    vertical-align: top;
+	padding: 0.2em;
+}
+.totalizator-bet-form-column:first-child {
+	padding-left: 0em;
+}
+.totalizator-bet-form-column:last-child {
+	padding-right: 0em;
+}
+.totalizator-bet-form-column-50 {
+	width: 50%;
+}
+.totalizator-faq-container h2 {
+	font-weight: 700;
+}
+.totalizator-faq-container p {
+	margin: 0.5em;
+	padding: 0;
+}
+@media only screen and (max-width: 768px) {
+	.totalizator-panel {
+		display: block;
+	}
+	.totalizator-panel .totaliator-panel-logo {
+		display: block;
+		width: 100%;
+		padding-bottom: 0;
+	}
+	.totalizator-panel .totaliator-panel-logo img {
+		max-width: 40%;
+	}
+	.totalizator-panel .totaliator-panel-content {
+		display: block;
+		width: auto;
+	}
+	.totalizator-panel>div>h3 {
+		margin-top: 1em;
+		text-align: center;
+	}
+	.totalizator-panel-join {
+		position: relative;
+		bottom: auto;
+		right: auto;
+		text-align: center;
+	}
+	.totalizator-campaign-bar {
+		display: block;
+	}
+	.totalizator-campaign-bar-logo {
+		display: none;
+	}
+	.totalizator-campaign-bar-content {
+		display: block;
+		text-align: center;
+	}
+	.totalizator-campaign-bar-content h1 {
+		display: block;
+		text-align: center;
+	}
+	.totalizator-campaign-bar-content h2 {
+		display: block;
+		text-align: center;
+	}
+	.totalizator-campaign-bar-button {
+		display: block;
+		text-align: center;
+	}
+}

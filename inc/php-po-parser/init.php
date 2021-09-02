@@ -1,0 +1,11 @@
+<?php
+include_once(dirname(__FILE__).'/Parser.php');
+include_once(dirname(__FILE__).'/SourceHandler/SourceHandler.php');
+include_once(dirname(__FILE__).'/SourceHandler/FileSystem.php');
+include_once(dirname(__FILE__).'/SourceHandler/StringSource.php');
+include_once(dirname(__FILE__).'/Catalog/Catalog.php');
+include_once(dirname(__FILE__).'/Catalog/CatalogArray.php');
+include_once(dirname(__FILE__).'/Catalog/Header.php');
+include_once(dirname(__FILE__).'/Catalog/Entry.php');
+include_once(dirname(__FILE__).'/Catalog/EntryFactory.php');
+?>

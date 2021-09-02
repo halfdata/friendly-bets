@@ -1,0 +1,1419 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Totalizators\n"
+"POT-Creation-Date: 2021-09-02 11:46+0500\n"
+"PO-Revision-Date: 2021-09-02 11:46+0500\n"
+"Last-Translator: \n"
+"Language-Team: Ivan Churakov\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Poedit-KeywordsList: esc_html__\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: content\n"
+
+#: add-user.php:26 add-user.php:30
+msgid "Create User"
+msgstr "Добавить пользователя"
+
+#: add-user.php:26 add-user.php:30
+msgid "Edit User"
+msgstr "Редактировать"
+
+#: add-user.php:34
+msgid "User role"
+msgstr "Роль"
+
+#: add-user.php:39
+msgid "Set user role."
+msgstr "Установить роль."
+
+#: add-user.php:45 install.php:214
+msgid "Administrator"
+msgstr "Администратор"
+
+#: add-user.php:45 sessions.php:57 sessions.php:70 site-settings.php:505
+msgid "User"
+msgstr "Пользователь"
+
+#: add-user.php:52 settings.php:26 site-settings.php:416 site-settings.php:449
+#: users.php:58 users.php:72
+msgid "Email"
+msgstr "Email"
+
+#: add-user.php:57
+msgid "Specify email address of the user."
+msgstr "Задайте email адрес пользователя."
+
+#: add-user.php:61 login.php:110 login.php:171 register.php:155
+#: site-settings.php:577 site-settings.php:613
+msgid "Email address"
+msgstr "Email адрес"
+
+#: add-user.php:66 add-user.php:76 register.php:145 settings.php:36
+#: settings.php:46 site-settings.php:576 site-settings.php:612
+msgid "Full name"
+msgstr "Имя"
+
+#: add-user.php:71
+msgid "Specify full name of the user."
+msgstr "Задайте полное имя пользователя."
+
+#: add-user.php:82 settings.php:52
+msgid "Timezone"
+msgstr "Часовой пояс"
+
+#: add-user.php:87
+msgid "Select timezone of the user."
+msgstr "Выберите часовой пояс пользователя."
+
+#: add-user.php:100 add-user.php:112 ajax.php:341 login.php:115
+#: register.php:160 register.php:221 site-settings.php:526
+#: site-settings.php:528
+msgid "Password"
+msgstr "Пароль"
+
+#: add-user.php:105
+msgid "Set password of the user."
+msgstr "Установите пароль для пользователя."
+
+#: add-user.php:117 register.php:165 register.php:226 settings.php:221
+msgid "Repeat password"
+msgstr "Повторите пароль"
+
+#: add-user.php:126 add-user.php:127
+msgid "Save Details"
+msgstr "Сохранить"
+
+#: ajax.php:7
+msgid "Invalid request."
+msgstr "Неверный запрос."
+
+#: ajax.php:23 ajax.php:165 ajax.php:720 install.php:181
+msgid "This is not a valid email address."
+msgstr "Неверный email адрес."
+
+#: ajax.php:24 ajax.php:166 ajax.php:721
+msgid "The email address is too long."
+msgstr "Email адрес слишком длинный."
+
+#: ajax.php:28 ajax.php:725
+msgid "The email already registered."
+msgstr "Этот email адрес уже зарегистрирован."
+
+#: ajax.php:31 ajax.php:264 ajax.php:712
+msgid "The full name is too short."
+msgstr "Имя слишком короткое."
+
+#: ajax.php:32 ajax.php:265 ajax.php:713
+msgid "The full name is too long."
+msgstr "Имя слишком длинное."
+
+#: ajax.php:34 ajax.php:211 ajax.php:269 ajax.php:716
+msgid "The password must be at least 6 characters long."
+msgstr "Пароль должен быть не короче 6 символов."
+
+#: ajax.php:35 ajax.php:212 ajax.php:270 ajax.php:717
+msgid "Repeat the password properly."
+msgstr "Неверный повтор пароля."
+
+#: ajax.php:38 ajax.php:262 ajax.php:710
+msgid "Invalid timezone."
+msgstr "Неверный часовой пояс."
+
+#: ajax.php:114 ajax.php:115 ajax.php:119
+msgid "Invalid email or password."
+msgstr "Неверный email или пароль."
+
+#: ajax.php:129 ajax.php:179 ajax.php:206 auth-vk.php:149 auth.php:147
+#: auth.php:363 register.php:14 register.php:40
+msgid "Unfortunately, your account temporarily disbaled."
+msgstr "Ваш аккаунт временно заблокирован."
+
+#: ajax.php:157
+msgid "You are successfully logged in."
+msgstr "Вы успешно вошли в свой аккаунт."
+
+#: ajax.php:170
+msgid "The email address is not registered."
+msgstr "Email адрес не зарегистрирован."
+
+#: ajax.php:189
+msgid "Check your mailbox and follow instructions."
+msgstr "Проверьте свой email и следуйте инструкциям."
+
+#: ajax.php:200 ajax.php:475 ajax.php:592 register.php:10
+msgid "User not found."
+msgstr "Пользователь не найден."
+
+#: ajax.php:251 ajax.php:284 ajax.php:298 ajax.php:312 ajax.php:326
+#: ajax.php:360 ajax.php:462 ajax.php:492 ajax.php:521 ajax.php:550
+#: ajax.php:578 ajax.php:628 ajax.php:656 ajax.php:685 ajax.php:775
+msgid "Oops. Please enter your account to perform this action."
+msgstr "Войдите в свой аккаунт, чтобы выполнить это действие."
+
+#: ajax.php:271
+msgid "Password is not correct."
+msgstr "Пароль неверный."
+
+#: ajax.php:279 ajax.php:457
+msgid "Settings successfully saved."
+msgstr "Настройки сохранены."
+
+#: ajax.php:291 settings.php:92
+msgid "Connect to Google"
+msgstr "Связать с Google"
+
+#: ajax.php:293
+msgid "Google Account successfully disconnected."
+msgstr "Аккаунт Google отключен."
+
+#: ajax.php:305 settings.php:128
+msgid "Connect to Facebook"
+msgstr "Связать с Facebook"
+
+#: ajax.php:307
+msgid "Facebook Account successfully disconnected."
+msgstr "Аккаунт Facebook отключен."
+
+#: ajax.php:319 settings.php:164
+msgid "Connect to VK"
+msgstr "Связать с VK"
+
+#: ajax.php:321
+msgid "VK Account successfully disconnected."
+msgstr "Аккаунт VK отключен."
+
+#: ajax.php:330 ajax.php:364 ajax.php:466 ajax.php:496 ajax.php:525
+#: ajax.php:554 ajax.php:582 ajax.php:632 ajax.php:660 ajax.php:689
+msgid "Hmm. You do not have permissions to perform this action."
+msgstr "У вас нет привилегий, чтобы выполнить это действие."
+
+#: ajax.php:339
+#, php-format
+msgid ""
+"This is a test message. It was sent from %s (%s) using the following mailing "
+"parameters."
+msgstr ""
+"Это тестовое сообщение было отправлено от %s (%s) используя следующие "
+"параметры."
+
+#: ajax.php:341
+msgid "Method: SMTP"
+msgstr "Метод: SMTP"
+
+#: ajax.php:341 ajax.php:343
+msgid "Sender Name"
+msgstr "Имя отправителя"
+
+#: ajax.php:341 ajax.php:343
+msgid "Sender Email"
+msgstr "Email отправителя"
+
+#: ajax.php:341 site-settings.php:481
+msgid "Encryption"
+msgstr "Шифрование"
+
+#: ajax.php:341 site-settings.php:459
+msgid "Server"
+msgstr "Сервер"
+
+#: ajax.php:341 site-settings.php:495 site-settings.php:497
+msgid "Port"
+msgstr "Порт"
+
+#: ajax.php:341 site-settings.php:518 site-settings.php:520
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: ajax.php:343
+msgid "Method: PHP Mail() function"
+msgstr "Метод: функция PHP Mail()"
+
+#: ajax.php:346
+msgid "Test Message"
+msgstr "Тестовое сообщение"
+
+#: ajax.php:355
+#, php-format
+msgid "Test message successfully sent. Please check your inbox (%s)."
+msgstr "Тестовое сообщение отправлено. Пожалуйста, проверьте свой email (%s)."
+
+#: ajax.php:385
+msgid "The site title is too short."
+msgstr "Название сайта слишком короткое."
+
+#: ajax.php:386
+msgid "The site title is too long."
+msgstr "Название сайта слишком длинное."
+
+#: ajax.php:389
+msgid "The translation is too short."
+msgstr "Перевод слишком короткий."
+
+#: ajax.php:390 ajax.php:396 ajax.php:402
+msgid "The translation is too long."
+msgstr "Перевод слишком длинный."
+
+#: ajax.php:393
+msgid "The site tagline is too long."
+msgstr "Слоган слишком длинный."
+
+#: ajax.php:399
+msgid "The site copyright is too long."
+msgstr "Текст копирайта слишком длинный."
+
+#: ajax.php:407
+msgid "Google OAuth 2.0 Client ID can not be empty."
+msgstr "Google OAuth 2.0 Client ID не может быть пустым."
+
+#: ajax.php:408
+msgid "Google OAuth 2.0 Client Secret can not be empty."
+msgstr "Google OAuth 2.0 Client Secret не может быть пустым."
+
+#: ajax.php:412
+msgid "Facebook Application Client ID can not be empty."
+msgstr "Facebook Application Client ID  не может быть пустым."
+
+#: ajax.php:413
+msgid "Facebook Application Client Secret can not be empty."
+msgstr "Facebook Application Client Secret не может быть пустым."
+
+#: ajax.php:417
+msgid "VK App ID can not be empty."
+msgstr "VK App ID не может быть пустым."
+
+#: ajax.php:418
+msgid "VK App Secure Key can not be empty."
+msgstr "VK App Secure Key не может быть пустым."
+
+#: ajax.php:422 ajax.php:425
+msgid "Invalid sender name."
+msgstr "Неверное имя отправителя."
+
+#: ajax.php:423 ajax.php:426
+msgid "Invalid sender e-mail."
+msgstr "Неверный email отправителя."
+
+#: ajax.php:427
+msgid "Invalid SMTP server."
+msgstr "Неверный SMTP сервер."
+
+#: ajax.php:428
+msgid "Invalid SMTP port."
+msgstr "Неверный SMTP порт."
+
+#: ajax.php:429
+msgid "Invalid SMTP username."
+msgstr "Неверное имя пользователя SMTP."
+
+#: ajax.php:430
+msgid "Invalid SMTP password."
+msgstr "Неверный пароль пользователя SMTP."
+
+#: ajax.php:433
+msgid "The confirmation email subject is too short."
+msgstr "Тема письма подтверждения email слишком короткое."
+
+#: ajax.php:434
+msgid "The confirmation email subject is too long."
+msgstr "Тема письма подтверждения email слишком длинное."
+
+#: ajax.php:435
+msgid "The confirmation email message is too short."
+msgstr "Сообщение письма подтверждения email слишком короткое."
+
+#: ajax.php:437
+msgid "The reset password email subject is too short."
+msgstr "Тема письма сброса пароля слишком короткое."
+
+#: ajax.php:438
+msgid "The reset password email subject is too long."
+msgstr "Тема письма сброса пароля слишком длинное."
+
+#: ajax.php:439
+msgid "The reset password email message is too short."
+msgstr "Сообщение письма сброса пароля слишком короткое."
+
+#: ajax.php:479
+msgid "You can not delete yourself."
+msgstr "Вы не можете удалить сами себя."
+
+#: ajax.php:487
+msgid "User successfully deleted."
+msgstr "Пользователь успешно удален."
+
+#: ajax.php:508 ajax.php:644 ajax.php:672
+msgid "No users selected."
+msgstr "Не выбрано ни одного пользователя."
+
+#: ajax.php:516
+msgid "Selected users successfully deleted."
+msgstr "Выбранные пользователи успешно удалены."
+
+#: ajax.php:534
+msgid "Session not found."
+msgstr "Сессия не найдена."
+
+#: ajax.php:538
+msgid "You can not close your current session."
+msgstr "Вы не можете закрыть собственную сессию."
+
+#: ajax.php:545
+msgid "Session successfully closed."
+msgstr "Сессия успешно закрыта."
+
+#: ajax.php:566
+msgid "No sessions selected."
+msgstr "Не выбрано ни одной сессии."
+
+#: ajax.php:573
+msgid "Selected sessions successfully deleted."
+msgstr "Выбранные сессии успешно закрыты."
+
+#: ajax.php:596
+msgid "You can not deactivate yourself."
+msgstr "Вы не можете деактивировать сами себя."
+
+#: ajax.php:606
+msgid "User successfully deactivated."
+msgstr "Пользователь успешно деактивирован."
+
+#: ajax.php:607 users.php:81 users.php:102
+msgid "Activate"
+msgstr "Активировать"
+
+#: ajax.php:608 users.php:81 users.php:102
+msgid "Activating..."
+msgstr "Ативирование..."
+
+#: ajax.php:610 users.php:72
+msgid "Inactive"
+msgstr "Неактивный"
+
+#: ajax.php:616
+msgid "User successfully activated."
+msgstr "Пользователь успешно активирован."
+
+#: ajax.php:617 users.php:81 users.php:103
+msgid "Deactivate"
+msgstr "Деактивировать"
+
+#: ajax.php:618 users.php:81 users.php:103
+msgid "Deactivating..."
+msgstr "Деактивация..."
+
+#: ajax.php:620
+msgid "Active"
+msgstr "Активный"
+
+#: ajax.php:651
+msgid "Selected users successfully activated."
+msgstr "Выбранные пользователи успешно активированы."
+
+#: ajax.php:680
+msgid "Selected users successfully deactivated."
+msgstr "Выбранные пользователи успешно деактивированы."
+
+#: ajax.php:704
+msgid "User does not exist."
+msgstr "Пользователь не существует."
+
+#: ajax.php:727
+msgid "Invalid user role."
+msgstr "Неверная роль."
+
+#: ajax.php:769 ajax.php:770
+msgid "User details successfully saved."
+msgstr "Данные пользователя успешно сохранены."
+
+#: ajax.php:781
+#, php-format
+msgid "Image is too big. Maximum allowed %skb."
+msgstr "Изображение слишком большое. Максимальный допустимый размер %sкб."
+
+#: ajax.php:838
+msgid "Image was uploaded successfully."
+msgstr "Изображение успешно загружено."
+
+#: ajax.php:840 ajax.php:856
+msgid "Unable to save uploaded image."
+msgstr "Невозможно сохранить загруженный файл."
+
+#: ajax.php:846 ajax.php:851 ajax.php:861
+msgid "Image was not uploaded properly."
+msgstr "Изображение не было загружено."
+
+#: auth-vk.php:26 auth.php:24 auth.php:240
+msgid "Something went wrong. Please contact administrator."
+msgstr "Что-то пошло не так. Свяжитесь с администратором."
+
+#: auth-vk.php:51 auth.php:49 auth.php:265
+msgid "Something went wrong. Email address was not provided."
+msgstr "Что-то пошло не так. Отсутствует email адрес."
+
+#: auth-vk.php:137
+#, php-format
+msgid ""
+"Email address \"%s\" already registered but not connected to VK. Please do "
+"it on Account Settings."
+msgstr ""
+"Email адрес \"%s\" уже зарегистрирован, но не связан с аккаунтом VK. "
+"Сделайте это в настройках аккаунта."
+
+#: auth-vk.php:145 auth-vk.php:213 auth-vk.php:218 auth.php:143 auth.php:211
+#: auth.php:216 auth.php:359 auth.php:427 auth.php:432
+msgid "Service temporarily not available. Try again later."
+msgstr "Сервис недоступен. Попробуйте позже."
+
+#: auth-vk.php:202
+msgid "This VK Account is already connected to your account."
+msgstr "Этот VK аккаунт уже связан с вашим аккаунтом."
+
+#: auth-vk.php:207
+msgid "This VK Account is already connected to another user."
+msgstr "Этот VK аккаунт уже связан с другим аккаунтом."
+
+#: auth.php:135
+#, php-format
+msgid ""
+"Email address \"%s\" already registered but not connected to Google. Please "
+"do it on Account Settings."
+msgstr ""
+"Email адрес \"%s\" уже зарегистрирован, но не связан с аккаунтом Google. "
+"Сделайте это в настройках аккаунта."
+
+#: auth.php:200
+msgid "This Google Account is already connected to your account."
+msgstr "Этот Google аккаунт уже связан с вашим аккаунтом."
+
+#: auth.php:205
+msgid "This Google Account is already connected to another user."
+msgstr "Этот Google аккаунт уже связан с другим аккаунтом."
+
+#: auth.php:351
+#, php-format
+msgid ""
+"Email address \"%s\" already registered but not connected to Facebook. "
+"Please do it on Account Settings."
+msgstr ""
+"Email адрес \"%s\" уже зарегистрирован, но не связан с аккаунтом Facebook. "
+"Сделайте это в настройках аккаунта."
+
+#: auth.php:416
+msgid "This Facebook Account is already connected to your account."
+msgstr "Этот Facebook аккаунт уже связан с вашим аккаунтом."
+
+#: auth.php:421
+msgid "This Facebook Account is already connected to another user."
+msgstr "Этот Facebook аккаунт уже связан с другим аккаунтом."
+
+#: inc/common.php:22 inc/common.php:29 inc/common.php:33 inc/common.php:40
+msgid "Friendly Bets"
+msgstr "Тотализаторы"
+
+#: inc/common.php:23
+msgid "Join any active totalizator or start your own one"
+msgstr "Присоединяйся к любому тотализатору или создай свой"
+
+#: inc/common.php:28
+msgid "Confirm email address"
+msgstr "Подтвердите email адрес"
+
+#: inc/common.php:29 inc/common.php:31
+msgid "Dear {name},"
+msgstr "Уважаемый {name},"
+
+#: inc/common.php:29
+msgid "Click the link below to confirm email address."
+msgstr "Кликните ссылку, чтобы подтвердить email адрес."
+
+#: inc/common.php:29
+#, php-format
+msgid "If you did not sign up with %s, just ignore this message."
+msgstr "Если вы не регистрировались в %s, просто проигнорируйте это сообщение."
+
+#: inc/common.php:29 inc/common.php:31
+msgid "Regards."
+msgstr "С уважением."
+
+#: inc/common.php:30 login.php:167 site-settings.php:587
+msgid "Reset password"
+msgstr "Сбросить пароль"
+
+#: inc/common.php:31
+msgid "Click the link below to reset the password."
+msgstr "Кликните ссылку для сброса пароля."
+
+#: inc/common.php:31
+msgid "If you did not request password reset, just ignore this message."
+msgstr ""
+"Если вы не запрашивали сброс пароля, просто проигнорируйте это сообщение."
+
+#: inc/common.php:85
+msgid "Make sure that the following folders exists and writable:"
+msgstr ""
+"Удостоверьтесь, что следующие директории существуют и доступны для записи:"
+
+#: inc/footer.php:8
+#, php-format
+msgid "Created with %s by Ivan Churakov"
+msgstr "Created with %s by Ivan Churakov"
+
+#: inc/functions.php:133
+msgid "Manual Offsets"
+msgstr "Ручная настройка"
+
+#: inc/functions.php:629
+msgid "Close"
+msgstr "Закрыть"
+
+#: inc/functions.php:662
+msgid "Upload Image"
+msgstr "Загрузить изображение"
+
+#: inc/functions.php:662
+msgid "Uploading..."
+msgstr "Загрузка..."
+
+#: inc/functions.php:678
+msgid "page not found"
+msgstr "страница не найдена"
+
+#: inc/functions.php:741 inc/functions.php:769
+msgid "Default text. It is used if translation not defined."
+msgstr "Текст отображается, если не задан перевод."
+
+#: inc/functions.php:745 inc/functions.php:773
+msgid "Add translations"
+msgstr "Добавить перевод"
+
+#: inc/header.php:114 users.php:37 users.php:41
+msgid "Users"
+msgstr "Пользователи"
+
+#: inc/header.php:115 sessions.php:37 sessions.php:41
+msgid "Active Sessions"
+msgstr "Активные сессии"
+
+#: inc/header.php:116 site-settings.php:21 site-settings.php:25
+msgid "Site Settings"
+msgstr "Настройки сайта"
+
+#: inc/header.php:136 settings.php:18
+msgid "Settings"
+msgstr "Настройки"
+
+#: inc/header.php:137
+msgid "Logout"
+msgstr "Выход"
+
+#: inc/header.php:143 login.php:40 login.php:106 login.php:123 login.php:124
+#: register.php:109
+msgid "Sign In"
+msgstr "Вход"
+
+#: inc/header.php:144 login.php:85 register.php:64 register.php:133
+#: register.php:170 register.php:171
+msgid "Create Account"
+msgstr "Создать аккаунт"
+
+#: inc/icdb.php:31 inc/icdb.php:36
+#, php-format
+msgid "Could not connect: %s"
+msgstr "Невозможно подключиться: %s"
+
+#: inc/icdb.php:32 inc/icdb.php:37
+#, php-format
+msgid "Can not use database: %s"
+msgstr "Невозможно использовать базу данных: %s"
+
+#: inc/icdb.php:33 inc/icdb.php:38 inc/icdb.php:45 inc/icdb.php:48
+#, php-format
+msgid "Invalid query: %s"
+msgstr "Неверный запрос: %s"
+
+#: index.php:42
+msgid "You do not have permissions to access this area."
+msgstr "У вас нет привилегий для доступа к этой области."
+
+#: install.php:51
+msgid "Install"
+msgstr "Установка"
+
+#: install.php:66
+msgid "Script Setup"
+msgstr "Установка скрипта"
+
+#: install.php:69
+msgid ""
+"Hi, I am a Wizard. I gonna help you to setup this script. You just need "
+"perform several simple steps. Let's start?"
+msgstr ""
+"Привет. Сейчас я помогу вам установить этот скрипт. Вам всего лишь нужно "
+"выполнить несколько простых действий. Начнем?"
+
+#: install.php:74 install.php:291 install.php:311 install.php:337
+msgid "Continue"
+msgstr "Продолжить"
+
+#: install.php:106
+msgid "Inavlid MySQL Hostname."
+msgstr "Неверный хост MySQL."
+
+#: install.php:107
+msgid "Port value must be a number."
+msgstr "Значение порта должно быть цифровым."
+
+#: install.php:108
+msgid "Username can not be empty."
+msgstr "Имя пользователя не может быть пустым."
+
+#: install.php:109
+msgid "Username can not contain single quote symbol."
+msgstr "Имя пользователя не может содержать одинарную кавычку."
+
+#: install.php:110
+msgid "Invalid Database name."
+msgstr "Неверное имя базы данных."
+
+#: install.php:111
+msgid "Database can not contain single quote symbol."
+msgstr "Имя базы данных не может содержать одинарную кавычку."
+
+#: install.php:112
+msgid "Password can not contain single quote symbol."
+msgstr "Пароль не может содержать одинарную кавычку."
+
+#: install.php:113
+msgid "Table Prefix must contain letters and/or underscore symbol."
+msgstr "Префикс должен содержать буквы и/или символ подчеркивания."
+
+#: install.php:126
+msgid "Can not connect to MySQL database using provided credentials."
+msgstr ""
+"Невозможно подключиться к базе данных MySQL, используя указанные параметры."
+
+#: install.php:135
+#, php-format
+msgid ""
+"Can not create database tables. Make sure that user %s has sufficient "
+"privileges to manipulate database."
+msgstr ""
+"Невозможно создать таблицы. Удостоверьтесь, что пользователь %s обладает "
+"достаточными привилегиями."
+
+#: install.php:163
+msgid ""
+"Hm. Seems config.php still does not contain correct database credentials. "
+"Please update it properly."
+msgstr ""
+"Хм. Кажется config.php не содержи корректных параметров подключения к базе "
+"данных. Пожалуйста, исправьте проблему."
+
+#: install.php:174
+msgid ""
+"Something went wrong. We still can not connect to database. Please try setup "
+"procedure again. Just refresh the page."
+msgstr ""
+"Что-то пошло не так. Невозможно подключиться к базе данных. Обновите "
+"страницу."
+
+#: install.php:182
+msgid "Email address is too long."
+msgstr "Email адрес слишком длинный."
+
+#: install.php:184
+msgid "Password length must be at least 6 characters."
+msgstr "Длина пароля должна быть минимум 6 символов."
+
+#: install.php:230
+#, php-format
+msgid ""
+"Can not insert record into table. Make sure that user %s has sufficient "
+"privileges to manipulate database."
+msgstr ""
+"Невозможно вставить запись в таблицу. Удостоверьтесь, что пользователь %s "
+"обладает достаточными привилегиями."
+
+#: install.php:238
+msgid "We do not have to be here. Never."
+msgstr "Вас не должно быть здесь."
+
+#: install.php:245
+msgid "We do not have to see this message. Never."
+msgstr "Вы не должны видеть это сообщение."
+
+#: install.php:250
+msgid "Setup Database"
+msgstr "Установка базы данных"
+
+#: install.php:255
+msgid ""
+"Enter MySQL server hostname. Usually it is a localhost, but we recommend to "
+"clarify this parameter from your hosting provider."
+msgstr ""
+"Введите хост MySQL. Обычно это localhost, но все же уточните этот параметр у "
+"администратора своего сервера."
+
+#: install.php:261
+msgid ""
+"Enter MySQL server port. Leave it empty if you do not know the port or it is "
+"standard 3306."
+msgstr ""
+"Введите порт MySQL. Оставьте это поле пустым, если ы не знаете номер порта "
+"или он равен 3306."
+
+#: install.php:267
+msgid "Enter MySQL server username. Find it in your hosting control panel."
+msgstr ""
+"Введите имя пользователя MySQL. Вы можете найти его в панели управления "
+"сервером."
+
+#: install.php:273
+msgid ""
+"Enter password for MySQL server user. Find it in your hosting control panel."
+msgstr ""
+"Введите пароль для пользователя MySQL. Вы можете найти его в панели "
+"управления сервером."
+
+#: install.php:279
+msgid "Enter MySQL database name. Find it in your hosting control panel."
+msgstr ""
+"Введите имя базы данных MySQL. Вы можете найти его в панели управления "
+"сервером."
+
+#: install.php:285
+msgid ""
+"Enter prefix for MySQL tables. If you plan to have several installations of "
+"this script, use unique prefix for each installation."
+msgstr ""
+"Введите префикс таблиц. Если вы планируете несколько инсталляций скрипта в "
+"одну базу данных, используйте уникальный префикс."
+
+#: install.php:300
+msgid "Save Config File"
+msgstr "Сохранить файл конфигурации"
+
+#: install.php:303
+#, php-format
+msgid ""
+"Unfortunately, we could not save database credentials into config.php (due "
+"to file permissions). You have to do it manually. Please edit file %s and "
+"overwrite its content with the following code."
+msgstr ""
+"К сожалению, мы не можем сохранить параметры базы данных в файл config.php. "
+"Сделайте это вручную. Отредактируйте файл %s и перезапишите его контент "
+"следующим кодом."
+
+#: install.php:320
+msgid "Create Admin Account"
+msgstr "Создание аккаунта администратора"
+
+#: install.php:325
+msgid "Email address is your login to enter account."
+msgstr "Email адрес используется для входа в аккаунт."
+
+#: install.php:331
+msgid "Use this password to enter your account."
+msgstr "Используйте этот пароль для входа в аккаунт."
+
+#: install.php:346
+msgid "Finished"
+msgstr "Конец"
+
+#: install.php:349
+msgid ""
+"Congratulation! Installation successfully completed. Now you can enter your "
+"account using created login/password and work there. Good luck!"
+msgstr ""
+"Поздравляем! Установка успешно завершена. Вы можете войти в свой аккаунт и "
+"продолжить работу там. Удачи!"
+
+#: install.php:354
+msgid "Finish"
+msgstr "Завершить"
+
+#: js/script.js:231
+msgid "Please confirm that you want to delete the user."
+msgstr "Пожалуйста, подтвердите, что хотите удалить пользователя."
+
+#: js/script.js:273 js/script.js:276 js/script.js:283 js/script.js:322
+#: js/script.js:326 js/script.js:332 js/script.js:376 js/script.js:379
+#: js/script.js:386 js/script.js:437 js/script.js:440 js/script.js:447
+#: js/script.js:491 js/script.js:494 js/script.js:501 js/script.js:536
+#: js/script.js:539
+msgid "Something went wrong. We got unexpected server response."
+msgstr "Что-то пошло не так. Неверный ответ сервера."
+
+#: js/script.js:341
+msgid "Please confirm that you want to delete users."
+msgstr "Пожалуйста, подтвердите, что хотите удалить пользователей."
+
+#: js/script.js:395
+msgid "Please confirm that you want to close this session."
+msgstr "Пожалуйста, подтвердите, что хотите закрыть эту сессию."
+
+#: js/script.js:456
+msgid "Please confirm that you want to close selected sessions."
+msgstr "Пожалуйста, подтвердите, что хотите закрыть эти сессии."
+
+#: js/script.js:560
+msgid "Confirm action"
+msgstr "Подтвердите действие"
+
+#: js/script.js:564
+msgid "Yes"
+msgstr "Да"
+
+#: js/script.js:565
+msgid "Cancel"
+msgstr "Отмена"
+
+#: js/script.js:566
+msgid "Do you really want to continue?"
+msgstr "Вы действительно хотите продолжить?"
+
+#: login.php:119
+msgid "Forgot password?"
+msgstr "Забыли пароль?"
+
+#: login.php:132
+msgid "or sign in with"
+msgstr "или войдите с помощью"
+
+#: login.php:138 register.php:185 settings.php:77 site-settings.php:147
+msgid "Google"
+msgstr "Google"
+
+#: login.php:145 register.php:192 settings.php:113 site-settings.php:220
+msgid "Facebook"
+msgstr "Facebook"
+
+#: login.php:152 register.php:199 settings.php:149 site-settings.php:297
+msgid "VK"
+msgstr "VK"
+
+#: login.php:175
+msgid "Remember password?"
+msgstr "Вспомнили пароль?"
+
+#: login.php:175
+msgid "Sign In."
+msgstr "Войти."
+
+#: login.php:179 login.php:180
+msgid "Reset"
+msgstr "Сброс"
+
+#: register.php:18
+msgid "Email address already confirmed."
+msgstr "Email адрес уже подтвержден."
+
+#: register.php:23
+msgid "Email address successfully confirmed."
+msgstr "Email адрес успешно подтвержден."
+
+#: register.php:64 settings.php:204 settings.php:216
+msgid "New password"
+msgstr "Новый пароль"
+
+#: register.php:140
+msgid "Select timezone"
+msgstr "Выберите часовой пояс"
+
+#: register.php:179
+msgid "or create account with"
+msgstr "или создайте аккаунт с помощью"
+
+#: register.php:217
+msgid "Set new password"
+msgstr "Установить новый пароль"
+
+#: register.php:232 register.php:233
+msgid "Set password"
+msgstr "Установить пароль"
+
+#: sessions.php:44 sessions.php:45 users.php:44 users.php:45
+msgid "Search"
+msgstr "Поиск"
+
+#: sessions.php:46 users.php:46
+msgid "Reset search results"
+msgstr "Сбросить результаты поиска"
+
+#: sessions.php:58 sessions.php:71
+msgid "Source"
+msgstr "Источник"
+
+#: sessions.php:59 sessions.php:72 users.php:61 users.php:75
+msgid "Created"
+msgstr "Создан"
+
+#: sessions.php:73 users.php:76
+msgid "Actions"
+msgstr "Действия"
+
+#: sessions.php:77 sessions.php:96
+msgid "Closing..."
+msgstr "Закрытие..."
+
+#: sessions.php:77
+msgid "Close session"
+msgstr "Закрыть сессию"
+
+#: sessions.php:85 users.php:91
+msgid "No results found for"
+msgstr "Не найдены результаты для"
+
+#: sessions.php:85 users.php:91
+msgid "List is empty."
+msgstr "Список пуст."
+
+#: sessions.php:94 users.php:100
+msgid "Bulk actions"
+msgstr "Групповые действия"
+
+#: sessions.php:96
+msgid "Close sessions"
+msgstr "Закрыть сессии"
+
+#: settings.php:22
+msgid "Account Settings"
+msgstr "Настройки"
+
+#: settings.php:41
+msgid "Specify your full name."
+msgstr "Введите ваше имя."
+
+#: settings.php:57
+msgid "Select your timezone"
+msgstr "Выберите часовой пояс"
+
+#: settings.php:71 site-settings.php:29
+msgid "Connections"
+msgstr "Социальные сети"
+
+#: settings.php:82
+msgid "Sign in using your Google Account."
+msgstr "Вход с использованием аккаунта Google."
+
+#: settings.php:99 settings.php:135 settings.php:171
+msgid "Disconnect"
+msgstr "Отключить"
+
+#: settings.php:118
+msgid "Sign in using your Facebook Account."
+msgstr "Вход с использованием аккаунта Facebook."
+
+#: settings.php:154
+msgid "Sign in using your VK Account."
+msgstr "Вход с использованием аккаунта VK."
+
+#: settings.php:185
+msgid "Security Settings"
+msgstr "Настройки безопасности"
+
+#: settings.php:188 settings.php:198
+msgid "Current password"
+msgstr "Текущий пароль"
+
+#: settings.php:193
+msgid "Current password. Type it if you want to change the password."
+msgstr "Укажите текущий пароль, если вы хотите его сменить."
+
+#: settings.php:209
+msgid ""
+"Set new password. Leave this field blank if you do not want to change "
+"password."
+msgstr ""
+"Введите новый пароль. Оставьте поле пустым, если не хотите менять пароль."
+
+#: settings.php:229 settings.php:230 site-settings.php:626
+#: site-settings.php:627
+msgid "Save Settings"
+msgstr "Сохранить"
+
+#: site-settings.php:28
+msgid "General"
+msgstr "Основное"
+
+#: site-settings.php:30
+msgid "Mailing"
+msgstr "Email сообщения"
+
+#: site-settings.php:35 site-settings.php:44
+msgid "Title"
+msgstr "Название"
+
+#: site-settings.php:40
+msgid "Specify the title of the site."
+msgstr "Введите название сайта."
+
+#: site-settings.php:49 site-settings.php:58
+msgid "Tagline"
+msgstr "Слоган"
+
+#: site-settings.php:54
+msgid "Specify the tagline of the site."
+msgstr "Введите слоган сайта."
+
+#: site-settings.php:63 site-settings.php:72
+msgid "Copyright"
+msgstr "Копирайт"
+
+#: site-settings.php:68
+msgid "Specify the copyright line. It appears in footer of each page."
+msgstr "Введите строку копирайта. Выводится в футере."
+
+#: site-settings.php:77
+msgid "Date format"
+msgstr "Формат даты"
+
+#: site-settings.php:82
+msgid "Select date format."
+msgstr "Выберите формат даты."
+
+#: site-settings.php:104
+msgid "Language"
+msgstr "Язык"
+
+#: site-settings.php:109
+msgid "Select language."
+msgstr "Выберите язык."
+
+#: site-settings.php:118
+msgid "Selected by user"
+msgstr "Выбирается пользователем"
+
+#: site-settings.php:133
+msgid "Pattern"
+msgstr "Паттерн"
+
+#: site-settings.php:138
+msgid ""
+"Upload image that is used on left side of sign in / sign up pages. It is "
+"recommended to upload seamless pattern image."
+msgstr ""
+"Загрузите изображение, которое используется в левой части страницы входа и "
+"регистрации. Рекомендуется загружать бесшовное изображение."
+
+#: site-settings.php:150 site-settings.php:223 site-settings.php:300
+msgid "Enable"
+msgstr "Включить"
+
+#: site-settings.php:155
+msgid "Allow users to use their Google Account to sign in."
+msgstr "Разрешить пользователям использовать Google аккаунт для входа."
+
+#: site-settings.php:175
+#, php-format
+msgid ""
+"Create new OAuth 2.0 credentials in %sGoogle Cloud Platform%s and copy-paste "
+"them into fields below. Use the following parameters to create OAuth 2.0 "
+"credentials."
+msgstr ""
+"Создайте новые параметры OAuth 2.0 в %sGoogle Cloud Platform%s и вставьте их "
+"в соответствующие поля ниже. Для создания параметров OAuth 2.0 используйте "
+"следующие данные."
+
+#: site-settings.php:177 site-settings.php:250
+msgid "Application type"
+msgstr "Тип приложения"
+
+#: site-settings.php:181 site-settings.php:331
+msgid "Authorized redirect URI"
+msgstr "Authorized redirect URI"
+
+#: site-settings.php:189 site-settings.php:199 site-settings.php:266
+#: site-settings.php:276
+msgid "Client ID"
+msgstr "Client ID"
+
+#: site-settings.php:194
+msgid "Enter your OAuth 2.0 Client ID."
+msgstr "Введите ваш OAuth 2.0 Client ID."
+
+#: site-settings.php:205 site-settings.php:215 site-settings.php:282
+#: site-settings.php:292
+msgid "Client Secret"
+msgstr "Client Secret"
+
+#: site-settings.php:210
+msgid "Enter your OAuth 2.0 Client Secret."
+msgstr "Введите ваш OAuth 2.0 Client Secret."
+
+#: site-settings.php:228
+msgid "Allow users to use their Facebook Account to sign in."
+msgstr "Разрешить пользователям использовать Facebook аккаунт для входа."
+
+#: site-settings.php:248
+#, php-format
+msgid ""
+"Create new application in %sFacebook for Developers%s and copy-paste its "
+"credentials into fields below. Use the following parameters to create an "
+"application."
+msgstr ""
+"Создайте новое приложение в %sFacebook for Developers%s и вставьте его "
+"параметры в соответствующие поля ниже. Для создания приложения используйте "
+"следующие данные."
+
+#: site-settings.php:254
+msgid "Product"
+msgstr "Продукт"
+
+#: site-settings.php:258
+msgid "Valid OAuth Redirect URI"
+msgstr "Valid OAuth Redirect URI"
+
+#: site-settings.php:271
+msgid "Enter your Facebook Application Client ID."
+msgstr "Введите ваш Facebook Application Client ID."
+
+#: site-settings.php:287
+msgid "Enter your Facebook Application Client Secret."
+msgstr "Введите ваш Facebook Application Client Secret."
+
+#: site-settings.php:305
+msgid "Allow users to use their VK Account to sign in."
+msgstr "Разрешить пользователям использовать VK аккаунт для входа."
+
+#: site-settings.php:325
+#, php-format
+msgid ""
+"Create new application in %sVK Developers%s and copy-paste its credentials "
+"into fields below. Use the following parameters to create an application."
+msgstr ""
+"Создайте новое приложение в %sVK Developers%s и вставьте его параметры в "
+"соответствующие поля ниже. Для создания приложения используйте следующие "
+"данные."
+
+#: site-settings.php:327
+msgid "Platform"
+msgstr "Платформа"
+
+#: site-settings.php:339 site-settings.php:349
+msgid "App ID"
+msgstr "App ID"
+
+#: site-settings.php:344
+msgid "Enter your VK App ID."
+msgstr "Введите ваш VK App ID."
+
+#: site-settings.php:355 site-settings.php:365
+msgid "Secure Key"
+msgstr "Secure Key"
+
+#: site-settings.php:360
+msgid "Enter your VK App Secure Key."
+msgstr "Введите ваш VK App Secure Key."
+
+#: site-settings.php:372
+msgid "Sender parameters"
+msgstr "Параметры отправителя"
+
+#: site-settings.php:376
+msgid "Method"
+msgstr "Метод"
+
+#: site-settings.php:381
+msgid ""
+"Set mailing method. All email messages are sent using this mailing method."
+msgstr ""
+"Выберите метод отправки email. Все email сообщения будут отправляться с "
+"использованием этого метода."
+
+#: site-settings.php:387
+msgid "PHP Mail() Function"
+msgstr "Функция PHP Mail()"
+
+#: site-settings.php:387
+msgid "SMTP"
+msgstr "SMTP"
+
+#: site-settings.php:395 site-settings.php:428
+msgid "Sender"
+msgstr "Отправитель"
+
+#: site-settings.php:400 site-settings.php:433 site-settings.php:510
+msgid ""
+"Set sender name and email. All email messages are sent using these "
+"credentials as \"FROM:\" header value."
+msgstr ""
+"Введите имя и email отправителя. Все email сообщения будут отправляться с "
+"использованием этих параметров в заголовке \"FROM\"."
+
+#: site-settings.php:408 site-settings.php:441 users.php:59 users.php:73
+msgid "Name"
+msgstr "Имя"
+
+#: site-settings.php:410 site-settings.php:443
+msgid "Sender name"
+msgstr "Имя отправителя"
+
+#: site-settings.php:418 site-settings.php:451
+msgid "Sender email"
+msgstr "Email отправителя"
+
+#: site-settings.php:464
+msgid "Set encryption, mail server hostname and port."
+msgstr "Установите шифрование, почтовый сервер и порт."
+
+#: site-settings.php:487 site-settings.php:489
+msgid "Hostname"
+msgstr "Хост"
+
+#: site-settings.php:545
+msgid "Test mailing"
+msgstr "Тестовое сообщение"
+
+#: site-settings.php:547
+#, php-format
+msgid ""
+"Press button and check your inbox (%s). If you do not see test message, "
+"something does not work. Do not forget to check SPAM folder."
+msgstr ""
+"Кликните кнопку у проверьте свой email (%s). Если вы не видите там тестовое "
+"сообщение, значит, что-то не работает. Не забудьте заглянуть в спам."
+
+#: site-settings.php:551
+msgid "Confirmation email"
+msgstr "Подтверждение email адреса"
+
+#: site-settings.php:554 site-settings.php:564 site-settings.php:590
+#: site-settings.php:600
+msgid "Subject"
+msgstr "Тема письма"
+
+#: site-settings.php:559
+msgid ""
+"Newly registered users must confirm their email address to receive "
+"notifications. Specify the subject of confirmation email."
+msgstr ""
+"Все вновь зарегистрировавшиеся пользователи должны подтвердить свой email, "
+"что получать уведомления. Укажите тему письма подтверждения."
+
+#: site-settings.php:570 site-settings.php:583 site-settings.php:606
+#: site-settings.php:619
+msgid "Message"
+msgstr "Сообщение"
+
+#: site-settings.php:575
+msgid ""
+"Specify the message of confirmation email. You can use the following "
+"shortcodes."
+msgstr ""
+"Введите текст сообщения подтверждения. Допустимо использование следующих "
+"шорткодов."
+
+#: site-settings.php:578
+msgid "URL that is used to confirm email address."
+msgstr "URL, который используется для подтверждения email адреса."
+
+#: site-settings.php:595
+msgid "Specify the subject of reset password email."
+msgstr "Введите тема письма сброса пароля."
+
+#: site-settings.php:611
+msgid ""
+"Specify the message of reset password email. You can use the following "
+"shortcodes."
+msgstr ""
+"Введите сообщение письма сброса пароля. Вы можете использовать следующие "
+"шорткоды."
+
+#: site-settings.php:614
+msgid "URL that is used to reset the password."
+msgstr "URL, который используется для сброса пароля."
+
+#: users.php:51 users.php:107
+msgid "Create New User"
+msgstr "Добавить пользователя"
+
+#: users.php:60 users.php:74
+msgid "Role"
+msgstr "Роль"
+
+#: users.php:80
+msgid "Edit"
+msgstr "Редактировать"
+
+#: users.php:83 users.php:104
+msgid "Deleting..."
+msgstr "Удаление..."
+
+#: users.php:83 users.php:104
+msgid "Delete"
+msgstr "Удалить"
+
+#~ msgid "The copyright message is too long."
+#~ msgstr "Копирайт слишком длинный."
+
+#~ msgid "English"
+#~ msgstr "Английский"
+
+#~ msgid "Spanish"
+#~ msgstr "Испанский"
+
+#~ msgid "French"
+#~ msgstr "Французский"
+
+#~ msgid "German"
+#~ msgstr "Немецкий"
+
+#~ msgid "Italian"
+#~ msgstr "Итальянский"
+
+#~ msgid "Portuguese"
+#~ msgstr "Португальский"
+
+#~ msgid "Russian"
+#~ msgstr "Русский"
+
+#~ msgid "Full name."
+#~ msgstr "Имя."
+
+#~ msgid "Email address."
+#~ msgstr "Email адрес."
+
+#~ msgid "UTC"
+#~ msgstr "UTC"
+
+#~ msgid "Totalizators"
+#~ msgstr "Тотализаторы"
+
+#~ msgid "Final"
+#~ msgstr "Финал"
+
+#, php-format
+#~ msgid "Your nickname: %s"
+#~ msgstr "Ваш псевдоним: %s"
+
+#~ msgid "Loading..."
+#~ msgstr "Загрузка..."
+
+#~ msgid "Quit Totalizator"
+#~ msgstr "Отказаться от участия"
+
+#~ msgid "Join Totalizator"
+#~ msgstr "Присоединиться"
+
+#~ msgid "Participants"
+#~ msgstr "Участники"
+
+#~ msgid "Games"
+#~ msgstr "Матчи"
+
+#~ msgid "My Bets"
+#~ msgstr "Мои Ставки"
+
+#~ msgid "Guessing"
+#~ msgstr "Угадайки"
+
+#~ msgid "FAQ"
+#~ msgstr "Вопросы и Ответы"
