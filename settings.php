@@ -224,6 +224,30 @@ if ($options['google-enable'] == 'on') {
             </div>
         </div>
     </div>
+    <h2><?php echo esc_html__('Privacy', 'fb'); ?></h2>
+    <div class="form-row">
+        <div class="form-label">
+            <label><?php echo esc_html__('Manage your privacy', 'fb'); ?></label>
+        </div>
+        <div class="form-tooltip">
+            <i class="fas fa-question-circle form-tooltip-anchor"></i>
+            <div class="form-tooltip-content">
+                <?php echo esc_html__('Download all info that we know about you or completely delete your account.', 'fb'); ?>
+            </div>
+        </div>
+        <div class="form-content">
+            <div class="buttons-container">
+                <a class="button2" href="<?php echo url('info.php'); ?>" target="_blank">
+                    <i class="far fa-list-alt"></i>
+                    <span><?php echo esc_html__('Download my info', 'fb'); ?></span>
+                </a>
+                <a class="button2 button-red" href="#" onclick="return dialog_remove_account_open();">
+                    <i class="far fa-trash-alt"></i>
+                    <span><?php echo esc_html__('Delete account', 'fb'); ?></span>
+                </a>
+            </div>
+        </div>
+    </div>
     <div class="form-row right-align">
         <input type="hidden" name="action" value="save-settings">
         <a class="button" href="#" onclick="return save_form(this);" data-label="<?php echo esc_html__('Save Settings', 'fb'); ?>">
@@ -231,6 +255,24 @@ if ($options['google-enable'] == 'on') {
             <i class="fas fa-angle-right"></i>
         </a>
     </div>
+</div>
+<div class="dialog-danger-overlay" id="dialog-remove-account-overlay" onclick="return dialog_remove_account_close();"></div>
+<div class="dialog-danger" id="dialog-remove-account">
+	<div class="dialog-danger-inner">
+        <span class="dialog-danger-close" onclick="return dialog_remove_account_close();"><i class="fas fa-times"></i></span>
+		<div class="dialog-danger-content">
+			<div class="dialog-danger-content-html">
+                <div class="dialog-danger-message">
+                    <?php echo esc_html__('By entering and submitting my email address in the box below, I confirm that I want to remove my account (including all data created by me and associated with my account) from this website. I understand that removed data can not be recovered.', 'fb'); ?>
+                </div>
+                <input type="email" name="email" placeholder="<?php echo esc_html__('Type your email address...', 'fb'); ?>" value="" />
+                <input type="hidden" name="action" value="account-remove" />
+			</div>
+		</div>
+		<div class="dialog-danger-buttons">
+			<a class="button2 button-red" href="#" onclick="account_delete(this); return false;"><i class="far fa-trash-alt"></i><?php echo esc_html__('Delete account', 'fb'); ?></a>
+		</div>
+	</div>
 </div>
 <?php
 include_once(dirname(__FILE__).'/inc/footer.php');

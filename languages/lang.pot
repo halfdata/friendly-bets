@@ -1,7 +1,8 @@
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2021-09-02 11:52+0500\n"
+"POT-Creation-Date: 2021-09-03 20:42+0500\n"
 "PO-Revision-Date: 2021-09-02 11:52+0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -40,8 +41,8 @@ msgstr ""
 msgid "User"
 msgstr ""
 
-#: add-user.php:52 settings.php:26 site-settings.php:416 site-settings.php:449
-#: users.php:58 users.php:72
+#: add-user.php:52 info.php:90 settings.php:26 site-settings.php:416
+#: site-settings.php:449 users.php:58 users.php:72
 msgid "Email"
 msgstr ""
 
@@ -63,7 +64,7 @@ msgstr ""
 msgid "Specify full name of the user."
 msgstr ""
 
-#: add-user.php:82 settings.php:52
+#: add-user.php:82 info.php:106 settings.php:52
 msgid "Timezone"
 msgstr ""
 
@@ -71,7 +72,7 @@ msgstr ""
 msgid "Select timezone of the user."
 msgstr ""
 
-#: add-user.php:100 add-user.php:112 ajax.php:341 login.php:115
+#: add-user.php:100 add-user.php:112 ajax.php:344 login.php:115
 #: register.php:160 register.php:221 site-settings.php:526
 #: site-settings.php:528
 msgid "Password"
@@ -93,35 +94,35 @@ msgstr ""
 msgid "Invalid request."
 msgstr ""
 
-#: ajax.php:23 ajax.php:165 ajax.php:720 install.php:181
+#: ajax.php:23 ajax.php:165 ajax.php:768 install.php:181
 msgid "This is not a valid email address."
 msgstr ""
 
-#: ajax.php:24 ajax.php:166 ajax.php:721
+#: ajax.php:24 ajax.php:166 ajax.php:769
 msgid "The email address is too long."
 msgstr ""
 
-#: ajax.php:28 ajax.php:725
+#: ajax.php:28 ajax.php:773
 msgid "The email already registered."
 msgstr ""
 
-#: ajax.php:31 ajax.php:264 ajax.php:712
+#: ajax.php:31 ajax.php:264 ajax.php:760
 msgid "The full name is too short."
 msgstr ""
 
-#: ajax.php:32 ajax.php:265 ajax.php:713
+#: ajax.php:32 ajax.php:265 ajax.php:761
 msgid "The full name is too long."
 msgstr ""
 
-#: ajax.php:34 ajax.php:211 ajax.php:269 ajax.php:716
+#: ajax.php:34 ajax.php:211 ajax.php:269 ajax.php:764
 msgid "The password must be at least 6 characters long."
 msgstr ""
 
-#: ajax.php:35 ajax.php:212 ajax.php:270 ajax.php:717
+#: ajax.php:35 ajax.php:212 ajax.php:270 ajax.php:765
 msgid "Repeat the password properly."
 msgstr ""
 
-#: ajax.php:38 ajax.php:262 ajax.php:710
+#: ajax.php:38 ajax.php:262 ajax.php:758
 msgid "Invalid timezone."
 msgstr ""
 
@@ -146,13 +147,14 @@ msgstr ""
 msgid "Check your mailbox and follow instructions."
 msgstr ""
 
-#: ajax.php:200 ajax.php:475 ajax.php:592 register.php:10
+#: ajax.php:200 ajax.php:517 ajax.php:634 register.php:10
 msgid "User not found."
 msgstr ""
 
 #: ajax.php:251 ajax.php:284 ajax.php:298 ajax.php:312 ajax.php:326
-#: ajax.php:360 ajax.php:462 ajax.php:492 ajax.php:521 ajax.php:550
-#: ajax.php:578 ajax.php:628 ajax.php:656 ajax.php:685 ajax.php:775
+#: ajax.php:363 ajax.php:402 ajax.php:504 ajax.php:534 ajax.php:563
+#: ajax.php:592 ajax.php:620 ajax.php:670 ajax.php:698 ajax.php:727
+#: ajax.php:823
 msgid "Oops. Please enter your account to perform this action."
 msgstr ""
 
@@ -160,7 +162,7 @@ msgstr ""
 msgid "Password is not correct."
 msgstr ""
 
-#: ajax.php:279 ajax.php:457
+#: ajax.php:279 ajax.php:499
 msgid "Settings successfully saved."
 msgstr ""
 
@@ -188,261 +190,277 @@ msgstr ""
 msgid "VK Account successfully disconnected."
 msgstr ""
 
-#: ajax.php:330 ajax.php:364 ajax.php:466 ajax.php:496 ajax.php:525
-#: ajax.php:554 ajax.php:582 ajax.php:632 ajax.php:660 ajax.php:689
+#: ajax.php:330 ajax.php:406 ajax.php:508 ajax.php:538 ajax.php:567
+#: ajax.php:596 ajax.php:624 ajax.php:674 ajax.php:702 ajax.php:731
 msgid "Hmm. You do not have permissions to perform this action."
 msgstr ""
 
-#: ajax.php:339
+#: ajax.php:342
 #, php-format
 msgid ""
 "This is a test message. It was sent from %s (%s) using the following mailing "
 "parameters."
 msgstr ""
 
-#: ajax.php:341
+#: ajax.php:344
 msgid "Method: SMTP"
 msgstr ""
 
-#: ajax.php:341 ajax.php:343
+#: ajax.php:344 ajax.php:346
 msgid "Sender Name"
 msgstr ""
 
-#: ajax.php:341 ajax.php:343
+#: ajax.php:344 ajax.php:346
 msgid "Sender Email"
 msgstr ""
 
-#: ajax.php:341 site-settings.php:481
+#: ajax.php:344 site-settings.php:481
 msgid "Encryption"
 msgstr ""
 
-#: ajax.php:341 site-settings.php:459
+#: ajax.php:344 site-settings.php:459
 msgid "Server"
 msgstr ""
 
-#: ajax.php:341 site-settings.php:495 site-settings.php:497
+#: ajax.php:344 site-settings.php:495 site-settings.php:497
 msgid "Port"
 msgstr ""
 
-#: ajax.php:341 site-settings.php:518 site-settings.php:520
+#: ajax.php:344 site-settings.php:518 site-settings.php:520
 msgid "Username"
 msgstr ""
 
-#: ajax.php:343
+#: ajax.php:346
 msgid "Method: PHP Mail() function"
 msgstr ""
 
-#: ajax.php:346
+#: ajax.php:349
 msgid "Test Message"
 msgstr ""
 
-#: ajax.php:355
+#: ajax.php:358
 #, php-format
 msgid "Test message successfully sent. Please check your inbox (%s)."
 msgstr ""
 
-#: ajax.php:385
-msgid "The site title is too short."
+#: ajax.php:369
+msgid "Invalid email address."
 msgstr ""
 
-#: ajax.php:386
-msgid "The site title is too long."
+#: ajax.php:374
+msgid "Administrator can not remove account."
 msgstr ""
 
-#: ajax.php:389
-msgid "The translation is too short."
-msgstr ""
-
-#: ajax.php:390 ajax.php:396 ajax.php:402
-msgid "The translation is too long."
-msgstr ""
-
-#: ajax.php:393
-msgid "The site tagline is too long."
-msgstr ""
-
-#: ajax.php:399
-msgid "The site copyright is too long."
-msgstr ""
-
-#: ajax.php:407
-msgid "Google OAuth 2.0 Client ID can not be empty."
-msgstr ""
-
-#: ajax.php:408
-msgid "Google OAuth 2.0 Client Secret can not be empty."
-msgstr ""
-
-#: ajax.php:412
-msgid "Facebook Application Client ID can not be empty."
-msgstr ""
-
-#: ajax.php:413
-msgid "Facebook Application Client Secret can not be empty."
-msgstr ""
-
-#: ajax.php:417
-msgid "VK App ID can not be empty."
-msgstr ""
-
-#: ajax.php:418
-msgid "VK App Secure Key can not be empty."
-msgstr ""
-
-#: ajax.php:422 ajax.php:425
-msgid "Invalid sender name."
-msgstr ""
-
-#: ajax.php:423 ajax.php:426
-msgid "Invalid sender e-mail."
+#: ajax.php:396 ajax.php:397
+msgid "Your account successfully removed."
 msgstr ""
 
 #: ajax.php:427
-msgid "Invalid SMTP server."
+msgid "The site title is too short."
 msgstr ""
 
 #: ajax.php:428
-msgid "Invalid SMTP port."
+msgid "The site title is too long."
 msgstr ""
 
-#: ajax.php:429
-msgid "Invalid SMTP username."
+#: ajax.php:431
+msgid "The translation is too short."
 msgstr ""
 
-#: ajax.php:430
-msgid "Invalid SMTP password."
-msgstr ""
-
-#: ajax.php:433
-msgid "The confirmation email subject is too short."
-msgstr ""
-
-#: ajax.php:434
-msgid "The confirmation email subject is too long."
+#: ajax.php:432 ajax.php:438 ajax.php:444
+msgid "The translation is too long."
 msgstr ""
 
 #: ajax.php:435
+msgid "The site tagline is too long."
+msgstr ""
+
+#: ajax.php:441
+msgid "The site copyright is too long."
+msgstr ""
+
+#: ajax.php:449
+msgid "Google OAuth 2.0 Client ID can not be empty."
+msgstr ""
+
+#: ajax.php:450
+msgid "Google OAuth 2.0 Client Secret can not be empty."
+msgstr ""
+
+#: ajax.php:454
+msgid "Facebook Application Client ID can not be empty."
+msgstr ""
+
+#: ajax.php:455
+msgid "Facebook Application Client Secret can not be empty."
+msgstr ""
+
+#: ajax.php:459
+msgid "VK App ID can not be empty."
+msgstr ""
+
+#: ajax.php:460
+msgid "VK App Secure Key can not be empty."
+msgstr ""
+
+#: ajax.php:464 ajax.php:467
+msgid "Invalid sender name."
+msgstr ""
+
+#: ajax.php:465 ajax.php:468
+msgid "Invalid sender e-mail."
+msgstr ""
+
+#: ajax.php:469
+msgid "Invalid SMTP server."
+msgstr ""
+
+#: ajax.php:470
+msgid "Invalid SMTP port."
+msgstr ""
+
+#: ajax.php:471
+msgid "Invalid SMTP username."
+msgstr ""
+
+#: ajax.php:472
+msgid "Invalid SMTP password."
+msgstr ""
+
+#: ajax.php:475
+msgid "The confirmation email subject is too short."
+msgstr ""
+
+#: ajax.php:476
+msgid "The confirmation email subject is too long."
+msgstr ""
+
+#: ajax.php:477
 msgid "The confirmation email message is too short."
 msgstr ""
 
-#: ajax.php:437
+#: ajax.php:479
 msgid "The reset password email subject is too short."
 msgstr ""
 
-#: ajax.php:438
+#: ajax.php:480
 msgid "The reset password email subject is too long."
 msgstr ""
 
-#: ajax.php:439
+#: ajax.php:481
 msgid "The reset password email message is too short."
 msgstr ""
 
-#: ajax.php:479
+#: ajax.php:521
 msgid "You can not delete yourself."
 msgstr ""
 
-#: ajax.php:487
+#: ajax.php:529
 msgid "User successfully deleted."
 msgstr ""
 
-#: ajax.php:508 ajax.php:644 ajax.php:672
+#: ajax.php:550 ajax.php:686 ajax.php:714
 msgid "No users selected."
 msgstr ""
 
-#: ajax.php:516
+#: ajax.php:558
 msgid "Selected users successfully deleted."
 msgstr ""
 
-#: ajax.php:534
+#: ajax.php:576
 msgid "Session not found."
 msgstr ""
 
-#: ajax.php:538
+#: ajax.php:580
 msgid "You can not close your current session."
 msgstr ""
 
-#: ajax.php:545
+#: ajax.php:587
 msgid "Session successfully closed."
 msgstr ""
 
-#: ajax.php:566
+#: ajax.php:608
 msgid "No sessions selected."
 msgstr ""
 
-#: ajax.php:573
+#: ajax.php:615
 msgid "Selected sessions successfully deleted."
 msgstr ""
 
-#: ajax.php:596
+#: ajax.php:638
 msgid "You can not deactivate yourself."
 msgstr ""
 
-#: ajax.php:606
+#: ajax.php:648
 msgid "User successfully deactivated."
 msgstr ""
 
-#: ajax.php:607 users.php:81 users.php:102
+#: ajax.php:649 users.php:81 users.php:102
 msgid "Activate"
 msgstr ""
 
-#: ajax.php:608 users.php:81 users.php:102
+#: ajax.php:650 users.php:81 users.php:102
 msgid "Activating..."
 msgstr ""
 
-#: ajax.php:610 users.php:72
+#: ajax.php:652 users.php:72
 msgid "Inactive"
 msgstr ""
 
-#: ajax.php:616
+#: ajax.php:658
 msgid "User successfully activated."
 msgstr ""
 
-#: ajax.php:617 users.php:81 users.php:103
+#: ajax.php:659 users.php:81 users.php:103
 msgid "Deactivate"
 msgstr ""
 
-#: ajax.php:618 users.php:81 users.php:103
+#: ajax.php:660 users.php:81 users.php:103
 msgid "Deactivating..."
 msgstr ""
 
-#: ajax.php:620
+#: ajax.php:662
 msgid "Active"
 msgstr ""
 
-#: ajax.php:651
+#: ajax.php:693
 msgid "Selected users successfully activated."
 msgstr ""
 
-#: ajax.php:680
+#: ajax.php:722
 msgid "Selected users successfully deactivated."
 msgstr ""
 
-#: ajax.php:704
+#: ajax.php:746
 msgid "User does not exist."
 msgstr ""
 
-#: ajax.php:727
+#: ajax.php:751
+msgid "You can not change your own role."
+msgstr ""
+
+#: ajax.php:775
 msgid "Invalid user role."
 msgstr ""
 
-#: ajax.php:769 ajax.php:770
+#: ajax.php:817 ajax.php:818
 msgid "User details successfully saved."
 msgstr ""
 
-#: ajax.php:781
+#: ajax.php:829
 #, php-format
 msgid "Image is too big. Maximum allowed %skb."
 msgstr ""
 
-#: ajax.php:838
+#: ajax.php:886
 msgid "Image was uploaded successfully."
 msgstr ""
 
-#: ajax.php:840 ajax.php:856
+#: ajax.php:888 ajax.php:904
 msgid "Unable to save uploaded image."
 msgstr ""
 
-#: ajax.php:846 ajax.php:851 ajax.php:861
+#: ajax.php:894 ajax.php:899 ajax.php:909
 msgid "Image was not uploaded properly."
 msgstr ""
 
@@ -504,48 +522,48 @@ msgstr ""
 msgid "This Facebook Account is already connected to another user."
 msgstr ""
 
-#: inc/common.php:22 inc/common.php:29 inc/common.php:33 inc/common.php:40
+#: inc/common.php:23 inc/common.php:30 inc/common.php:34 inc/common.php:41
 msgid "Friendly Bets"
 msgstr ""
 
-#: inc/common.php:23
+#: inc/common.php:24
 msgid "Join any active totalizator or start your own one"
 msgstr ""
 
-#: inc/common.php:28
+#: inc/common.php:29
 msgid "Confirm email address"
 msgstr ""
 
-#: inc/common.php:29 inc/common.php:31
+#: inc/common.php:30 inc/common.php:32
 msgid "Dear {name},"
 msgstr ""
 
-#: inc/common.php:29
+#: inc/common.php:30
 msgid "Click the link below to confirm email address."
 msgstr ""
 
-#: inc/common.php:29
+#: inc/common.php:30
 #, php-format
 msgid "If you did not sign up with %s, just ignore this message."
 msgstr ""
 
-#: inc/common.php:29 inc/common.php:31
+#: inc/common.php:30 inc/common.php:32
 msgid "Regards."
 msgstr ""
 
-#: inc/common.php:30 login.php:167 site-settings.php:587
+#: inc/common.php:31 login.php:167 site-settings.php:587
 msgid "Reset password"
 msgstr ""
 
-#: inc/common.php:31
+#: inc/common.php:32
 msgid "Click the link below to reset the password."
 msgstr ""
 
-#: inc/common.php:31
+#: inc/common.php:32
 msgid "If you did not request password reset, just ignore this message."
 msgstr ""
 
-#: inc/common.php:85
+#: inc/common.php:86
 msgid "Make sure that the following folders exists and writable:"
 msgstr ""
 
@@ -558,27 +576,27 @@ msgstr ""
 msgid "Manual Offsets"
 msgstr ""
 
-#: inc/functions.php:629
+#: inc/functions.php:632
 msgid "Close"
 msgstr ""
 
-#: inc/functions.php:662
+#: inc/functions.php:665
 msgid "Upload Image"
 msgstr ""
 
-#: inc/functions.php:662
+#: inc/functions.php:665
 msgid "Uploading..."
 msgstr ""
 
-#: inc/functions.php:678
+#: inc/functions.php:681
 msgid "page not found"
 msgstr ""
 
-#: inc/functions.php:741 inc/functions.php:769
+#: inc/functions.php:744 inc/functions.php:772
 msgid "Default text. It is used if translation not defined."
 msgstr ""
 
-#: inc/functions.php:745 inc/functions.php:773
+#: inc/functions.php:748 inc/functions.php:776
 msgid "Add translations"
 msgstr ""
 
@@ -629,6 +647,93 @@ msgstr ""
 
 #: index.php:42
 msgid "You do not have permissions to access this area."
+msgstr ""
+
+#: info.php:75
+msgid "General info"
+msgstr ""
+
+#: info.php:78
+msgid "Site"
+msgstr ""
+
+#: info.php:82
+msgid "URL"
+msgstr ""
+
+#: info.php:86 site-settings.php:408 site-settings.php:441 users.php:59
+#: users.php:73
+msgid "Name"
+msgstr ""
+
+#: info.php:94
+msgid "Email confirmed"
+msgstr ""
+
+#: info.php:95 info.php:128 info.php:152 js/script.js:564
+msgid "Yes"
+msgstr ""
+
+#: info.php:95 info.php:128 info.php:152
+msgid "No"
+msgstr ""
+
+#: info.php:98 users.php:60 users.php:74
+msgid "Role"
+msgstr ""
+
+#: info.php:102
+msgid "Status"
+msgstr ""
+
+#: info.php:110 info.php:120 info.php:145 info.php:169 sessions.php:59
+#: sessions.php:72 users.php:61 users.php:75
+msgid "Created"
+msgstr ""
+
+#: info.php:114 settings.php:71 site-settings.php:29
+msgid "Connections"
+msgstr ""
+
+#: info.php:117 info.php:167 sessions.php:58 sessions.php:71
+msgid "Source"
+msgstr ""
+
+#: info.php:118
+msgid "ID"
+msgstr ""
+
+#: info.php:119 info.php:144
+msgid "Deleted"
+msgstr ""
+
+#: info.php:135 info.php:159 info.php:185
+msgid "None"
+msgstr ""
+
+#: info.php:140
+msgid "Uploads"
+msgstr ""
+
+#: info.php:143
+msgid "Filename"
+msgstr ""
+
+#: info.php:164
+msgid "Sessions"
+msgstr ""
+
+#: info.php:168
+msgid "IP"
+msgstr ""
+
+#: info.php:170
+msgid "Last Access"
+msgstr ""
+
+#: info.php:192
+#, php-format
+msgid "Report cereated: %s"
 msgstr ""
 
 #: install.php:51
@@ -828,10 +933,6 @@ msgstr ""
 msgid "Confirm action"
 msgstr ""
 
-#: js/script.js:564
-msgid "Yes"
-msgstr ""
-
 #: js/script.js:565
 msgid "Cancel"
 msgstr ""
@@ -908,14 +1009,6 @@ msgstr ""
 msgid "Reset search results"
 msgstr ""
 
-#: sessions.php:58 sessions.php:71
-msgid "Source"
-msgstr ""
-
-#: sessions.php:59 sessions.php:72 users.php:61 users.php:75
-msgid "Created"
-msgstr ""
-
 #: sessions.php:73 users.php:76
 msgid "Actions"
 msgstr ""
@@ -956,10 +1049,6 @@ msgstr ""
 msgid "Select your timezone"
 msgstr ""
 
-#: settings.php:71 site-settings.php:29
-msgid "Connections"
-msgstr ""
-
 #: settings.php:82
 msgid "Sign in using your Google Account."
 msgstr ""
@@ -994,9 +1083,42 @@ msgid ""
 "password."
 msgstr ""
 
-#: settings.php:229 settings.php:230 site-settings.php:626
+#: settings.php:227
+msgid "Privacy"
+msgstr ""
+
+#: settings.php:230
+msgid "Manage your privacy"
+msgstr ""
+
+#: settings.php:235
+msgid ""
+"Download all info that we know about you or completely delete your account."
+msgstr ""
+
+#: settings.php:242
+msgid "Download my info"
+msgstr ""
+
+#: settings.php:246 settings.php:273
+msgid "Delete account"
+msgstr ""
+
+#: settings.php:253 settings.php:254 site-settings.php:626
 #: site-settings.php:627
 msgid "Save Settings"
+msgstr ""
+
+#: settings.php:266
+msgid ""
+"By entering and submitting my email address in the box below, I confirm that "
+"I want to remove my account (including all data created by me and associated "
+"with my account) from this website. I understand that removed data can not "
+"be recovered."
+msgstr ""
+
+#: settings.php:268
+msgid "Type your email address..."
 msgstr ""
 
 #: site-settings.php:28
@@ -1193,10 +1315,6 @@ msgid ""
 "credentials as \"FROM:\" header value."
 msgstr ""
 
-#: site-settings.php:408 site-settings.php:441 users.php:59 users.php:73
-msgid "Name"
-msgstr ""
-
 #: site-settings.php:410 site-settings.php:443
 msgid "Sender name"
 msgstr ""
@@ -1270,10 +1388,6 @@ msgstr ""
 
 #: users.php:51 users.php:107
 msgid "Create New User"
-msgstr ""
-
-#: users.php:60 users.php:74
-msgid "Role"
 msgstr ""
 
 #: users.php:80

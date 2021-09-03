@@ -1401,6 +1401,82 @@ a.dialog-button-cancel:active, a.dialog-button-cancel:hover, a.dialog-button-can
 }
 /* Dialog Popup - end */
 
+/* Dialog Account Remove - begin */
+.dialog-danger-overlay {
+	position: fixed !important;
+	z-index: 99988;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
+	background-position: center center;
+	background: rgba(0,0,0,0.8);
+	display: none;
+}
+.dialog-danger {
+	position: fixed !important;
+	box-sizing: border-box;
+	border: 5px solid #DC4E41;
+	border-radius: 10px;
+	z-index: 99989;
+	top: -3000px;
+	left: 50%;
+	width: 90%;
+	max-width: 600px;
+	background: #ffffff;
+	transform:translate(-50%, -50%) scale(0);
+	-webkit-transform:translate(-50%, -50%) scale(0);
+	box-shadow: 3px 3px 20px -5px #000000;
+	overflow: hidden;
+	transition-property: transform;
+	transition-timing-function: ease-in-out;
+	transition-duration: 300ms;
+}
+.dialog-danger * {
+	box-sizing: border-box;
+}
+.dialog-danger-inner {
+	position: relative;
+	box-sizing: border-box;
+	display: flex;
+    flex-direction: column;
+    min-height: 100%;
+	padding: 30px;
+}
+.dialog-danger-content {
+	flex: 1 0 auto;
+	overflow: hidden;
+	background: #ffffff;
+	position: relative;
+	font-size: 15px;
+	line-height: 1.475;
+}
+.dialog-danger-content-html {
+	padding: 0 0 20px 0;
+}
+.dialog-danger-message {
+	text-align: justify;
+	margin-bottom: 6px;
+}
+.dialog-danger-buttons {
+	box-sizing: border-box;
+	text-align: right;
+}
+.dialog-danger-close {
+	position: absolute;
+    top: 0;
+    right: 0;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    font-size: 20px;
+    color: #DC4E41;
+	cursor: pointer;
+}
+/* Dialog Account Remove - end */
+
+
 #global-message {
 	position: fixed;
 	top: 10px;
@@ -1627,9 +1703,11 @@ a.dialog-button-cancel:active, a.dialog-button-cancel:hover, a.dialog-button-can
 	}
 	a.button, a.button:visited {
 		display: block;
+		margin-bottom: 5px;
 	}
 	a.button2, a.button2:visited {
 		display: block;
+		margin-bottom: 5px;
 	}
 	div.multi-button {
 		width: 100%;

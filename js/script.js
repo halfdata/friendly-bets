@@ -633,6 +633,66 @@ function dialog_close() {
 	return false;
 }
 /* Dialog Popup - end */
+
+function dialog_remove_account_close() {
+	jQuery("#dialog-remove-account-overlay").fadeOut(300);
+	jQuery("#dialog-remove-account").css({
+		'transform': 			'translate(-50%, -50%) scale(0)',
+		'-webkit-transform': 	'translate(-50%, -50%) scale(0)'
+	});
+	setTimeout(function(){jQuery("#dialog-remove-account").css("top", "-3000px")}, 300);
+	return false;
+}
+function dialog_remove_account_open() {
+	jQuery("#dialog-remove-account").find("input[name='email']").val("");
+	jQuery("#dialog-remove-account-overlay").fadeIn(300);
+	jQuery("#dialog-remove-account").css({
+		'top': 					'50%',
+		'transform': 			'translate(-50%, -50%) scale(1)',
+		'-webkit-transform': 	'translate(-50%, -50%) scale(1)'
+	});
+	return false;
+}
+
+function account_delete(_object) {
+	if (busy) return;
+	busy = true;
+	jQuery(_object).find("i").attr("class", "fas fa-spin fa-spinner");
+	jQuery.ajax({
+		url		:	ajax_url, 
+		data	:	jQuery("#dialog-remove-account").find("input, textarea, select").serialize(),
+		method	:	"post",
+		dataType:	"json",
+		async	:	true,
+		success	:	function(return_data) {
+			var data;
+			if (typeof return_data == 'object') data = return_data;
+			else data = jQuery.parseJSON(return_data);
+			if (data.status == "OK") {
+				if (data.hasOwnProperty('message')) {
+                	global_message_show('success', data.message);
+				}
+				if (data.hasOwnProperty('url')) {
+					location.href = data.url;
+				}
+			} else if (data.status == "ERROR" || data.status == "WARNING") {
+                global_message_show('danger', data.message);
+			} else {
+                global_message_show('danger', "Internal Error.");
+			}
+			dialog_remove_account_close();
+			jQuery(_object).find("i").attr("class", "far fa-trash-alt");
+			busy = false;
+		},
+		error	:	function(XMLHttpRequest, textStatus, errorThrown) {
+            global_message_show('danger', "Invalid server response: " + textStatus);
+			jQuery(_object).find("i").attr("class", "far fa-trash-alt");
+			busy = false;
+		}
+	});
+	return false;
+}
+
 function esc_html__(_string) {
 	var string;
 	if (typeof translations == typeof {} && translations.hasOwnProperty(_string)) {

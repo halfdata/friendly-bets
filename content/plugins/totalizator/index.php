@@ -38,6 +38,8 @@ class t_class {
 			add_action('admin_menu', array(&$this, 'admin_menu'));
 			add_action('admin_head', array(&$this, 'admin_head'));
 			add_action('admin_init', array(&$this, 'admin_init'));
+			add_action('user_info', array(&$this, 'user_info'));
+			add_action('user_remove', array(&$this, 'user_remove'));
 			add_action('ajax-totalizator-campaign-delete', array(&$this, "campaign_delete"));
 			add_action('ajax-totalizator-campaign-status-toggle', array(&$this, "campaign_status_toggle"));
 			add_action('ajax-totalizator-campaign-save', array(&$this, "campaign_save"));
@@ -214,7 +216,7 @@ class t_class {
 				<div class="header-menu-bottom-container">
 					<div class="totalizator-campaign-bar">
 						<div class="totalizator-campaign-bar-logo">
-							<img src="'.(!empty($this->campaign_details['logo_filename']) ? esc_html($upload_dir['baseurl'].'/'.$this->campaign_details['logo_user_uid'].'/'.$this->campaign_details['logo_filename']) : plugins_url('/images/default-logo.png', __FILE__)).'" alt="'.esc_html($this->campaign_details['title']).'" />
+							<img src="'.(!empty($this->campaign_details['logo_filename']) ? esc_html($upload_dir['baseurl'].'/'.$this->campaign_details['logo_user_uid'].'/'.$this->campaign_details['logo_filename']) : plugins_url('/images/default-logo.png', __FILE__)).'" alt="'.(array_key_exists($language, $campaign_title) && !empty($campaign_title[$language]) ? esc_html($campaign_title[$language]) : esc_html($campaign_title['default'])).'" />
 						</div>
 						<div class="totalizator-campaign-bar-content">
 							<h1>'.(array_key_exists($language, $campaign_title) && !empty($campaign_title[$language]) ? esc_html($campaign_title[$language]) : esc_html($campaign_title['default'])).'</h1>
@@ -480,7 +482,7 @@ class t_class {
 					'.($row['type'] == 'private' ? '<span class="totalizator-panel-badge totalizator-panel-badge-success">'.esc_html__('Private', 't').'</span>' : '').'
 				</span>
 				<div class="totaliator-panel-logo">
-					<img class="totaliator-panel-logo-img" src="'.(!empty($logo) ? esc_html($upload_dir['baseurl'].'/'.$logo['user_uid'].'/'.$logo['filename']) : plugins_url('/images/default-logo.png', __FILE__)).'" alt="'.esc_html($row['title']).'" />
+					<img class="totaliator-panel-logo-img" src="'.(!empty($logo) ? esc_html($upload_dir['baseurl'].'/'.$logo['user_uid'].'/'.$logo['filename']) : plugins_url('/images/default-logo.png', __FILE__)).'" alt="'.(array_key_exists($language, $campaign_title) && !empty($campaign_title[$language]) ? esc_html($campaign_title[$language]) : esc_html($campaign_title['default'])).'" />
 				</div>
 				<div class="totaliator-panel-content">
 					<h3>'.(array_key_exists($language, $campaign_title) && !empty($campaign_title[$language]) ? esc_html($campaign_title[$language]) : esc_html($campaign_title['default'])).'</h3>
@@ -645,7 +647,7 @@ class t_class {
 					</div>
 				</div>
 				<div class="form-content">
-					'.translatable_input_html('title', (!empty($campaign) ? $campaign['title'] : ''), esc_html__('Title', 'fb')).'
+					'.translatable_input_html('title', (!empty($campaign) ? $campaign['title'] : ''), esc_html__('Title', 't')).'
 				</div>
 			</div>
 			<div class="form-row">
@@ -659,7 +661,7 @@ class t_class {
 					</div>
 				</div>
 				<div class="form-content">
-					'.translatable_textarea_html('description', (!empty($campaign) ? $campaign['description'] : ''), esc_html__('Describe totalizator', 'fb')).'
+					'.translatable_textarea_html('description', (!empty($campaign) ? $campaign['description'] : ''), esc_html__('Describe totalizator', 't')).'
 				</div>
 			</div>
 			<div class="form-row">
@@ -862,8 +864,8 @@ class t_class {
 		else if (mb_strlen($tr_fields['title']['default']) > 127) $errors['title[default]'] = esc_html__('Title is too long.', 't');
 		foreach ($tr_fields['title'] as $key => $value) {
 			if ($key != 'default') {
-				if (mb_strlen($value) > 0 && mb_strlen($value) < 2) $errors['title['.$key.']'] = esc_html__('The translation is too short.', 'fb');
-				else if (mb_strlen($value) > 127) $errors['title['.$key.']'] = esc_html__('The translation is too long.', 'fb');
+				if (mb_strlen($value) > 0 && mb_strlen($value) < 2) $errors['title['.$key.']'] = esc_html__('The translation is too short.', 't');
+				else if (mb_strlen($value) > 127) $errors['title['.$key.']'] = esc_html__('The translation is too long.', 't');
 			}
 		}
 
@@ -871,8 +873,8 @@ class t_class {
 		else if (mb_strlen($tr_fields['description']['default']) > 4096) $errors['description[default]'] = esc_html__('Description is too long.', 't');
 		foreach ($tr_fields['description'] as $key => $value) {
 			if ($key != 'default') {
-				if (mb_strlen($value) > 0 && mb_strlen($value) < 16) $errors['description['.$key.']'] = esc_html__('The translation is too short.', 'fb');
-				else if (mb_strlen($value) > 4096) $errors['description['.$key.']'] = esc_html__('The translation is too long.', 'fb');
+				if (mb_strlen($value) > 0 && mb_strlen($value) < 16) $errors['description['.$key.']'] = esc_html__('The translation is too short.', 't');
+				else if (mb_strlen($value) > 4096) $errors['description['.$key.']'] = esc_html__('The translation is too long.', 't');
 			}
 		}
 		
@@ -2695,6 +2697,198 @@ class t_class {
 		</div>';
 
 		return array('title' => $title, 'content' => $content);
+	}
+
+	function user_info() {
+		global $wpdb, $options, $user_details, $language;
+		if (empty($user_details)) return;
+		$campaigns = $wpdb->get_results("SELECT * FROM ".$wpdb->prefix."t_campaigns WHERE owner_id = '".esc_sql($user_details['id'])."'", ARRAY_A);
+		$participants = $wpdb->get_results("SELECT t1.*, t2.title AS campaign_title FROM ".$wpdb->prefix."t_participants t1 LEFT JOIN ".$wpdb->prefix."t_campaigns t2 ON t2.id = t1.campaign_id WHERE t1.user_id = '".esc_sql($user_details['id'])."'", ARRAY_A);
+		$bets = $wpdb->get_results("SELECT t1.*, t3.team1_slug, t3.team2_slug, t4.title AS campaign_title FROM ".$wpdb->prefix."t_bets t1 
+				LEFT JOIN ".$wpdb->prefix."t_participants t2 ON t2.id = t1.participant_id 
+				LEFT JOIN ".$wpdb->prefix."t_games t3 ON t3.id = t1.game_id
+				LEFT JOIN ".$wpdb->prefix."t_campaigns t4 ON t4.id = t2.campaign_id 
+			WHERE t2.user_id = '".esc_sql($user_details['id'])."'", ARRAY_A);
+		$guessings = $wpdb->get_results("SELECT t3.nickname AS p1_nickname, t4.nickname AS p2_nickname, t5.title AS campaign_title FROM ".$wpdb->prefix."t_guessing t1 
+				LEFT JOIN ".$wpdb->prefix."t_participants t2 ON t2.id = t1.participant_id 
+				LEFT JOIN ".$wpdb->prefix."t_participants t3 ON t3.id = t1.p1_id 
+				LEFT JOIN ".$wpdb->prefix."t_participants t4 ON t4.id = t1.p2_id 
+				LEFT JOIN ".$wpdb->prefix."t_campaigns t5 ON t5.id = t2.campaign_id 
+			WHERE t2.user_id = '".esc_sql($user_details['id'])."'", ARRAY_A);
+
+		if ($language != 'en') $hl = '.'.$language;
+		else $hl = '';
+		if (file_exists(dirname(__FILE__).'/inc/countries'.$hl.'.php')) include(dirname(__FILE__).'/inc/countries'.$hl.'.php');
+		else include(dirname(__FILE__).'/inc/countries.php');
+	
+		echo '
+		<h2>'.esc_html__('Own Totalizators', 't').'</h2>
+		<table class="h-table">';
+		if (sizeof($campaigns) > 0) {
+			foreach ($campaigns as $campaign) {
+				$games = $wpdb->get_results("SELECT * FROM ".$wpdb->prefix."t_games WHERE campaign_id = '".esc_sql($campaign['id'])."'", ARRAY_A);
+
+				$campaign_title	= translatable_parse($campaign['title']);
+				$campaign_description	= translatable_parse($campaign['description']);
+				echo '
+			<td class="empty-table" colspan="2"><hr /></td>
+			<tr><th>'.esc_html__('Title', 't').':</th><td>'.(array_key_exists($language, $campaign_title) && !empty($campaign_title[$language]) ? esc_html($campaign_title[$language]) : esc_html($campaign_title['default'])).'</td></tr>
+			<tr><th>'.esc_html__('Description', 't').':</th><td>'.(array_key_exists($language, $campaign_description) && !empty($campaign_description[$language]) ? esc_html($campaign_description[$language]) : esc_html($campaign_description['default'])).'</td></tr>
+			<tr><th>'.esc_html__('Period', 't').':</th><td>'.timestamp_string($campaign['begin_date'], $options['date-format']).' - '.timestamp_string($campaign['end_date'], $options['date-format']).'</td></tr>
+			<tr><th>'.esc_html__('Missed bet penalty', 't').':</th><td>'.esc_html($campaign['nobet_penalty']).'</td></tr>
+			<tr><th>'.esc_html__('Type', 't').':</th><td>'.esc_html($campaign['type']).'</td></tr>
+			<tr><th>'.esc_html__('Status', 't').':</th><td>'.esc_html($campaign['status']).'</td></tr>
+			<tr><th>'.esc_html__('Deleted', 't').':</th><td>'.($campaign['deleted'] == '1' ? esc_html__('Yes', 't') : esc_html__('No', 't')).'</td>
+			<tr><th>'.esc_html__('Created', 't').':</th><td>'.esc_html(timestamp_string($campaign['created'], $options['date-format'].' H:i')).'</td></tr>
+			<tr><th>'.esc_html__('Games', 't').':</th><td>
+				<table class="v-table">
+				<tr>
+					<th>'.esc_html__('Game', 't').'</th>
+					<th>'.esc_html__('Score', 't').'</th>
+					<th>'.esc_html__('Begin', 't').'</th>
+					<th>'.esc_html__('Created', 't').'</th>
+				</tr>';
+				if (sizeof($games) > 0) {
+					foreach ($games as $game) {
+						if ($game['team1_points'] < 0 && $game['team2_points'] < 0) $score = '-';
+						else $score = $game['team1_points'].' : '.$game['team2_points'];
+						if (!empty($game['team1_slug']) && array_key_exists($game['team1_slug'], $countries)) $team1 = $countries[$game['team1_slug']];
+						else $team1 = '-';
+						if (!empty($game['team2_slug']) && array_key_exists($game['team2_slug'], $countries)) $team2 = $countries[$game['team2_slug']];
+						else $team2 = '-';
+						echo '
+				<tr>
+					<td>'.esc_html($team1.' : '.$team2).'</td>
+					<td>'.esc_html($score).'</td>
+					<td>'.esc_html(timestamp_string($game['begin_time'], $options['date-format'].' H:i')).'</td>
+					<td>'.esc_html(timestamp_string($game['created'], $options['date-format'].' H:i')).'</td>
+				</tr>';
+					}
+				} else {
+					echo '
+				<tr>
+					<td class="empty-table" colspan="4">'.esc_html__('None', 't').'</td>
+				</tr>';
+				}
+				echo '
+				</table>
+			</td></tr>';
+			}
+		} else {
+			echo '
+			<tr>
+				<td class="empty-table" colspan="2">'.esc_html__('None', 't').'</td>
+			</tr>';
+		}
+		echo '
+		</table>
+		<h2>'.esc_html__('Nicknames', 't').'</h2>
+		<table class="v-table">
+			<tr>
+				<th>'.esc_html__('Totalizator', 't').'</th>
+				<th>'.esc_html__('Nickname', 't').'</th>
+				<th>'.esc_html__('Deleted', 't').'</th>
+				<th>'.esc_html__('Created', 't').'</th>
+			</tr>';
+		if (sizeof($participants) > 0) {
+			foreach ($participants as $participant) {
+				$campaign_title	= translatable_parse(!empty($participant['campaign_title']) ? $participant['campaign_title'] : '-');
+				echo '
+			<tr>
+				<td>'.(array_key_exists($language, $campaign_title) && !empty($campaign_title[$language]) ? esc_html($campaign_title[$language]) : esc_html($campaign_title['default'])).'</td>
+				<td>'.esc_html($participant['nickname']).'</td>
+				<td>'.($participant['deleted'] == '1' ? esc_html__('Yes', 't') : esc_html__('No', 't')).'</td>
+				<td>'.esc_html(timestamp_string($participant['created'], $options['date-format'].' H:i')).'</td>
+			</tr>';
+			}
+		} else {
+			echo '
+			<tr>
+				<td class="empty-table" colspan="4">'.esc_html__('None', 't').'</td>
+			</tr>';
+		}
+		echo '
+		</table>
+		<h2>'.esc_html__('Bets', 't').'</h2>
+		<table class="v-table">
+			<tr>
+				<th>'.esc_html__('Totalizator', 't').'</th>
+				<th>'.esc_html__('Game', 't').'</th>
+				<th>'.esc_html__('Bet', 't').'</th>
+				<th>'.esc_html__('Created', 't').'</th>
+			</tr>';
+		if (sizeof($bets) > 0) {
+			foreach ($bets as $bet) {
+				$campaign_title	= translatable_parse(!empty($bet['campaign_title']) ? $bet['campaign_title'] : '-');
+				if ($bet['team1_points'] < 0 && $bet['team2_points'] < 0) $user_bet = '-';
+				else $user_bet = $bet['team1_points'].' : '.$bet['team2_points'];
+				if (!empty($bet['team1_slug']) && array_key_exists($bet['team1_slug'], $countries)) $team1 = $countries[$bet['team1_slug']];
+				else $team1 = '-';
+				if (!empty($bet['team2_slug']) && array_key_exists($bet['team2_slug'], $countries)) $team2 = $countries[$bet['team2_slug']];
+				else $team2 = '-';
+				echo '
+			<tr>
+				<td>'.(array_key_exists($language, $campaign_title) && !empty($campaign_title[$language]) ? esc_html($campaign_title[$language]) : esc_html($campaign_title['default'])).'</td>
+				<td>'.esc_html($team1.' : '.$team2).'</td>
+				<td>'.esc_html($user_bet).'</td>
+				<td>'.esc_html(timestamp_string($bet['created'], $options['date-format'].' H:i')).'</td>
+			</tr>';
+			}
+		} else {
+			echo '
+			<tr>
+				<td class="empty-table" colspan="4">'.esc_html__('None', 't').'</td>
+			</tr>';
+		}
+		echo '
+		</table>
+		<h2>'.esc_html__('Guessing', 't').'</h2>
+		<table class="v-table">
+			<tr>
+				<th>'.esc_html__('Totalizator', 't').'</th>
+				<th>'.esc_html__('Participant', 't').'</th>
+				<th>'.esc_html__('My Guess', 't').'</th>
+			</tr>';
+		if (sizeof($guessings) > 0) {
+			foreach ($guessings as $guessing) {
+				$campaign_title	= translatable_parse(!empty($guessing['campaign_title']) ? $guessing['campaign_title'] : '-');
+				echo '
+			<tr>
+				<td>'.(array_key_exists($language, $campaign_title) && !empty($campaign_title[$language]) ? esc_html($campaign_title[$language]) : esc_html($campaign_title['default'])).'</td>
+				<td>'.(!empty($guessing['p1_nickname']) ? esc_html($guessing['p1_nickname']) : '-').'</td>
+				<td>'.(!empty($guessing['p2_nickname']) ? esc_html($guessing['p2_nickname']) : '-').'</td>
+			</tr>';
+			}
+		} else {
+			echo '
+			<tr>
+				<td class="empty-table" colspan="3">'.esc_html__('None', 't').'</td>
+			</tr>';
+		}
+		echo '
+		</table>';
+	}
+	function user_remove() {
+		global $wpdb, $options, $user_details, $language;
+		if (empty($user_details)) return;
+		$wpdb->query("DELETE t1 FROM ".$wpdb->prefix."t_guessing t1
+				INNER JOIN ".$wpdb->prefix."t_participants t2 ON t2.id = t1.participant_id
+			WHERE t2.user_id = '".esc_sql($user_details['id'])."'");
+
+		$wpdb->query("DELETE t1 FROM ".$wpdb->prefix."t_bets t1
+				INNER JOIN ".$wpdb->prefix."t_participants t2 ON t2.id = t1.participant_id
+			WHERE t2.user_id = '".esc_sql($user_details['id'])."'");
+
+		$wpdb->query("DELETE t1 FROM ".$wpdb->prefix."t_participants t1
+			WHERE t1.user_id = '".esc_sql($user_details['id'])."'");
+
+		$wpdb->query("DELETE t1 FROM ".$wpdb->prefix."t_games t1
+				INNER JOIN ".$wpdb->prefix."t_campaigns t2 ON t2.id = t1.campaign_id
+			WHERE t2.owner_id = '".esc_sql($user_details['id'])."'");
+
+		$wpdb->query("DELETE t1 FROM ".$wpdb->prefix."t_campaigns t1
+			WHERE t1.owner_id = '".esc_sql($user_details['id'])."'");
+
 	}
 }
 $t = new t_class();

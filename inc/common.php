@@ -98,14 +98,14 @@ if (file_exists(dirname(__FILE__).'/config.php')) {
 		sync_database();
 		$db_ok = true;
 		$ready = false;
-		$tmp = $wpdb->get_row("SELECT * FROM ".$wpdb->prefix."users WHERE role = 'admin' AND deleted != '1' AND status = 'active' LIMIT 0, 1", ARRAY_A);
-		if (empty($tmp)) {
-			throw new Exception('No admins are available');
-		}
 		$options = get_options('core', $default_options);
 		$options['url'] = rtrim(get_option('url', ''), '/').'/';
 		$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https:" : "http:";
 		if (substr($options['url'], 0, 2) == '//') $options['url'] = $protocol.$options['url'];
+		$tmp = $wpdb->get_row("SELECT * FROM ".$wpdb->prefix."users WHERE role = 'admin' AND deleted != '1' AND status = 'active' LIMIT 0, 1", ARRAY_A);
+		if (empty($tmp)) {
+			throw new Exception('No admins are available');
+		}
 		$ready = true;
 	} catch (Exception $e) {
 		if (!$db_ok) {

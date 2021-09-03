@@ -358,6 +358,45 @@ if ($_REQUEST['action'] == 'register') {
     $return_object = array('status' => 'OK', 'message' => sprintf(esc_html__('Test message successfully sent. Please check your inbox (%s).', 'fb'), esc_html($user_details['email'])));
     echo json_encode($return_object);
     exit;
+} else if ($_REQUEST['action'] == 'account-remove') {
+    if (empty($user_details)) {
+        $return_data = array('status' => 'WARNING', 'message' => esc_html__('Oops. Please enter your account to perform this action.', 'fb'));
+        echo json_encode($return_data);
+        exit;
+    }
+    $email = trim(stripslashes($_REQUEST['email']));
+    if ($user_details['login'] != create_login($email)) {
+        $return_data = array('status' => 'ERROR', 'message' => esc_html__('Invalid email address.', 'fb'));
+        echo json_encode($return_data);
+        exit;
+    }
+    if ($user_details['role'] == 'admin') {
+        $return_data = array('status' => 'ERROR', 'message' => esc_html__('Administrator can not remove account.', 'fb'));
+        echo json_encode($return_data);
+        exit;
+    }
+    do_action('user_remove');
+    $upload_dir = upload_dir();
+    $uploads = $wpdb->get_results("SELECT * FROM ".$wpdb->prefix."uploads WHERE user_id = '".esc_sql($user_details['id'])."'", ARRAY_A);
+	foreach ($uploads as $upload) {
+        if (file_exists($upload_dir['basedir'].'/'.$user_details['uuid'].'/'.$upload['filename'])) unlink($upload_dir['basedir'].'/'.$user_details['uuid'].'/'.$upload['filename']);
+    }
+    $wpdb->query("DELETE t1 FROM ".$wpdb->prefix."uploads t1
+        WHERE t1.user_id = '".esc_sql($user_details['id'])."'");
+
+    $wpdb->query("DELETE t1 FROM ".$wpdb->prefix."user_connections t1
+        WHERE t1.user_id = '".esc_sql($user_details['id'])."'");
+
+    $wpdb->query("DELETE t1 FROM ".$wpdb->prefix."sessions t1
+        WHERE t1.user_id = '".esc_sql($user_details['id'])."'");
+
+    $wpdb->query("DELETE t1 FROM ".$wpdb->prefix."users t1
+        WHERE t1.id = '".esc_sql($user_details['id'])."'");
+
+    $_SESSION['success-message'] = esc_html__('Your account successfully removed.', 'fb');
+    $return_object = array('status' => 'OK', 'message' => esc_html__('Your account successfully removed.', 'fb'), 'url' => url(''));
+    echo json_encode($return_object);
+    exit;
 } else if ($_REQUEST['action'] == 'save-site-settings') {
     if (empty($user_details)) {
         $return_data = array('status' => 'WARNING', 'message' => esc_html__('Oops. Please enter your account to perform this action.', 'fb'));
@@ -708,7 +747,13 @@ if ($_REQUEST['action'] == 'register') {
             echo json_encode($return_data);
             exit;
         }
+        if ($user_details['id'] == $user['id'] && $user['role'] != $role) {
+            $return_data = array('status' => 'WARNING', 'message' => esc_html__('You can not change your own role.', 'fb'));
+            echo json_encode($return_data);
+            exit;
+        }
     }
+
     $timezone_offset = timezone_offset($timezone);
     if ($timezone_offset === false) $errors['timezone'] = esc_html__('Invalid timezone.', 'fb');
 
