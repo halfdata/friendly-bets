@@ -12,11 +12,19 @@ if (array_key_exists('redirect', $_GET)) {
 
 if ($user_details) {
     if (array_key_exists('logout', $_GET)) {
-		if (!empty($session_id)) {
-			$wpdb->query("UPDATE ".$wpdb->prefix."sessions SET valid_period = '0' WHERE session_id = '".esc_sql($session_id)."'");
+		if (!empty($session_details)) {
+			$wpdb->query("UPDATE ".$wpdb->prefix."sessions SET valid_period = '0' WHERE id = '".esc_sql($session_details['id'])."'");
+            if (!empty($admin_session_details)) {
+                if (PHP_VERSION_ID < 70300) setcookie('fb-auth', $admin_session_details['session_id'], time()+3600*24*60, '; samesite=lax');
+                else setcookie('fb-auth', $admin_session_details['session_id'], array('expires' => time()+3600*24*60, 'samesite' => 'Lax'));
+                if (PHP_VERSION_ID < 70300) setcookie('fb-auth-admin', null, -1, '; samesite=lax');
+                else setcookie('fb-auth-admin', null, array('expires' => -1, 'samesite' => 'Lax'));
+                header('Location: '.url('users.php'));
+                exit;
+            }
 		}
     }
-    header('Location: '.$options['url']);
+    header('Location: '.url(''));
     exit;
 }
 

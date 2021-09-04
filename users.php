@@ -78,6 +78,7 @@ include_once(dirname(__FILE__).'/inc/header.php');
 						<span><i class="fas fa-ellipsis-v"></i></span>
 						<ul>
 							<li><a href="'.url('add-user.php').'?id='.esc_html($user['id']).'">'.esc_html__('Edit', 'fb').'</a></li>
+							<li><a href="'.url('').'?user='.esc_html($user['uuid']).'">'.esc_html__('Switch to this user', 'fb').'</a></li>
 							'.(in_array($user['status'], array('active', 'inactive')) ? '<li><a href="#" data-status="'.esc_html($user['status']).'" data-id="'.esc_html($user['id']).'" data-doing="'.($user['status'] == 'active' ? esc_html__('Deactivating...', 'fb') : esc_html__('Activating...', 'fb')).'" onclick="return user_status_toggle(this);">'.($user['status'] == 'active' ? esc_html__('Deactivate', 'fb') : esc_html__('Activate', 'fb')).'</a></li>' : '').'
 							<li class="item-menu-line"></li>
 							<li><a href="#" data-id="'.esc_html($user['id']).'" data-doing="'.esc_html__('Deleting...', 'fb').'" onclick="return user_delete(this);">'.esc_html__('Delete', 'fb').'</a></li>

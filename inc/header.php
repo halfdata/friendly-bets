@@ -69,6 +69,11 @@ if (!empty($global_warnings)) {
         echo global_warning_html($warning);
     }
 }
+if (!empty($global_info)) {
+    foreach ($global_info as $info) {
+        echo global_info_html($info);
+    }
+}
 do_action('admin_menu_top');
 ?>
             <span class="top-menu-toggle" onclick="jQuery('.top-menu-bar').slideToggle(100);"><i class="fas fa-bars"></i></span>
@@ -112,8 +117,8 @@ if (!empty($user_details) && $user_details['role'] == 'admin') {
                         <span><i class="fas fa-cogs"></i><i class="fas fa-angle-down"></i></span>
                         <ul>
                             <li><a href="<?php echo url('users.php'); ?>"><?php echo esc_html__('Users', 'fb'); ?></a></li>
-                            <li><a href="<?php echo url('sessions.php'); ?>"><?php echo esc_html__('Active Sessions', 'fb'); ?></a></li>
-                            <li><a href="<?php echo url('site-settings.php'); ?>"><?php echo esc_html__('Site Settings', 'fb'); ?></a></li>
+                            <li><a href="<?php echo url('sessions.php'); ?>"><?php echo esc_html__('Active sessions', 'fb'); ?></a></li>
+                            <li><a href="<?php echo url('site-settings.php'); ?>"><?php echo esc_html__('Site settings', 'fb'); ?></a></li>
                         </ul>
                     </li>
 <?php

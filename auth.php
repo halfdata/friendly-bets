@@ -124,7 +124,7 @@ if (array_key_exists('google', $_GET) && $_GET['google'] == 'auth') {
 								 '86400'
 							)");
 						if (PHP_VERSION_ID < 70300) setcookie('fb-auth', $session_id, time()+3600*24*60, '; samesite=lax');
-						else setcookie('fb-auth', $session_id, array('lifetime' => time()+3600*24*60, 'samesite' => 'Lax'));
+						else setcookie('fb-auth', $session_id, array('expires' => time()+3600*24*60, 'samesite' => 'Lax'));
 						if (array_key_exists('login-redirect', $_SESSION) && !empty($_SESSION['login-redirect'])) {
 							$redirect_url = $_SESSION['login-redirect'];
 							unset($_SESSION['login-redirect']);
@@ -167,7 +167,7 @@ if (array_key_exists('google', $_GET) && $_GET['google'] == 'auth') {
 								 '86400'
 							)");
 						if (PHP_VERSION_ID < 70300) setcookie('fb-auth', $session_id, time()+3600*24*60, '; samesite=lax');
-						else setcookie('fb-auth', $session_id, array('lifetime' => time()+3600*24*60, 'samesite' => 'Lax'));
+						else setcookie('fb-auth', $session_id, array('expires' => time()+3600*24*60, 'samesite' => 'Lax'));
 						if (array_key_exists('login-redirect', $_SESSION) && !empty($_SESSION['login-redirect'])) {
 							$redirect_url = $_SESSION['login-redirect'];
 							unset($_SESSION['login-redirect']);
@@ -340,7 +340,7 @@ if (array_key_exists('google', $_GET) && $_GET['google'] == 'auth') {
 								 '86400'
 							)");
 						if (PHP_VERSION_ID < 70300) setcookie('fb-auth', $session_id, time()+3600*24*60, '; samesite=lax');
-						else setcookie('fb-auth', $session_id, array('lifetime' => time()+3600*24*60, 'samesite' => 'Lax'));
+						else setcookie('fb-auth', $session_id, array('expires' => time()+3600*24*60, 'samesite' => 'Lax'));
 						if (array_key_exists('login-redirect', $_SESSION) && !empty($_SESSION['login-redirect'])) {
 							$redirect_url = $_SESSION['login-redirect'];
 							unset($_SESSION['login-redirect']);
@@ -383,7 +383,7 @@ if (array_key_exists('google', $_GET) && $_GET['google'] == 'auth') {
 								 '86400'
 							)");
 						if (PHP_VERSION_ID < 70300) setcookie('fb-auth', $session_id, time()+3600*24*60, '; samesite=lax');
-						else setcookie('fb-auth', $session_id, array('lifetime' => time()+3600*24*60, 'samesite' => 'Lax'));
+						else setcookie('fb-auth', $session_id, array('expires' => time()+3600*24*60, 'samesite' => 'Lax'));
 						if (array_key_exists('login-redirect', $_SESSION) && !empty($_SESSION['login-redirect'])) {
 							$redirect_url = $_SESSION['login-redirect'];
 							unset($_SESSION['login-redirect']);

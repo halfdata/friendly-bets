@@ -62,6 +62,29 @@ header {
 	width: 100%;
 	padding: 0.5em;
 }
+.global-info {
+	color: #fff;
+	background: #5DB0BF;
+}
+.global-info-box {
+	display: table;
+	width: 100%;
+}
+.global-info-icon {
+	display: table-cell;
+	vertical-align: middle;
+	padding: 0.5em;
+	font-size: 3em;
+}
+.global-info-message {
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+	padding: 0.5em;
+}
+.global-info-message a {
+	color: gray;
+}
 footer {
 	clear: both;
 	position: relative;

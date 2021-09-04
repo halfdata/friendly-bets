@@ -94,7 +94,7 @@ if ($_REQUEST['action'] == 'register') {
              '86400'
         )");
     if (PHP_VERSION_ID < 70300) setcookie('fb-auth', $session_id, time()+3600*24*60, '; samesite=lax');
-    else setcookie('fb-auth', $session_id, array('lifetime' => time()+3600*24*60, 'samesite' => 'Lax'));
+    else setcookie('fb-auth', $session_id, array('expires' => time()+3600*24*60, 'samesite' => 'Lax'));
 
     $url = url('register.php').'?confirm='.$email_confirmation_uid;
     $message = str_replace(array('{name}', '{email}', '{confirmation-url}', "\n", "\r"), array($name, $email, $url, "<br />", ""), $options['confirm-message']);
@@ -150,7 +150,7 @@ if ($_REQUEST['action'] == 'register') {
              '86400'
         )");
     if (PHP_VERSION_ID < 70300) setcookie('fb-auth', $session_id, time()+3600*24*60, '; samesite=lax');
-    else setcookie('fb-auth', $session_id, array('lifetime' => time()+3600*24*60, 'samesite' => 'Lax'));
+    else setcookie('fb-auth', $session_id, array('expires' => time()+3600*24*60, 'samesite' => 'Lax'));
 
     if (array_key_exists('login-redirect', $_SESSION)) unset($_SESSION['login-redirect']);
     if (empty($redirect) /* || strpos($redirect, $options['url']) === false */) $redirect = $options['url'];
@@ -240,7 +240,7 @@ if ($_REQUEST['action'] == 'register') {
             '86400'
         )");
     if (PHP_VERSION_ID < 70300) setcookie('fb-auth', $session_id, time()+3600*24*60, '; samesite=lax');
-    else setcookie('fb-auth', $session_id, array('lifetime' => time()+3600*24*60, 'samesite' => 'Lax'));
+    else setcookie('fb-auth', $session_id, array('expires' => time()+3600*24*60, 'samesite' => 'Lax'));
 
     if (empty($redirect) || strpos($redirect, $options['url']) === false) $redirect = $options['url'];
     $return_object = array('status' => 'OK', 'url' => $redirect);
@@ -393,8 +393,16 @@ if ($_REQUEST['action'] == 'register') {
     $wpdb->query("DELETE t1 FROM ".$wpdb->prefix."users t1
         WHERE t1.id = '".esc_sql($user_details['id'])."'");
 
-    $_SESSION['success-message'] = esc_html__('Your account successfully removed.', 'fb');
-    $return_object = array('status' => 'OK', 'message' => esc_html__('Your account successfully removed.', 'fb'), 'url' => url(''));
+    if (!empty($admin_session_details)) {
+        if (PHP_VERSION_ID < 70300) setcookie('fb-auth', $admin_session_details['session_id'], time()+3600*24*60, '; samesite=lax');
+        else setcookie('fb-auth', $admin_session_details['session_id'], array('expires' => time()+3600*24*60, 'samesite' => 'Lax'));
+        if (PHP_VERSION_ID < 70300) setcookie('fb-auth-admin', null, -1, '; samesite=lax');
+        else setcookie('fb-auth-admin', null, array('expires' => -1, 'samesite' => 'Lax'));
+        $url = url('users.php');
+    } else $url = url('');
+
+    $_SESSION['success-message'] = esc_html__('Account successfully removed.', 'fb');
+    $return_object = array('status' => 'OK', 'message' => esc_html__('Account successfully removed.', 'fb'), 'url' => $url);
     echo json_encode($return_object);
     exit;
 } else if ($_REQUEST['action'] == 'save-site-settings') {

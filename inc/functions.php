@@ -733,6 +733,19 @@ function global_warning_html($_message) {
 	</div>
 </div>';
 }
+function global_info_html($_message) {
+	return '
+<div class="header-menu-top global-info">
+	<div class="header-menu-top-container">
+		<div class="global-info-box">
+			<div class="global-info-icon"><i class="fas fa-info-circle"></i></div>
+			<div class="global-info-message">
+				'.$_message.'
+			</div>
+		</div>
+	</div>
+</div>';
+}
 function translatable_input_html($_name, $_value, $_placeholder = '') {
     global $languages;
     $value = translatable_parse($_value);

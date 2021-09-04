@@ -120,12 +120,58 @@ if (!$ready) {
 }
 $user_details = null;
 $session_id = '';
+$session_details = null;
+$admin_session_id = '';
+$admin_session_details = null;
 if (array_key_exists('fb-auth', $_COOKIE)) {
 	$session_id = preg_replace('/[^a-zA-Z0-9-]/', '', $_COOKIE['fb-auth']);
 	$session_details = $wpdb->get_row("SELECT * FROM ".$wpdb->prefix."sessions WHERE session_id = '".esc_sql($session_id)."' AND registered + valid_period > '".esc_sql(time())."'", ARRAY_A);
 	if ($session_details) {
 		$wpdb->query("UPDATE ".$wpdb->prefix."sessions SET registered = '".esc_sql(time())."', ip = '".esc_sql($_SERVER['REMOTE_ADDR'])."' WHERE session_id = '".esc_sql($session_id)."'");
 		$user_details = $wpdb->get_row("SELECT * FROM ".$wpdb->prefix."users WHERE id = '".esc_sql($session_details['user_id'])."' AND deleted != '1'", ARRAY_A);
+		if (!empty($user_details)) {
+			if (array_key_exists('fb-auth-admin', $_COOKIE)) {
+				$admin_session_id = preg_replace('/[^a-zA-Z0-9-]/', '', $_COOKIE['fb-auth-admin']);
+				$admin_session_details = $wpdb->get_row("SELECT * FROM ".$wpdb->prefix."sessions WHERE session_id = '".esc_sql($admin_session_id)."' AND registered + valid_period > '".esc_sql(time())."'", ARRAY_A);
+			}
+			if ($user_details['role'] == 'admin' && empty($admin_session_details) && array_key_exists('user', $_GET)) {
+				$switch_uid = preg_replace('/[^a-zA-Z0-9-]/', '', $_GET['user']);
+				if ($user_details['uuid'] != $switch_uid) {
+					$switch_user_details = $wpdb->get_row("SELECT * FROM ".$wpdb->prefix."users WHERE uuid = '".esc_sql($switch_uid)."' AND deleted != '1'", ARRAY_A);
+					if (!empty($switch_user_details)) {
+						$admin_session_id = $session_id;
+						$admin_session_details = $session_details;
+						$user_details = $switch_user_details;
+						$session_id = uuid_v4();
+						$wpdb->query("INSERT INTO ".$wpdb->prefix."sessions (
+								source,
+								session_id, 
+								user_id, 
+								ip, 
+								registered, 
+								created,
+								valid_period
+							) VALUES (
+								'admin-login',
+								'".esc_sql($session_id)."',
+								'".esc_sql($user_details['id'])."',
+								'".esc_sql($_SERVER['REMOTE_ADDR'])."',
+								'".time()."',
+								'".time()."',
+								'86400'
+							)");
+						$session_details = $wpdb->get_row("SELECT * FROM ".$wpdb->prefix."sessions WHERE id = '".esc_sql($wpdb->insert_id)."'", ARRAY_A);
+						if (PHP_VERSION_ID < 70300) setcookie('fb-auth', $session_id, time()+3600, '; samesite=lax');
+						else setcookie('fb-auth', $session_id, array('expires' => time()+3600, 'samesite' => 'Lax'));
+						if (PHP_VERSION_ID < 70300) setcookie('fb-auth-admin', $admin_session_id, time()+3600*24*60, '; samesite=lax');
+						else setcookie('fb-auth-admin', $admin_session_id, array('expires' => time()+3600*24*60, 'samesite' => 'Lax'));
+					}
+				}
+			}
+			if (!empty($admin_session_details)) {
+				$global_info[] = sprintf(esc_html__('You are working under %s account. Click %shere%s to switch back to your account.', 'fb'), '<strong>'.$user_details['email'].'</strong>', '<a href="'.url('login.php').'?logout">', '</a>');
+			}
+		}
 	}
 }
 date_default_timezone_set('UTC');
