@@ -2244,6 +2244,26 @@ class admin_class {
 						'.image_uploader_html('pattern', $options['pattern'], url('').'images/default-pattern.png').'
 					</div>
 				</div>
+				<div class="form-row">
+					<div class="form-label">
+						<label>'.esc_html__('User registration', 'fb').'</label>
+					</div>
+					<div class="form-tooltip">
+						<i class="fas fa-question-circle form-tooltip-anchor"></i>
+						<div class="form-tooltip-content">
+							'.esc_html__('Allow users to register on website.', 'fb').'
+						</div>
+					</div>
+					<div class="form-content">
+						<div class="input-box">
+							<div class="checkbox-toggle-container">
+								<input class="checkbox-toggle" type="checkbox" value="on" id="enable-register" name="enable-register"'.($options['enable-register'] == 'on' ? ' checked="checked"' : '').'>
+								<label for="enable-register"></label>
+								<span>'.esc_html__('Anyone can register', 'fb').'</span>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 			<div id="tab-connections" class="tab-content">
 				<h2>'.esc_html__('Google', 'fb').'</h2>

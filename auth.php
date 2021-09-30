@@ -60,6 +60,11 @@ if (array_key_exists('google', $_GET) && $_GET['google'] == 'auth') {
                 if (empty($connection_details)) {       // Google connection not found
                     $user_details = $wpdb->get_row("SELECT * FROM ".$wpdb->prefix."users WHERE login = '".esc_sql($login)."' AND deleted != '1'", ARRAY_A);
                     if (empty($user_details)) {         // Account with the same email not found
+						if ($options['enable-register'] != 'on') {
+							$_SESSION['error-message'] = sprintf(esc_html__('Email address "%s" was not registered.', 'fb'), $google_data->email);
+							header('Location: '.url('login.php'));
+							exit;
+						}
 						$wpdb->query("INSERT INTO ".$wpdb->prefix."users (
 								uuid, 
 								login, 
@@ -276,6 +281,11 @@ if (array_key_exists('google', $_GET) && $_GET['google'] == 'auth') {
                 if (empty($connection_details)) {       // Facebook connection not found
                     $user_details = $wpdb->get_row("SELECT * FROM ".$wpdb->prefix."users WHERE login = '".esc_sql($login)."' AND deleted != '1'", ARRAY_A);
                     if (empty($user_details)) {         // Account with the same email not found
+						if ($options['enable-register'] != 'on') {
+							$_SESSION['error-message'] = sprintf(esc_html__('Email address "%s" was not registered.', 'fb'), $facebook_data->email);
+							header('Location: '.url('login.php'));
+							exit;
+						}
 						$wpdb->query("INSERT INTO ".$wpdb->prefix."users (
 								uuid, 
 								login, 

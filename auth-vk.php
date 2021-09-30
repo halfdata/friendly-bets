@@ -62,6 +62,11 @@ if (true) {
                 if (empty($connection_details)) {       // VK connection not found
                     $user_details = $wpdb->get_row("SELECT * FROM ".$wpdb->prefix."users WHERE login = '".esc_sql($login)."' AND deleted != '1'", ARRAY_A);
                     if (empty($user_details)) {         // Account with the same email not found
+						if ($options['enable-register'] != 'on') {
+							$_SESSION['error-message'] = sprintf(esc_html__('Email address "%s" was not registered.', 'fb'), $access_token->email);
+							header('Location: '.url('login.php'));
+							exit;
+						}
 						$wpdb->query("INSERT INTO ".$wpdb->prefix."users (
 								uuid, 
 								login, 

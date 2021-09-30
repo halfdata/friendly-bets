@@ -12,6 +12,11 @@ if (!array_key_exists('action', $_REQUEST)) {
 do_action('admin_init');
 
 if ($_REQUEST['action'] == 'register') {
+	if ($options['enable-register'] != 'on') {
+		$return_data = array('status' => 'WARNING', 'message' => esc_html__('Unfortunately, registration disbaled.', 'fb'));
+		echo json_encode($return_data);
+		exit;
+	}
 	$timezone = trim(stripslashes($_REQUEST['timezone']));
 	$name = trim(stripslashes($_REQUEST['name']));
 	$email = trim(stripslashes($_REQUEST['email']));

@@ -1,7 +1,7 @@
 <?php
 session_start();
-error_reporting(-1);
-//error_reporting(0);
+//error_reporting(-1);
+error_reporting(0);
 define('INTEGRITY', true);
 define('VERSION', 1.03);
 define('RECORDS_PER_PAGE', 50);
@@ -29,6 +29,7 @@ $default_options = array(
 	'date-format' => 'yyyy-mm-dd',
 	'language' => 'en',
 	'pattern' => 0,
+	'enable-register' => 'on',
 	'confirm-subject' => esc_html__('Confirm email address', 'fb'),
 	'confirm-message' => esc_html__('Dear {name},', 'fb').PHP_EOL.PHP_EOL.esc_html__('Click the link below to confirm email address.', 'fb').PHP_EOL.'<a href="{confirmation-url}">{confirmation-url}</a>'.PHP_EOL.PHP_EOL.sprintf(esc_html__('If you did not sign up with %s, just ignore this message.', 'fb'), esc_html__('Friendly Bets', 'fb')).PHP_EOL.PHP_EOL.esc_html__('Regards.', 'fb'),
 	'reset-subject' => esc_html__('Reset password', 'fb'),

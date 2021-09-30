@@ -43,6 +43,11 @@ if (array_key_exists('reset', $_GET)) {
 	}
 }
 
+if ($options['enable-register'] != 'on' && empty($user_details)) {
+	header('Location: '.url('login.php'));
+	exit;
+}
+
 do_action('admin_menu');
 
 $upload_dir = upload_dir();

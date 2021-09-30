@@ -88,7 +88,7 @@ foreach($site_data['menu'] as $slug => $item) {
 echo '
 				</ul>
 				<ul class="top-menu top-menu-right">
-					<li><a href="'.url("register.php".(array_key_exists('redirect', $_GET) ? '?redirect='.urlencode(urldecode($_GET['redirect'])) : '')).'">'.esc_html__('Create Account', 'fb').'</a></li>';
+					'.($options['enable-register'] == 'on' ? '<li><a href="'.url("register.php".(array_key_exists('redirect', $_GET) ? '?redirect='.urlencode(urldecode($_GET['redirect'])) : '')).'">'.esc_html__('Create Account', 'fb').'</a></li>' : '');
 if ($options['language'] == '' && sizeof($languages) > 1) {
 	echo '
 					<li class="top-submenu top-submenu-right language-selector">
