@@ -23,7 +23,7 @@ if (array_key_exists('google', $_GET) && $_GET['google'] == 'auth') {
 		if (!$access_token) {
 			$_SESSION['error-message'] = esc_html__('Something went wrong. Please contact administrator.', 'fb');
             if (!empty($user_details)) {
-			    header('Location: '.url('settings.php').'#tab-connections');
+			    header('Location: '.url('?page=profile').'#tab-connections');
             } else {
                 header('Location: '.url('login.php'));
             }
@@ -48,7 +48,7 @@ if (array_key_exists('google', $_GET) && $_GET['google'] == 'auth') {
 			if (empty($google_data->email)) {
                 $_SESSION['error-message'] = esc_html__('Something went wrong. Email address was not provided.', 'fb');
                 if (!empty($user_details)) {
-                    header('Location: '.url('settings.php').'#tab-connections');
+                    header('Location: '.url('?page=profile').'#tab-connections');
                 } else {
                     header('Location: '.url('login.php'));
                 }
@@ -123,8 +123,8 @@ if (array_key_exists('google', $_GET) && $_GET['google'] == 'auth') {
 								'".time()."',
 								 '86400'
 							)");
-						if (PHP_VERSION_ID < 70300) setcookie('fb-auth', $session_id, time()+3600*24*60, '; samesite=lax');
-						else setcookie('fb-auth', $session_id, array('expires' => time()+3600*24*60, 'samesite' => 'Lax'));
+						if (PHP_VERSION_ID < 70300) setcookie('fb-auth', $session_id, time()+3600*24*60, parse_url($options['url'], PHP_URL_PATH).'; samesite=lax');
+						else setcookie('fb-auth', $session_id, array('expires' => time()+3600*24*60, 'samesite' => 'Lax', 'path' => parse_url($options['url'], PHP_URL_PATH)));
 						if (array_key_exists('login-redirect', $_SESSION) && !empty($_SESSION['login-redirect'])) {
 							$redirect_url = $_SESSION['login-redirect'];
 							unset($_SESSION['login-redirect']);
@@ -166,8 +166,8 @@ if (array_key_exists('google', $_GET) && $_GET['google'] == 'auth') {
 								'".time()."',
 								 '86400'
 							)");
-						if (PHP_VERSION_ID < 70300) setcookie('fb-auth', $session_id, time()+3600*24*60, '; samesite=lax');
-						else setcookie('fb-auth', $session_id, array('expires' => time()+3600*24*60, 'samesite' => 'Lax'));
+						if (PHP_VERSION_ID < 70300) setcookie('fb-auth', $session_id, time()+3600*24*60, parse_url($options['url'], PHP_URL_PATH).'; samesite=lax');
+						else setcookie('fb-auth', $session_id, array('expires' => time()+3600*24*60, 'samesite' => 'Lax', 'path' => parse_url($options['url'], PHP_URL_PATH)));
 						if (array_key_exists('login-redirect', $_SESSION) && !empty($_SESSION['login-redirect'])) {
 							$redirect_url = $_SESSION['login-redirect'];
 							unset($_SESSION['login-redirect']);
@@ -194,16 +194,16 @@ if (array_key_exists('google', $_GET) && $_GET['google'] == 'auth') {
 							'0',
 							'".time()."'
 						)");
-						header('Location: '.url('settings.php'));
+						header('Location: '.url('?page=profile'));
 						exit;
 					} else {								// Google Account is used by this user.
 						$_SESSION['error-message'] = esc_html__('This Google Account is already connected to your account.', 'fb');
-						header('Location: '.url('settings.php'));
+						header('Location: '.url('?page=profile'));
 						exit;
 					}
 				} else {								// Google Account is used by another user.
 					$_SESSION['error-message'] = esc_html__('This Google Account is already connected to another user.', 'fb');
-					header('Location: '.url('settings.php'));
+					header('Location: '.url('?page=profile'));
 					exit;
 				}
             }
@@ -239,7 +239,7 @@ if (array_key_exists('google', $_GET) && $_GET['google'] == 'auth') {
 		if (!$access_token) {
 			$_SESSION['error-message'] = esc_html__('Something went wrong. Please contact administrator.', 'fb');
             if (!empty($user_details)) {
-			    header('Location: '.url('settings.php').'#tab-connections');
+			    header('Location: '.url('?page=profile').'#tab-connections');
             } else {
                 header('Location: '.url('login.php'));
             }
@@ -264,7 +264,7 @@ if (array_key_exists('google', $_GET) && $_GET['google'] == 'auth') {
 			if (empty($facebook_data->email)) {
                 $_SESSION['error-message'] = esc_html__('Something went wrong. Email address was not provided.', 'fb');
                 if (!empty($user_details)) {
-                    header('Location: '.url('settings.php').'#tab-connections');
+                    header('Location: '.url('?page=profile').'#tab-connections');
                 } else {
                     header('Location: '.url('login.php'));
                 }
@@ -339,8 +339,8 @@ if (array_key_exists('google', $_GET) && $_GET['google'] == 'auth') {
 								'".time()."',
 								 '86400'
 							)");
-						if (PHP_VERSION_ID < 70300) setcookie('fb-auth', $session_id, time()+3600*24*60, '; samesite=lax');
-						else setcookie('fb-auth', $session_id, array('expires' => time()+3600*24*60, 'samesite' => 'Lax'));
+						if (PHP_VERSION_ID < 70300) setcookie('fb-auth', $session_id, time()+3600*24*60, parse_url($options['url'], PHP_URL_PATH).'; samesite=lax');
+						else setcookie('fb-auth', $session_id, array('expires' => time()+3600*24*60, 'samesite' => 'Lax', 'path' => parse_url($options['url'], PHP_URL_PATH)));
 						if (array_key_exists('login-redirect', $_SESSION) && !empty($_SESSION['login-redirect'])) {
 							$redirect_url = $_SESSION['login-redirect'];
 							unset($_SESSION['login-redirect']);
@@ -382,8 +382,8 @@ if (array_key_exists('google', $_GET) && $_GET['google'] == 'auth') {
 								'".time()."',
 								 '86400'
 							)");
-						if (PHP_VERSION_ID < 70300) setcookie('fb-auth', $session_id, time()+3600*24*60, '; samesite=lax');
-						else setcookie('fb-auth', $session_id, array('expires' => time()+3600*24*60, 'samesite' => 'Lax'));
+						if (PHP_VERSION_ID < 70300) setcookie('fb-auth', $session_id, time()+3600*24*60, parse_url($options['url'], PHP_URL_PATH).'; samesite=lax');
+						else setcookie('fb-auth', $session_id, array('expires' => time()+3600*24*60, 'samesite' => 'Lax', 'path' => parse_url($options['url'], PHP_URL_PATH)));
 						if (array_key_exists('login-redirect', $_SESSION) && !empty($_SESSION['login-redirect'])) {
 							$redirect_url = $_SESSION['login-redirect'];
 							unset($_SESSION['login-redirect']);
@@ -410,16 +410,16 @@ if (array_key_exists('google', $_GET) && $_GET['google'] == 'auth') {
 							'0',
 							'".time()."'
 						)");
-						header('Location: '.url('settings.php'));
+						header('Location: '.url('?page=profile'));
 						exit;
 					} else {								// Facebook Account is used by this user.
 						$_SESSION['error-message'] = esc_html__('This Facebook Account is already connected to your account.', 'fb');
-						header('Location: '.url('settings.php'));
+						header('Location: '.url('?page=profile'));
 						exit;
 					}
 				} else {								// Facebook Account is used by another user.
 					$_SESSION['error-message'] = esc_html__('This Facebook Account is already connected to another user.', 'fb');
-					header('Location: '.url('settings.php'));
+					header('Location: '.url('?page=profile'));
 					exit;
 				}
             }

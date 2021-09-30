@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2021-09-03 20:47+0500\n"
+"POT-Creation-Date: 2021-09-30 10:40+0500\n"
 "PO-Revision-Date: 2021-09-02 11:49+0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -16,656 +16,664 @@ msgstr ""
 "X-Poedit-KeywordsList: esc_html__\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: index.php:16
+#: index.php:20
 msgid "Group A"
 msgstr ""
 
-#: index.php:17
+#: index.php:21
 msgid "Group B"
 msgstr ""
 
-#: index.php:18
+#: index.php:22
 msgid "Group C"
 msgstr ""
 
-#: index.php:19
+#: index.php:23
 msgid "Group D"
 msgstr ""
 
-#: index.php:20
+#: index.php:24
 msgid "Group E"
 msgstr ""
 
-#: index.php:21
+#: index.php:25
 msgid "Group F"
 msgstr ""
 
-#: index.php:22
+#: index.php:26
 msgid "Group G"
 msgstr ""
 
-#: index.php:23
+#: index.php:27
 msgid "Group H"
 msgstr ""
 
-#: index.php:24
+#: index.php:28
 msgid "1/16 Final"
 msgstr ""
 
-#: index.php:25
+#: index.php:29
 msgid "1/8 Final"
 msgstr ""
 
-#: index.php:26
+#: index.php:30
 msgid "1/4 Final"
 msgstr ""
 
-#: index.php:27
+#: index.php:31
 msgid "Semi-final"
 msgstr ""
 
-#: index.php:28
+#: index.php:32
 msgid "Bronze game"
 msgstr ""
 
-#: index.php:29
+#: index.php:33
 msgid "Final"
 msgstr ""
 
-#: index.php:204 index.php:210
+#: index.php:229 index.php:235
 #, php-format
 msgid "Your nickname: %s"
 msgstr ""
 
-#: index.php:206
+#: index.php:231
 msgid "Loading..."
 msgstr ""
 
-#: index.php:207
+#: index.php:232
 msgid "Quit Totalizator"
 msgstr ""
 
-#: index.php:212 index.php:501 index.php:977 index.php:979 index.php:998
-#: index.php:999
+#: index.php:237 index.php:525 index.php:1014 index.php:1016 index.php:1035
+#: index.php:1036
 msgid "Join Totalizator"
 msgstr ""
 
-#: index.php:236 index.php:449
+#: index.php:261 index.php:474
 msgid "Totalizators"
 msgstr ""
 
-#: index.php:264 index.php:341 index.php:494 index.php:1704 index.php:1706
+#: index.php:289 index.php:366 index.php:518 index.php:1741 index.php:1743
 msgid "Participants"
 msgstr ""
 
-#: index.php:282 index.php:1213 index.php:1215 index.php:2743
+#: index.php:307 index.php:1250 index.php:1252 index.php:2780
 msgid "Games"
 msgstr ""
 
-#: index.php:310 index.php:1920 index.php:1922
+#: index.php:335 index.php:1957 index.php:1959
 msgid "My Bets"
 msgstr ""
 
-#: index.php:331 index.php:379 index.php:2845
+#: index.php:356 index.php:404 index.php:2882
 msgid "Guessing"
 msgstr ""
 
-#: index.php:350 index.php:2411
+#: index.php:375 index.php:2448
 msgid "My Guessing"
 msgstr ""
 
-#: index.php:361
+#: index.php:386
 msgid "Results"
 msgstr ""
 
-#: index.php:409
+#: index.php:434
 msgid "FAQ"
 msgstr ""
 
-#: index.php:454 index.php:514
+#: index.php:479 index.php:538
 msgid "Create New Totalizator"
 msgstr ""
 
-#: index.php:471 index.php:1256
+#: index.php:495 index.php:1293
 msgid "Edit"
 msgstr ""
 
-#: index.php:472 index.php:596
+#: index.php:496 index.php:620
 msgid "Deactivating..."
 msgstr ""
 
-#: index.php:472 index.php:586
+#: index.php:496 index.php:610
 msgid "Activating..."
 msgstr ""
 
-#: index.php:472 index.php:595
+#: index.php:496 index.php:619
 msgid "Deactivate"
 msgstr ""
 
-#: index.php:472 index.php:585
+#: index.php:496 index.php:609
 msgid "Activate"
 msgstr ""
 
-#: index.php:474 index.php:1257
+#: index.php:498 index.php:1294
 msgid "Deleting..."
 msgstr ""
 
-#: index.php:474 index.php:1257 index.php:1740
+#: index.php:498 index.php:1294 index.php:1777
 msgid "Delete"
 msgstr ""
 
-#: index.php:479
+#: index.php:503
 msgid "Finished"
 msgstr ""
 
-#: index.php:480 index.php:588
+#: index.php:504 index.php:612
 msgid "Inactive"
 msgstr ""
 
-#: index.php:481 index.php:496
+#: index.php:505 index.php:520
 msgid "Owner"
 msgstr ""
 
-#: index.php:482 index.php:727
+#: index.php:506 index.php:757
 msgid "Private"
 msgstr ""
 
-#: index.php:490
+#: index.php:514
 msgid "Details"
 msgstr ""
 
-#: index.php:492 index.php:683 index.php:2737
+#: index.php:516 index.php:713 index.php:2774
 msgid "Period"
 msgstr ""
 
-#: index.php:493 index.php:2738
+#: index.php:517 index.php:2775
 msgid "Missed bet penalty"
 msgstr ""
 
-#: index.php:493
+#: index.php:517
 msgid "points"
 msgstr ""
 
-#: index.php:495
+#: index.php:519
 msgid "Passed games"
 msgstr ""
 
-#: index.php:502
+#: index.php:526
 msgid "Join link"
 msgstr ""
 
-#: index.php:505
+#: index.php:529
 msgid "Copy to clipboard"
 msgstr ""
 
-#: index.php:520
+#: index.php:544
 msgid "Welcome. There are no available totalizators yet."
 msgstr ""
 
-#: index.php:521
+#: index.php:545
 msgid "Create First Totalizator"
 msgstr ""
 
-#: index.php:531 index.php:561 index.php:810 index.php:1010 index.php:1097
-#: index.php:1428 index.php:1630 index.php:1757 index.php:2055
-msgid "Oops. Please enter your account to perform this action."
+#: index.php:555 index.php:585 index.php:840 index.php:1047 index.php:1134
+#: index.php:1465 index.php:1667 index.php:1794 index.php:2092
+msgid "Please enter your account to perform this action."
 msgstr ""
 
-#: index.php:539 index.php:544 index.php:570 index.php:575 index.php:852
+#: index.php:563 index.php:568 index.php:594 index.php:599 index.php:889
 msgid "You do not have permissions to perform this action."
 msgstr ""
 
-#: index.php:551 index.php:552
+#: index.php:575 index.php:576
 msgid "Totalizator successfully deleted."
 msgstr ""
 
-#: index.php:584
+#: index.php:608
 msgid "Totalizator successfully deactivated."
 msgstr ""
 
-#: index.php:594
+#: index.php:618
 msgid "Totalizator successfully activated."
 msgstr ""
 
-#: index.php:598
+#: index.php:622
 msgid "Active"
 msgstr ""
 
-#: index.php:625 index.php:627
+#: index.php:638
+msgid "Please upgrade your account to create new totalizator."
+msgstr ""
+
+#: index.php:655 index.php:657
 msgid "Create Totalizator"
 msgstr ""
 
-#: index.php:625 index.php:627
+#: index.php:655 index.php:657
 msgid "Edit Totalizator"
 msgstr ""
 
-#: index.php:635
+#: index.php:665
 msgid ""
 "This is a private (hidden) totalizator. It does not appear in the list of "
 "totalizators. Users can join it using special link."
 msgstr ""
 
-#: index.php:641 index.php:650 index.php:2735
+#: index.php:671 index.php:680 index.php:2772
 msgid "Title"
 msgstr ""
 
-#: index.php:646
+#: index.php:676
 msgid "Specify totalizator title."
 msgstr ""
 
-#: index.php:655 index.php:2736
+#: index.php:685 index.php:2773
 msgid "Description"
 msgstr ""
 
-#: index.php:660
+#: index.php:690
 msgid "Describe totalizator."
 msgstr ""
 
-#: index.php:664
+#: index.php:694
 msgid "Describe totalizator"
 msgstr ""
 
-#: index.php:669
+#: index.php:699
 msgid "Image"
 msgstr ""
 
-#: index.php:674
+#: index.php:704
 msgid "Upload image/logo of totalizator."
 msgstr ""
 
-#: index.php:688
+#: index.php:718
 msgid "Set begin and end dates of totalizator."
 msgstr ""
 
-#: index.php:696 index.php:1323 index.php:2748
+#: index.php:726 index.php:1360 index.php:2785
 msgid "Begin"
 msgstr ""
 
-#: index.php:698
+#: index.php:728
 msgid "Start"
 msgstr ""
 
-#: index.php:704 index.php:706
+#: index.php:734 index.php:736
 msgid "End"
 msgstr ""
 
-#: index.php:716 index.php:1332 index.php:2739
+#: index.php:746 index.php:1369 index.php:2776
 msgid "Type"
 msgstr ""
 
-#: index.php:721
+#: index.php:751
 msgid ""
 "Set type of totalizator. Public totalizator appears in the list and any user "
 "can join it. Private totalizator is not visible. User can join it using "
 "special link."
 msgstr ""
 
-#: index.php:727
+#: index.php:757
 msgid "Public"
 msgstr ""
 
-#: index.php:734
+#: index.php:764
 msgid "Enable guessing"
 msgstr ""
 
-#: index.php:739
+#: index.php:769
 msgid "Allow users to guess who is hidden behind of participant nickname."
 msgstr ""
 
-#: index.php:754 index.php:766
+#: index.php:784 index.php:796
 msgid "Disclosure date"
 msgstr ""
 
-#: index.php:759
+#: index.php:789
 msgid "Set guessing disclosure date."
 msgstr ""
 
-#: index.php:776 index.php:788
+#: index.php:806 index.php:818
 msgid "Missing bet penalty"
 msgstr ""
 
-#: index.php:781
+#: index.php:811
 msgid "Set how many penalty points participant get in case of missing bet."
 msgstr ""
 
-#: index.php:798 index.php:799 index.php:998 index.php:999 index.php:1416
-#: index.php:1417 index.php:2040 index.php:2041 index.php:2451 index.php:2452
-#: index.php:2570 index.php:2571
+#: index.php:828 index.php:829 index.php:1035 index.php:1036 index.php:1453
+#: index.php:1454 index.php:2077 index.php:2078 index.php:2488 index.php:2489
+#: index.php:2607 index.php:2608
 msgid "Save Details"
 msgstr ""
 
-#: index.php:835 index.php:1038 index.php:1460 index.php:1656 index.php:1783
-#: index.php:2076
+#: index.php:846
+msgid "Please upgrade your account to save totalizator details."
+msgstr ""
+
+#: index.php:872 index.php:1075 index.php:1497 index.php:1693 index.php:1820
+#: index.php:2113
 msgid "Invalid request: some fields are missing."
 msgstr ""
 
-#: index.php:863
+#: index.php:900
 msgid "Title is too short."
 msgstr ""
 
-#: index.php:864
+#: index.php:901
 msgid "Title is too long."
 msgstr ""
 
-#: index.php:867 index.php:876
+#: index.php:904 index.php:913
 msgid "The translation is too short."
 msgstr ""
 
-#: index.php:868 index.php:877
+#: index.php:905 index.php:914
 msgid "The translation is too long."
 msgstr ""
 
-#: index.php:872
+#: index.php:909
 msgid "Description is too short."
 msgstr ""
 
-#: index.php:873
+#: index.php:910
 msgid "Description is too long."
 msgstr ""
 
-#: index.php:881 index.php:1488 index.php:1489 index.php:1490 index.php:1491
-#: index.php:2103 index.php:2104 index.php:2106 index.php:2107 index.php:2111
-#: index.php:2112
+#: index.php:918 index.php:1525 index.php:1526 index.php:1527 index.php:1528
+#: index.php:2140 index.php:2141 index.php:2143 index.php:2144 index.php:2148
+#: index.php:2149
 msgid "Must be a not negative integer value."
 msgstr ""
 
-#: index.php:884
+#: index.php:921
 msgid "Value is too big."
 msgstr ""
 
-#: index.php:886 index.php:887 index.php:889 index.php:893
+#: index.php:923 index.php:924 index.php:926 index.php:930
 msgid "Invalid date."
 msgstr ""
 
-#: index.php:894
+#: index.php:931
 msgid "Must be after end date."
 msgstr ""
 
-#: index.php:953 index.php:954
+#: index.php:990 index.php:991
 msgid "Totalizator details successfully saved."
 msgstr ""
 
-#: index.php:968 index.php:1020
+#: index.php:1005 index.php:1057
 msgid "Totalizator already finished."
 msgstr ""
 
-#: index.php:973 index.php:1025
+#: index.php:1010 index.php:1062
 msgid "You can not change the nickname when totalizator already started."
 msgstr ""
 
-#: index.php:977 index.php:979
+#: index.php:1014 index.php:1016
 msgid "Change nickname"
 msgstr ""
 
-#: index.php:983
+#: index.php:1020
 msgid "Participant nickname"
 msgstr ""
 
-#: index.php:988
+#: index.php:1025
 msgid "Enter your participant nickname."
 msgstr ""
 
-#: index.php:992 index.php:2354 index.php:2364 index.php:2420 index.php:2429
-#: index.php:2789
+#: index.php:1029 index.php:2391 index.php:2401 index.php:2457 index.php:2466
+#: index.php:2826
 msgid "Nickname"
 msgstr ""
 
-#: index.php:1015 index.php:1102 index.php:1433 index.php:1440 index.php:1475
-#: index.php:1635 index.php:1642 index.php:1671 index.php:1762 index.php:1769
-#: index.php:1799 index.php:2061 index.php:2091 index.php:2467 index.php:2484
-#: index.php:2586 index.php:2599
+#: index.php:1052 index.php:1139 index.php:1470 index.php:1477 index.php:1512
+#: index.php:1672 index.php:1679 index.php:1708 index.php:1799 index.php:1806
+#: index.php:1836 index.php:2098 index.php:2128 index.php:2504 index.php:2521
+#: index.php:2623 index.php:2636
 msgid "Invalid request."
 msgstr ""
 
-#: index.php:1046
+#: index.php:1083
 msgid "Nickname is too short."
 msgstr ""
 
-#: index.php:1047
+#: index.php:1084
 msgid "Nickname is too long."
 msgstr ""
 
-#: index.php:1050
+#: index.php:1087
 msgid "Nickname is already in use."
 msgstr ""
 
-#: index.php:1065 index.php:1066
+#: index.php:1102 index.php:1103
 msgid "Details are successfully saved."
 msgstr ""
 
-#: index.php:1087 index.php:1088
+#: index.php:1124 index.php:1125
 msgid "You are successfully joined totalizator."
 msgstr ""
 
-#: index.php:1107
+#: index.php:1144
 msgid "You are not a participant of this totalizator."
 msgstr ""
 
-#: index.php:1112
+#: index.php:1149
 msgid "Totalizator already started."
 msgstr ""
 
-#: index.php:1117 index.php:1118
+#: index.php:1154 index.php:1155
 msgid "You are no longer a participant of this totalizator."
 msgstr ""
 
-#: index.php:1217
+#: index.php:1254
 msgid "Create New Game"
 msgstr ""
 
-#: index.php:1223 index.php:1249 index.php:1853 index.php:1885 index.php:1927
-#: index.php:1958 index.php:2746 index.php:2816
+#: index.php:1260 index.php:1286 index.php:1890 index.php:1922 index.php:1964
+#: index.php:1995 index.php:2783 index.php:2853
 msgid "Game"
 msgstr ""
 
-#: index.php:1224 index.php:1250 index.php:1389 index.php:1614 index.php:1855
-#: index.php:1887 index.php:1929 index.php:1960 index.php:2747
+#: index.php:1261 index.php:1287 index.php:1426 index.php:1651 index.php:1892
+#: index.php:1924 index.php:1966 index.php:1997 index.php:2784
 msgid "Score"
 msgstr ""
 
-#: index.php:1225 index.php:1251 index.php:1598 index.php:1615 index.php:1714
-#: index.php:1738 index.php:1856 index.php:1888 index.php:1930 index.php:1961
+#: index.php:1262 index.php:1288 index.php:1635 index.php:1652 index.php:1751
+#: index.php:1775 index.php:1893 index.php:1925 index.php:1967 index.php:1998
 msgid "Penalty"
 msgstr ""
 
-#: index.php:1252
+#: index.php:1289
 msgid "Actions"
 msgstr ""
 
-#: index.php:1265 index.php:1620 index.php:1746 index.php:1893 index.php:1966
-#: index.php:2225 index.php:2288 index.php:2371 index.php:2443 index.php:2562
+#: index.php:1302 index.php:1657 index.php:1783 index.php:1930 index.php:2003
+#: index.php:2262 index.php:2325 index.php:2408 index.php:2480 index.php:2599
 msgid "List is empty."
 msgstr ""
 
-#: index.php:1305 index.php:1307
+#: index.php:1342 index.php:1344
 msgid "Edit Game"
 msgstr ""
 
-#: index.php:1305 index.php:1307
+#: index.php:1342 index.php:1344
 msgid "Add Game"
 msgstr ""
 
-#: index.php:1311
+#: index.php:1348
 msgid "Start time"
 msgstr ""
 
-#: index.php:1316
+#: index.php:1353
 msgid ""
 "Select the time when the game is started. Make sure your tinezone is set "
 "properly."
 msgstr ""
 
-#: index.php:1337
+#: index.php:1374
 msgid "Type of the game."
 msgstr ""
 
-#: index.php:1342
+#: index.php:1379
 msgid "Select the type of the game"
 msgstr ""
 
-#: index.php:1352
+#: index.php:1389
 msgid "Teams"
 msgstr ""
 
-#: index.php:1357
+#: index.php:1394
 msgid "Select teams."
 msgstr ""
 
-#: index.php:1365 index.php:1376
+#: index.php:1402 index.php:1413
 msgid "Select the team"
 msgstr ""
 
-#: index.php:1394
+#: index.php:1431
 msgid "Set the final score."
 msgstr ""
 
-#: index.php:1487
+#: index.php:1524
 msgid "Invalid time."
 msgstr ""
 
-#: index.php:1492 index.php:1493
+#: index.php:1529 index.php:1530
 msgid "Must be a valid team."
 msgstr ""
 
-#: index.php:1494
+#: index.php:1531
 msgid "Must be a valid game type."
 msgstr ""
 
-#: index.php:1542 index.php:1543
+#: index.php:1579 index.php:1580
 msgid "Game details successfully saved."
 msgstr ""
 
-#: index.php:1569
+#: index.php:1606
 msgid "Final score was not set yet."
 msgstr ""
 
-#: index.php:1589 index.php:1847 index.php:2348
+#: index.php:1626 index.php:1884 index.php:2385
 msgid "Back"
 msgstr ""
 
-#: index.php:1595 index.php:1612 index.php:1711 index.php:2192 index.php:2216
-#: index.php:2242 index.php:2278
+#: index.php:1632 index.php:1649 index.php:1748 index.php:2229 index.php:2253
+#: index.php:2279 index.php:2315
 msgid "#"
 msgstr ""
 
-#: index.php:1596 index.php:1613 index.php:1712 index.php:1736 index.php:2193
-#: index.php:2217 index.php:2243 index.php:2279 index.php:2849
+#: index.php:1633 index.php:1650 index.php:1749 index.php:1773 index.php:2230
+#: index.php:2254 index.php:2280 index.php:2316 index.php:2886
 msgid "Participant"
 msgstr ""
 
-#: index.php:1597 index.php:1854 index.php:1886 index.php:1928 index.php:1959
-#: index.php:2817
+#: index.php:1634 index.php:1891 index.php:1923 index.php:1965 index.php:1996
+#: index.php:2854
 msgid "Bet"
 msgstr ""
 
-#: index.php:1676 index.php:1677
+#: index.php:1713 index.php:1714
 msgid "Game successfully deleted."
 msgstr ""
 
-#: index.php:1713 index.php:1737 index.php:2194 index.php:2218 index.php:2244
-#: index.php:2280
+#: index.php:1750 index.php:1774 index.php:2231 index.php:2255 index.php:2281
+#: index.php:2317
 msgid "Guessed"
 msgstr ""
 
-#: index.php:1715 index.php:1739
+#: index.php:1752 index.php:1776
 msgid "Gap"
 msgstr ""
 
-#: index.php:1804 index.php:1805
+#: index.php:1841 index.php:1842
 msgid "Participant successfully deleted."
 msgstr ""
 
-#: index.php:1999 index.php:2097
+#: index.php:2036 index.php:2134
 msgid "You can not set the bet for already started game."
 msgstr ""
 
-#: index.php:2014
+#: index.php:2051
 #, php-format
 msgid "My bet on %s"
 msgstr ""
 
-#: index.php:2105 index.php:2108
+#: index.php:2142 index.php:2145
 msgid "The value is too huge."
 msgstr ""
 
-#: index.php:2145 index.php:2146
+#: index.php:2182 index.php:2183
 msgid "Bet successfully saved."
 msgstr ""
 
-#: index.php:2162 index.php:2307 index.php:2390 index.php:2533
+#: index.php:2199 index.php:2344 index.php:2427 index.php:2570
 msgid "Guessing starts soon."
 msgstr ""
 
-#: index.php:2171 index.php:2316 index.php:2397
+#: index.php:2208 index.php:2353 index.php:2434
 msgid "Guessing results will be available soon."
 msgstr ""
 
-#: index.php:2184 index.php:2186
+#: index.php:2221 index.php:2223
 msgid "Guessing Results"
 msgstr ""
 
-#: index.php:2187
+#: index.php:2224
 msgid "Who guesses better"
 msgstr ""
 
-#: index.php:2195 index.php:2219
+#: index.php:2232 index.php:2256
 msgid "Guessed Participants"
 msgstr ""
 
-#: index.php:2237
+#: index.php:2274
 msgid "Who was guessed less often"
 msgstr ""
 
-#: index.php:2245 index.php:2281
+#: index.php:2282 index.php:2318
 msgid "Who Guessed"
 msgstr ""
 
-#: index.php:2246 index.php:2282
+#: index.php:2283 index.php:2319
 msgid "Who they thought"
 msgstr ""
 
-#: index.php:2344
+#: index.php:2381
 #, php-format
 msgid "Guessing of %s (%s)"
 msgstr ""
 
-#: index.php:2355 index.php:2365 index.php:2419 index.php:2428 index.php:2554
+#: index.php:2392 index.php:2402 index.php:2456 index.php:2465 index.php:2591
 msgid "User"
 msgstr ""
 
-#: index.php:2474 index.php:2593
+#: index.php:2511 index.php:2630
 msgid "Guessing is not available yet."
 msgstr ""
 
-#: index.php:2478
+#: index.php:2515
 msgid "Guessing is already finished."
 msgstr ""
 
-#: index.php:2517
+#: index.php:2554
 msgid "Guessing successfully saved."
 msgstr ""
 
-#: index.php:2543
+#: index.php:2580
 msgid "Guessing Participants"
 msgstr ""
 
-#: index.php:2555
+#: index.php:2592
 msgid "Enable"
 msgstr ""
 
-#: index.php:2615
+#: index.php:2652
 msgid "Guessing participants successfully saved."
 msgstr ""
 
-#: index.php:2624
+#: index.php:2661
 msgid "Frequently Asked Questions"
 msgstr ""
 
-#: index.php:2628
+#: index.php:2665
 msgid "What is it and how it works?"
 msgstr ""
 
-#: index.php:2630
+#: index.php:2667
 msgid ""
 "These are totalizators dedicated to important championships (for example, "
 "the FIFA World Cup or the African Ice Hockey Championship).\n"
@@ -678,33 +686,33 @@ msgid ""
 "number of penalty points."
 msgstr ""
 
-#: index.php:2636
+#: index.php:2673
 msgid "How to join totalizator?"
 msgstr ""
 
-#: index.php:2638
+#: index.php:2675
 msgid "Register and log into your account."
 msgstr ""
 
-#: index.php:2639
+#: index.php:2676
 msgid ""
 "On the main page, select an active totalizator and click the \"Join "
 "Totalizator\" button."
 msgstr ""
 
-#: index.php:2640
+#: index.php:2677
 msgid "Enter your nickname and click the \"Join Totalizator\" button again."
 msgstr ""
 
-#: index.php:2642
+#: index.php:2679
 msgid "Voila! You have become a participant."
 msgstr ""
 
-#: index.php:2644
+#: index.php:2681
 msgid "What is a nickname for?"
 msgstr ""
 
-#: index.php:2645
+#: index.php:2682
 msgid ""
 "Just for fun. If you play with friends, colleagues or acquaintances, no one "
 "will know who is hiding behind a nickname.\n"
@@ -713,161 +721,161 @@ msgid ""
 "\t\t\tAt the end of the totalizator, real names will be revealed."
 msgstr ""
 
-#: index.php:2649
+#: index.php:2686
 msgid "Can I change my nickname?"
 msgstr ""
 
-#: index.php:2650
+#: index.php:2687
 msgid ""
 "Yes. You can do this before the start of the totalizator by clicking on your "
 "current nickname in the header of the site."
 msgstr ""
 
-#: index.php:2652
+#: index.php:2689
 msgid "How do I place a bet?"
 msgstr ""
 
-#: index.php:2654
+#: index.php:2691
 msgid "On the main page, select an active totalizator."
 msgstr ""
 
-#: index.php:2655
+#: index.php:2692
 msgid "Click \"My Bets\" in the top menu."
 msgstr ""
 
-#: index.php:2656
+#: index.php:2693
 msgid ""
 "Select a match by clicking on the appropriate line of the table and place "
 "your bet."
 msgstr ""
 
-#: index.php:2659
+#: index.php:2696
 msgid "How do I change my bet?"
 msgstr ""
 
-#: index.php:2660
+#: index.php:2697
 msgid ""
 "Exactly as described above. The bet can only be changed before the start of "
 "the match."
 msgstr ""
 
-#: index.php:2662
+#: index.php:2699
 msgid "What if I have not placed a bet before the start of the match?"
 msgstr ""
 
-#: index.php:2663
+#: index.php:2700
 msgid ""
 "In this case, you will get a fixed number of penalty points (depending on "
 "the totalizator settings, usually 26)."
 msgstr ""
 
-#: index.php:2665
+#: index.php:2702
 msgid "How are penalty points calculated?"
 msgstr ""
 
-#: index.php:2666
+#: index.php:2703
 msgid "The following formula is used for the calculation:"
 msgstr ""
 
-#: index.php:2668
+#: index.php:2705
 msgid "penalty points"
 msgstr ""
 
-#: index.php:2669
+#: index.php:2706
 msgid ""
 "foresight factor. N = 0, if you guessed the score. N = 10, if you have not "
 "guessed the score, but guessed the side. N = 20, if you could not even guess "
 "the side"
 msgstr ""
 
-#: index.php:2670
+#: index.php:2707
 msgid "real score"
 msgstr ""
 
-#: index.php:2671
+#: index.php:2708
 msgid "your bet"
 msgstr ""
 
-#: index.php:2672
+#: index.php:2709
 msgid ""
 "Example #1. Your bet for match Antarctica: Arctic - 1:2. Final score is - "
 "3:0. In this case you get 24 penalty points: P = 20 + |3-1| + |0-2| = 24."
 msgstr ""
 
-#: index.php:2673
+#: index.php:2710
 msgid ""
 "Example #2. Your bet for match Antarctica: Arctic - 2:0. Final score is - "
 "1:1. In this case you get 22 penalty points: P = 20 + |1-2| + |1-0| = 22."
 msgstr ""
 
-#: index.php:2674
+#: index.php:2711
 msgid ""
 "Example #3. Your bet for match Antarctica: Arctic - 1:0. Final score is - "
 "2:0. In this case you get 11 penalty points: P = 10 + |2-1| + |0-0| = 11."
 msgstr ""
 
-#: index.php:2676
+#: index.php:2713
 msgid "How can I see the bets of other participants?"
 msgstr ""
 
-#: index.php:2677
+#: index.php:2714
 msgid "There are 2 ways to do that:"
 msgstr ""
 
-#: index.php:2679
+#: index.php:2716
 msgid ""
 "Go to the desired totalizator and click \"Participants\" in the top menu. A "
 "list of participants will open. Click on any participant to view their bets "
 "on all matches."
 msgstr ""
 
-#: index.php:2680
+#: index.php:2717
 msgid ""
 "Go to the desired totalizator and click \"Games\" in the top menu. A list of "
 "matches will open. Click on any match to see the bets of all participants on "
 "it."
 msgstr ""
 
-#: index.php:2682
+#: index.php:2719
 msgid ""
 "Remember, you can see bets of other participants for completed matches only."
 msgstr ""
 
-#: index.php:2684
+#: index.php:2721
 msgid ""
 "Hmmm. The start of the match on the pages \"My Bets\" and \"Games\" is "
 "incorrect. Why?"
 msgstr ""
 
-#: index.php:2685
+#: index.php:2722
 msgid "Make sure you have the correct time zone selected on the Settings page."
 msgstr ""
 
-#: index.php:2687
+#: index.php:2724
 msgid "Can I refuse to participate in the totalizator?"
 msgstr ""
 
-#: index.php:2688
+#: index.php:2725
 msgid ""
 "Yes, but only before it starts. In the header of the site, click \"Quit "
 "Totalizator.\"."
 msgstr ""
 
-#: index.php:2690
+#: index.php:2727
 msgid "Can I join the totalizator if it has already started?"
 msgstr ""
 
-#: index.php:2691
+#: index.php:2728
 msgid ""
 "Yes, but for each missed match you will receive a fixed number of penalty "
 "points (depending on the totalizator settings, usually 26)."
 msgstr ""
 
-#: index.php:2693
+#: index.php:2730
 msgid "Can I create my own totalizator?"
 msgstr ""
 
-#: index.php:2694
+#: index.php:2731
 msgid ""
 "Yes, you can. Click the button \"Create new totalizator\" on the main page. "
 "Your totalizator will have the \"Private\" status.\n"
@@ -878,48 +886,52 @@ msgid ""
 "create and edit matches."
 msgstr ""
 
-#: index.php:2725
+#: index.php:2762
 msgid "Own Totalizators"
 msgstr ""
 
-#: index.php:2740
+#: index.php:2777
 msgid "Status"
 msgstr ""
 
-#: index.php:2741 index.php:2790
+#: index.php:2778 index.php:2827
 msgid "Deleted"
 msgstr ""
 
-#: index.php:2741 index.php:2800
+#: index.php:2778 index.php:2837
 msgid "Yes"
 msgstr ""
 
-#: index.php:2741 index.php:2800
+#: index.php:2778 index.php:2837
 msgid "No"
 msgstr ""
 
-#: index.php:2742 index.php:2749 index.php:2791 index.php:2818
+#: index.php:2779 index.php:2786 index.php:2828 index.php:2855
 msgid "Created"
 msgstr ""
 
-#: index.php:2770 index.php:2780 index.php:2807 index.php:2840 index.php:2865
+#: index.php:2807 index.php:2817 index.php:2844 index.php:2877 index.php:2902
 msgid "None"
 msgstr ""
 
-#: index.php:2785
+#: index.php:2822
 msgid "Nicknames"
 msgstr ""
 
-#: index.php:2788 index.php:2815 index.php:2848
+#: index.php:2825 index.php:2852 index.php:2885
 msgid "Totalizator"
 msgstr ""
 
-#: index.php:2812
+#: index.php:2849
 msgid "Bets"
 msgstr ""
 
-#: index.php:2850
+#: index.php:2887
 msgid "My Guess"
+msgstr ""
+
+#: index.php:2948
+msgid "Create private totalizators"
 msgstr ""
 
 #: js/script.js:6

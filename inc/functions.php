@@ -5,6 +5,46 @@ function sync_database () {
 	if ($wpdb->get_var("SHOW TABLES LIKE '".$table_name."'") == $table_name) $version = get_option('version', 0);
 	else $version = 0;
 	if ($version < VERSION) {
+
+		$table_name = $wpdb->prefix."memberships";
+		if($wpdb->get_var("SHOW TABLES LIKE '".$table_name."'") != $table_name) {
+			$sql = "CREATE TABLE ".$table_name." (
+				id int(11) NOT NULL AUTO_INCREMENT,
+				uuid varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+				title longtext COLLATE utf8_unicode_ci,
+				description longtext COLLATE utf8_unicode_ci,
+				features longtext COLLATE utf8_unicode_ci,
+				footer longtext COLLATE utf8_unicode_ci,
+				color varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL,
+				status varchar(31) COLLATE utf8_unicode_ci DEFAULT NULL,
+				options longtext COLLATE utf8_unicode_ci,
+				seq int(11) DEFAULT NULL,
+				deleted int(11) DEFAULT '0',
+				created int(11) DEFAULT NULL,
+				UNIQUE KEY  id (id)
+			);";
+			$wpdb->query($sql);
+		}
+		$table_name = $wpdb->prefix."membership_prices";
+		if($wpdb->get_var("SHOW TABLES LIKE '".$table_name."'") != $table_name) {
+			$sql = "CREATE TABLE ".$table_name." (
+				id int(11) NOT NULL AUTO_INCREMENT,
+				uuid varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+				membership_id int(11) DEFAULT NULL,
+				price float DEFAULT NULL,
+				currency varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL,
+				billing_period varchar(31) COLLATE utf8_unicode_ci DEFAULT NULL,
+				title longtext COLLATE utf8_unicode_ci,
+				description longtext COLLATE utf8_unicode_ci,
+				status varchar(31) COLLATE utf8_unicode_ci DEFAULT NULL,
+				options longtext COLLATE utf8_unicode_ci,
+				seq int(11) DEFAULT NULL,
+				deleted int(11) DEFAULT '0',
+				created int(11) DEFAULT NULL,
+				UNIQUE KEY  id (id)
+			);";
+			$wpdb->query($sql);
+		}
 		$table_name = $wpdb->prefix."options";
 		if($wpdb->get_var("SHOW TABLES LIKE '".$table_name."'") != $table_name) {
 			$sql = "CREATE TABLE ".$table_name." (
@@ -26,6 +66,24 @@ function sync_database () {
 				registered int(11) DEFAULT NULL,
 				created int(11) DEFAULT NULL,
 				valid_period int(11) DEFAULT '7200',
+				UNIQUE KEY  id (id)
+			);";
+			$wpdb->query($sql);
+		}
+		$table_name = $wpdb->prefix."transactions";
+		if($wpdb->get_var("SHOW TABLES LIKE '".$table_name."'") != $table_name) {
+			$sql = "CREATE TABLE ".$table_name." (
+				id int(11) NOT NULL AUTO_INCREMENT,
+				gateway varchar(31) COLLATE utf8_unicode_ci DEFAULT NULL,
+				customer_id varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+				subscription_id varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+				details longtext COLLATE utf8_unicode_ci,
+				type varchar(127) COLLATE utf8_unicode_ci DEFAULT NULL,
+				price float DEFAULT NULL,
+				currency varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL,
+				txn_id varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+				deleted int(11) DEFAULT '0',
+				created int(11) DEFAULT NULL,
 				UNIQUE KEY  id (id)
 			);";
 			$wpdb->query($sql);
@@ -64,10 +122,25 @@ function sync_database () {
 				email_confirmed int(11) DEFAULT '0',
 				email_confirmation_uid varchar(63) COLLATE utf8_unicode_ci DEFAULT NULL,
 				password_reset_uid varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+				membership_id int(11) DEFAULT '0',
+				membership_expires int(11) DEFAULT '0',
+				membership_txn_id int(11) DEFAULT '0',
 				deleted int(11) DEFAULT '0',
 				created int(11) DEFAULT NULL,
 				UNIQUE KEY  id (id)
 			);";
+			$wpdb->query($sql);
+		}
+		if ($wpdb->get_var("SHOW COLUMNS FROM ".$wpdb->prefix."users LIKE 'membership_id'") != 'membership_id') {
+			$sql = "ALTER TABLE ".$wpdb->prefix."users ADD membership_id int(11) DEFAULT '0'";
+			$wpdb->query($sql);
+		}
+		if ($wpdb->get_var("SHOW COLUMNS FROM ".$wpdb->prefix."users LIKE 'membership_expires'") != 'membership_expires') {
+			$sql = "ALTER TABLE ".$wpdb->prefix."users ADD membership_expires int(11) DEFAULT '0'";
+			$wpdb->query($sql);
+		}
+		if ($wpdb->get_var("SHOW COLUMNS FROM ".$wpdb->prefix."users LIKE 'membership_txn_id'") != 'membership_txn_id') {
+			$sql = "ALTER TABLE ".$wpdb->prefix."users ADD membership_txn_id int(11) DEFAULT '0'";
 			$wpdb->query($sql);
 		}
 		$table_name = $wpdb->prefix."user_connections";
@@ -83,6 +156,20 @@ function sync_database () {
 			);";
 			$wpdb->query($sql);
 		}
+		$table_name = $wpdb->prefix."user_customers";
+		if($wpdb->get_var("SHOW TABLES LIKE '".$table_name."'") != $table_name) {
+			$sql = "CREATE TABLE ".$table_name." (
+				id int(11) NOT NULL AUTO_INCREMENT,
+				user_id int(11) DEFAULT NULL,
+				gateway varchar(31) COLLATE utf8_unicode_ci DEFAULT NULL,
+				customer_id varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+				deleted int(11) DEFAULT '0',
+				created int(11) DEFAULT NULL,
+				UNIQUE KEY  id (id)
+			);";
+			$wpdb->query($sql);
+		}
+		  
 		save_option('version', VERSION);
 	}
 }
@@ -229,10 +316,48 @@ function create_login($_email) {
 	$email_parts[0] = str_replace('.', '', $email_parts[0]);
 	return implode('@', $email_parts);
 }
-function url($_path) {
+function url($_path = '') {
 	global $options;
+	$url = rtrim($options['url'], '/').'/';
 	$path = ltrim($_path, '/');
-	return $options['url'].$path;
+	if (PERMALINKS_ENABLE) {
+		$path_parts = explode('?', $_path, 2);
+		if ($path_parts[0] == 'ajax.php') $url .= 'ajax';
+		else if ($path_parts[0] == 'login.php') $url .= 'login';
+		else if ($path_parts[0] == 'register.php') $url .= 'register';
+		else if ($path_parts[0] == 'ipn.php') $url .= 'ipn';
+		else if ($path_parts[0] == 'auth.php') $url .= 'auth';
+		else if ($path_parts[0] == 'auth-vk.php') $url .= 'auth-vk';
+		else $url .= $path_parts[0];
+		if (sizeof($path_parts) == 2) {
+			$params = array();
+			parse_str($path_parts[1], $params);
+			if (array_key_exists('page', $params)) {
+				$url .= strlen($path_parts[0]) > 0 ? '/' : '';
+				if (!empty($params['page'])) $url .= $params['page'].'/';
+				unset($params['page']);
+			}
+			if (!empty($params)) $url .= '?'.http_build_query($params);
+		}
+	} else $url .= $path;
+	return $url;
+}
+function url_parse() {
+	global $options, $__URL, $site_data;
+	if (PERMALINKS_ENABLE) {
+		$script_path = parse_url($options['url'], PHP_URL_PATH);
+		$script_path = trim($script_path, '/');
+		$request_uri = trim($_SERVER['REQUEST_URI'], '/');
+		$request_uri = substr($request_uri, strlen($script_path));
+		$request_uri = trim($request_uri, '/');
+		$request_parts = parse_url($request_uri);
+		$query_params = array('page' => '404');
+		if (array_key_exists('query', $request_parts)) parse_str($request_parts['query'], $query_params);
+		if (array_key_exists('path', $request_parts)) $page = trim($request_parts['path'], '/');
+		if (empty($page)) $query_params['page'] = 'index';
+		else $query_params['page'] = $page;
+	} else $query_params = $_GET;
+	return $query_params;
 }
 function is_hostname($_hostname) {
 	return (preg_match("/^([a-z\d](-*[a-z\d])*)(\.([a-z\d](-*[a-z\d])*))*$/i", $_hostname)
@@ -526,7 +651,8 @@ function email_body($_message) {
 function translatable_parse($_content) {
     global $languages;
     $output = array('default' => '');
-    $json_decoded = json_decode($_content, true);
+	if (is_array($_content)) $json_decoded = $_content;
+    else $json_decoded = json_decode($_content, true);
     if (empty($json_decoded) || !is_array($json_decoded)) {
         $output['default'] = $_content;
     } else {
@@ -537,13 +663,12 @@ function translatable_parse($_content) {
     }
     return $output;
 }
-function translatable_populate($_key) {
+function translatable_populate($_field) {
     global $languages;
-	$field = $_REQUEST[$_key];
     $output = array('default' => '');
-	if (array_key_exists('default', $field)) $output['default'] = $field['default'];
+	if (array_key_exists('default', $_field)) $output['default'] = $_field['default'];
 	foreach ($languages as $key => $value) {
-		if (array_key_exists($key, $field) && !empty($field[$key])) $output[$key] = trim(stripslashes($field[$key]));
+		if (array_key_exists($key, $_field) && !empty($_field[$key])) $output[$key] = trim(stripslashes($_field[$key]));
 	}
 	return $output;
 }
@@ -555,6 +680,9 @@ function session_message() {
 	} else if (array_key_exists('success-message', $_SESSION)) {
 		$result = "global_message_show('success', '".$_SESSION['success-message']."')";
 		unset($_SESSION['success-message']);
+	} else if (array_key_exists('info-message', $_SESSION)) {
+		$result = "global_message_show('info', '".$_SESSION['info-message']."')";
+		unset($_SESSION['info-message']);
 	}
 	return '<script>'.$result.'</script>';
 }
@@ -637,8 +765,8 @@ function admin_dialog_html() {
 			</div>
 		</div>
 		<div class="dialog-buttons">
-			<a class="dialog-button dialog-button-ok" href="#" onclick="return false;"><i class="fas fa-check"></i><label></label></a>
-			<a class="dialog-button dialog-button-cancel" href="#" onclick="return false;"><i class="fas fa-times"></i><label></label></a>
+			<a class="dialog-button dialog-button-ok" href="#" onclick="return false;"><i class="fas fa-check"></i><span></span></a>
+			<a class="dialog-button dialog-button-cancel" href="#" onclick="return false;"><i class="fas fa-times"></i><span></span></a>
 		</div>
 		<div class="dialog-loading"><i class="fas fa-spinner fa-spin"></i></div>
 	</div>
@@ -656,21 +784,27 @@ function image_uploader_html($_input_name, $_upload_id = 0, $_default_image_url 
 	$current_image_url = !empty($upload) ? $upload_dir['baseurl'].'/'.$upload['user_uid'].'/'.$upload['filename'] : '';
 
 	$uid = uuid_v4();
-	return '
-<div class="image-uploader">
+	$content = '
+<div class="image-uploader" data-name="'.esc_html($_input_name).'">
 	<div class="image-uploader-preview"'.(empty($current_image_url) && empty($_default_image_url) ? ' style="display: none;"' : '').'>
 		<span'.(empty($current_image_url) ? ' style="display: none;"' : '').' onclick="image_uploader_delete(this);"><i class="far fa-trash-alt"></i></span>
 		<img src="'.(!empty($current_image_url) ? esc_html($current_image_url) : esc_html($_default_image_url)).'" data-default="'.esc_html($_default_image_url).'" alt="" />
 	</div>
-	<a class="button image-uploader-button" data-label="'.esc_html__('Upload Image', 'fb').'" data-loading="'.esc_html__('Uploading...', 'fb').'" onclick="jQuery(this).next().find(\'input[type=file]\').click(); return false;"><i class="fas fa-upload"></i><label>'.esc_html__('Upload Image', 'fb').'<label></a>
+	<a class="button image-uploader-button" data-label="'.esc_html__('Select Image', 'fb').'" onclick="image_uploader_select(this); return false;"><i class="fas fa-upload"></i><span>'.esc_html__('Select Image', 'fb').'<span></a>';
+/*
+	$content .= '
+	<a class="button image-uploader-button" data-label="'.esc_html__('Upload Image', 'fb').'" data-loading="'.esc_html__('Uploading...', 'fb').'" onclick="jQuery(this).next().find(\'input[type=file]\').click(); return false;"><i class="fas fa-upload"></i><span>'.esc_html__('Upload Image', 'fb').'<span></a>
 	<form class="image-uploader-form" action="'.url('ajax.php').'" method="POST" enctype="multipart/form-data" target="image-uploader-iframe-'.esc_html($uid).'" onsubmit="return image_uploader_start(this);" style="display: none !important; width: 0 !important; height: 0 !important;">
 		<input type="hidden" name="action" value="'.esc_html($_action).'" />
 		<input type="file" name="file" accept="image/*" onchange="jQuery(this).parent().submit();" style="display: none !important; width: 0 !important; height: 0 !important;" />
 		<input type="submit" value="Upload" style="display: none !important; width: 0 !important; height: 0 !important;" />
 	</form>											
-	<iframe data-loading="false" id="image-uploader-iframe-'.esc_html($uid).'" name="image-uploader-iframe-'.esc_html($uid).'" src="about:blank" data-name="'.esc_html($_input_name).'" onload="image_uploader_finish(this);" style="display: none !important; width: 0 !important; height: 0 !important;"></iframe>
+	<iframe data-loading="false" id="image-uploader-iframe-'.esc_html($uid).'" name="image-uploader-iframe-'.esc_html($uid).'" src="about:blank" data-name="'.esc_html($_input_name).'" onload="image_uploader_finish(this);" style="display: none !important; width: 0 !important; height: 0 !important;"></iframe>';
+*/
+	$content .= '
 </div>
 <input type="hidden" name="'.esc_html($_input_name).'" value="'.(!empty($upload) ? esc_html($upload['uuid']) : '').'" />';
+	return $content;
 }
 function content_404() {
 	return '
@@ -748,7 +882,7 @@ function global_info_html($_message) {
 }
 function translatable_input_html($_name, $_value, $_placeholder = '') {
     global $languages;
-    $value = translatable_parse($_value);
+	$value = translatable_parse($_value);
     $output = '
 <div class="input-box">
     <div class="input-element">
@@ -758,7 +892,7 @@ function translatable_input_html($_name, $_value, $_placeholder = '') {
 </div>';
     if (sizeof($languages) > 1) {
         $output .= '
-'.(sizeof($value) > 1 ? '' : '<a href="#" class="button2 button-small" onclick="jQuery(this).hide(); jQuery(this).next().show(); return false;"><i class="fas fa-plus"></i>'.esc_html__('Add translations', 'fb').'</a>').'
+'.(sizeof($value) > 1 ? '' : '<a href="#" class="button-link" onclick="jQuery(this).hide(); jQuery(this).next().show(); return false;"><i class="fas fa-plus"></i>'.esc_html__('Add translations', 'fb').'</a>').'
 <div id="'.esc_html($_name).'-translations"'.(sizeof($value) > 1 ? '' : ' style="display: none;"').'>';
         foreach ($languages as $key => $label) {
             $output .= '
@@ -776,7 +910,7 @@ function translatable_input_html($_name, $_value, $_placeholder = '') {
 }
 function translatable_textarea_html($_name, $_value, $_placeholder = '') {
     global $languages;
-    $value = translatable_parse($_value);
+	$value = translatable_parse($_value);
     $output = '
 <div class="input-box">
     <div class="input-element">
@@ -786,7 +920,7 @@ function translatable_textarea_html($_name, $_value, $_placeholder = '') {
 </div>';
     if (sizeof($languages) > 1) {
         $output .= '
-'.(sizeof($value) > 1 ? '' : '<a href="#" class="button2 button-small" onclick="jQuery(this).hide(); jQuery(this).next().show(); return false;"><i class="fas fa-plus"></i>'.esc_html__('Add translations', 'fb').'</a>').'
+'.(sizeof($value) > 1 ? '' : '<a href="#" class="button-link" onclick="jQuery(this).hide(); jQuery(this).next().show(); return false;"><i class="fas fa-plus"></i>'.esc_html__('Add translations', 'fb').'</a>').'
 <div id="'.esc_html($_name).'-translations"'.(sizeof($value) > 1 ? '' : ' style="display: none;"').'>';
         foreach ($languages as $key => $label) {
             $output .= '
@@ -850,8 +984,8 @@ function do_action($_tag, $_arg = '') {
 }
 function add_menu_page($_menu_title, $_menu_slug, $_query_params = array(), $_role = '', $_function = '', $_options = array(), $_icon = 'fab fa-cog') {
 	global $site_data, $user_details;
-//    if ($_role == 'admin' && (empty($user_details) || $user_details['role'] ) != 'admin') return;
-//    if ($_role == 'user' && empty($user_details)) return;
+    if ($_role == 'admin' && (empty($user_details) || $user_details['role'] ) != 'admin') return;
+    if ($_role == 'user' && empty($user_details)) return;
 	$site_data['menu'][$_menu_slug] = array(
 		'menu-title' => $_menu_title,
 		'role' => $_role,
@@ -863,8 +997,8 @@ function add_menu_page($_menu_title, $_menu_slug, $_query_params = array(), $_ro
 }
 function add_submenu_page($_parent_slug, $_menu_title, $_menu_slug, $_query_params = array(), $_role = '', $_function = '', $_options = array()) {
 	global $site_data, $user_details;
-//    if ($_role == 'admin' && (empty($user_details) || $user_details['role'] ) != 'admin') return;
-//    if ($_role == 'user' && empty($user_details)) return;
+    if ($_role == 'admin' && (empty($user_details) || $user_details['role'] ) != 'admin') return;
+    if ($_role == 'user' && empty($user_details)) return;
 	if (array_key_exists($_parent_slug, $site_data['menu'])) {
 		$site_data['menu'][$_parent_slug]['submenu'][$_menu_slug] = array(
 			'menu-title' => $_menu_title,
@@ -944,6 +1078,67 @@ function upload_dir($_key = null) {
 	if (empty($_key) || !array_key_exists($_key, $dir)) return $dir;
 	return $dir[$_key];
 }
+function create_thumbnail($_src, $_dest, $_width = 160, $_height = 160) {
+	$IMAGE_HANDLERS = [
+		IMAGETYPE_JPEG => [
+			'load' => 'imagecreatefromjpeg',
+			'save' => 'imagejpeg',
+			'quality' => 90
+		],
+		IMAGETYPE_PNG => [
+			'load' => 'imagecreatefrompng',
+			'save' => 'imagepng',
+			'quality' => 2
+		],
+		IMAGETYPE_GIF => [
+			'load' => 'imagecreatefromgif',
+			'save' => 'imagegif',
+			'quality' => 0
+		]
+	];
+    $type = exif_imagetype($_src);
+    if (empty($type) || !array_key_exists($type, $IMAGE_HANDLERS)) {
+        return null;
+    }
+    $image = call_user_func($IMAGE_HANDLERS[$type]['load'], $_src);
+    if (!$image) {
+        return null;
+    }
+    $width = imagesx($image);
+    $height = imagesy($image);
+
+	$scale = min($_width / $width, $_height / $height);
+	if ($scale >= 1) {
+		return null;
+	}
+	$dest_width = intval($width*$scale);
+	$dest_height = intval($height*$scale);
+
+    $thumbnail = imagecreatetruecolor($dest_width, $dest_height);
+    if ($type == IMAGETYPE_GIF || $type == IMAGETYPE_PNG) {
+        imagecolortransparent(
+            $thumbnail,
+            imagecolorallocate($thumbnail, 0, 0, 0)
+        );
+        if ($type == IMAGETYPE_PNG) {
+            imagealphablending($thumbnail, false);
+            imagesavealpha($thumbnail, true);
+        }
+    }
+    imagecopyresampled(
+        $thumbnail,
+        $image,
+        0, 0, 0, 0,
+        $dest_width, $dest_height,
+        $width, $height
+    );
+    return call_user_func(
+        $IMAGE_HANDLERS[$type]['save'],
+        $thumbnail,
+        $_dest,
+        $IMAGE_HANDLERS[$type]['quality']
+    );
+}
 function get_filename($_path, $_filename) {
 	$filename = preg_replace('/[^a-zA-Z0-9\s\-\.\_\(\)]/', ' ', $_filename);
 	$filename = preg_replace('/(\s\s)+/', ' ', $filename);
@@ -1007,5 +1202,9 @@ function random_string($_length = 16) {
 		$string .= $symbols[rand(0, strlen($symbols)-1)];
 	}
 	return $string;
+}
+function is_payment_enabled() {
+	if (MEMBERSHIP_ENABLE) return true;
+	return false;
 }
 ?>

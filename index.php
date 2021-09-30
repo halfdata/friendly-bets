@@ -9,11 +9,16 @@ header("Expires: 0");
 
 do_action('admin_init');
 do_action('admin_menu');
-$page = array('slug' => 'index');
-if (array_key_exists('page', $_REQUEST)) $p = $_REQUEST['page'];
+
+$page = array('slug' => '');
+if (array_key_exists('page', $__URL)) $p = $__URL['page'];
 else $p = 'index';
 foreach ($site_data['menu'] as $slug => $item) {
-	if (array_key_exists('submenu', $item)) {
+	if ($p == $slug) {
+		$page = $item;
+		$page['slug'] = $slug;
+		break;
+	} else if (array_key_exists('submenu', $item)) {
 		$found = false;
 		foreach ($item['submenu'] as $submenu_slug => $submenu_item) {
 			if ($p == $submenu_slug) {
@@ -25,35 +30,39 @@ foreach ($site_data['menu'] as $slug => $item) {
 			}
 		}
 		if ($found) break;
-	} else if ($p == $slug) {
-		$page = $item;
-		$page['slug'] = $slug;
-		break;
 	}
 }
-
-if (empty($user_details)) {
-	if ($page['role'] != '') {
-		header("Location: ".url('login.php?redirect='.urlencode('//'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'])));
-		exit;
-	}
-} else {
-	if ($page['role'] == 'admin' && $user_details['role'] != 'admin') {
-		$_SESSION['error-message'] = esc_html__('You do not have permissions to access this area.', 'fb');
-		header("Location: ".url(''));
-		exit;
-	}
-}
-if ($page['role'] == 'admin' && (empty($user_details) || $user_details['role'] ) != 'admin') return;
-if ($page['role'] == 'user' && empty($user_details)) return;
-
 $template_options = array(
-    'title' => $options['title']
+	'title' => $options['title']
 );
-
-$page_data = array();
-if (!empty($page['function'])) {
-    $page_data = call_user_func_array($page['function'], array());
+if (!empty($page['slug'])) {
+	if (empty($user_details)) {
+		if ($page['role'] != '') {
+			header("Location: ".url('login.php?redirect='.urlencode('//'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'])));
+			exit;
+		}
+	} else {
+		if ($page['role'] == 'admin' && $user_details['role'] != 'admin') {
+			$_SESSION['error-message'] = esc_html__('You do not have permissions to access this area.', 'fb');
+			header("Location: ".url(''));
+			exit;
+		}
+	}
+	if ($page['role'] == 'admin' && (empty($user_details) || $user_details['role'] ) != 'admin') {
+		http_response_code(404);
+		$page_data = array('title' => '404', 'content' => content_404());
+	} else if ($page['role'] == 'user' && empty($user_details)) {
+		http_response_code(404);
+		$page_data = array('title' => '404', 'content' => content_404());
+	} else {
+		$page_data = array();
+		if (!empty($page['function'])) {
+			$page_data = call_user_func_array($page['function'], array());
+		} else {
+			http_response_code(404);
+			$page_data = array('title' => '404', 'content' => content_404());
+		}
+	}
 } else {
 	http_response_code(404);
 	$page_data = array('title' => '404', 'content' => content_404());

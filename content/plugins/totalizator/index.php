@@ -1,6 +1,6 @@
 <?php
 if (!defined('INTEGRITY')) exit;
-define('T_VERSION', 2.00);
+define('T_VERSION', 2.01);
 
 register_activation_hook(array("t_class", "install"));
 
@@ -8,9 +8,13 @@ class t_class {
 	var $campaign_details = null;
 	var $gametypes = array();
 	var $default_campaign_options = array();
+	var $default_membership_options = array(
+		'create-private-totalizator' => 'off'
+	);
+	var $membership_options = array();
 
 	function __construct() {
-		global $options, $language;
+		global $options, $language, $user_details, $wpdb;
 		load_translation('t', $language, dirname(__FILE__).'/languages/');
 		$this->gametypes = array(
 			'group-a' => esc_html__('Group A', 't'),
@@ -33,6 +37,15 @@ class t_class {
 			'guessing-disclosure-date' => time()
 		);
 		
+		if (MEMBERSHIP_ENABLE && !empty($user_details)) {
+			$this->membership_options = $this->default_membership_options;
+			$mo = $wpdb->get_row("SELECT * FROM ".$wpdb->prefix."t_membership_options WHERE membership_id = '".esc_sql($user_details['membership_id'])."'", ARRAY_A);
+			if (!empty($mo)) {
+				$membership_options = json_decode($mo['options'], true);
+				if (!empty($membership_options)) $this->membership_options = array_merge($this->default_membership_options, $membership_options);
+			}
+		}
+
 		if (is_admin()) {
 			add_action('admin_enqueue_scripts', array(&$this, 'admin_enqueue_scripts'));
 			add_action('admin_menu', array(&$this, 'admin_menu'));
@@ -51,6 +64,9 @@ class t_class {
 			add_action('ajax-totalizator-bet-set', array(&$this, "bet_set"));
 			add_action('ajax-totalizator-guessing-set', array(&$this, "guessing_set"));
 			add_action('ajax-totalizator-guessing-participants-save', array(&$this, "guessing_participants_save"));
+			add_filter('membership-options-html', array(&$this, 'membership_options_html'), 10, 2);
+			add_filter('membership-options-check', array(&$this, 'membership_options_check'), 10, 1);
+			add_action('membership-options-save', array(&$this, 'membership_options_save'));
 		} else {
 		}
 	}
@@ -145,10 +161,19 @@ class t_class {
 				);";
 				$wpdb->query($sql);
 			}
+			$table_name = $wpdb->prefix."t_membership_options";
+			if($wpdb->get_var("SHOW TABLES LIKE '".$table_name."'") != $table_name) {
+				$sql = "CREATE TABLE ".$table_name." (
+					id int(11) NOT NULL AUTO_INCREMENT,
+					membership_id int(11) DEFAULT NULL,
+					options longtext COLLATE utf8_unicode_ci,
+					UNIQUE KEY  id (id)
+				);";
+				$wpdb->query($sql);
+			}
 			save_option('t-version', T_VERSION);
 		}
 	}
-
 
 	function admin_head() {
 		global $wpdb;
@@ -453,7 +478,6 @@ class t_class {
 			<div class="table-pageswitcher">'.$switcher.'</div>
 			<div class="table-buttons"><a href="'.esc_html(url('?page=add-campaign')).'" class="button button-small"><i class="fas fa-plus"></i><span>'.esc_html__('Create New Totalizator', 't').'</span></a></div>
 		</div>';
-
 			foreach ($rows as $row) {
 				$logo = $wpdb->get_row("SELECT t1.*, t2.uuid AS user_uid FROM ".$wpdb->prefix."uploads t1 
 					JOIN ".$wpdb->prefix."users t2 ON t2.id = t1.user_id
@@ -528,7 +552,7 @@ class t_class {
 	function campaign_delete() {
 		global $wpdb, $options, $user_details;
 		if (empty($user_details)) {
-			$return_data = array('status' => 'WARNING', 'message' => esc_html__('Oops. Please enter your account to perform this action.', 't'));
+			$return_data = array('status' => 'WARNING', 'message' => esc_html__('Please enter your account to perform this action.', 't'));
 			echo json_encode($return_data);
 			exit;
 		}
@@ -558,7 +582,7 @@ class t_class {
 	function campaign_status_toggle() {
 		global $wpdb, $options, $user_details;
 		if (empty($user_details)) {
-			$return_data = array('status' => 'WARNING', 'message' => esc_html__('Oops. Please enter your account to perform this action.', 't'));
+			$return_data = array('status' => 'WARNING', 'message' => esc_html__('Please enter your account to perform this action.', 't'));
 			echo json_encode($return_data);
 			exit;
 		}
@@ -610,6 +634,12 @@ class t_class {
 			header("Location: ".url(''));
 			exit;
 		}
+		if (MEMBERSHIP_ENABLE && $user_details['role'] != 'admin' && $this->membership_options['create-private-totalizator'] != 'on') {
+			$_SESSION['info-message'] = esc_html__('Please upgrade your account to create new totalizator.', 't');
+			header("Location: ".url(''));
+			exit;
+		}
+
 		$campaign = null;
 		if (array_key_exists('id', $_GET)) {
 			$campaign_uid = preg_replace('/[^a-zA-Z0-9-]/', '', trim(stripslashes($_GET['id'])));
@@ -807,10 +837,17 @@ class t_class {
 	function campaign_save() {
 		global $wpdb, $options, $user_details, $gmt_offset;
 		if (empty($user_details)) {
-			$return_data = array('status' => 'WARNING', 'message' => esc_html__('Oops. Please enter your account to perform this action.', 't'));
+			$return_data = array('status' => 'WARNING', 'message' => esc_html__('Please enter your account to perform this action.', 't'));
 			echo json_encode($return_data);
 			exit;
 		}
+
+		if (MEMBERSHIP_ENABLE && $user_details['role'] != 'admin' && $this->membership_options['create-private-totalizator'] != 'on') {
+			$return_data = array('status' => 'WARNING', 'message' => esc_html__('Please upgrade your account to save totalizator details.', 't'));
+			echo json_encode($return_data);
+			exit;
+		}
+
 		$mandatory_fields = array('id', 'title', 'description', 'logo', 'begin-date', 'end-date', 'nobet-penalty', 'type', 'guessing-disclosure-date');
 		$fields = array(
 			'id' => '',
@@ -828,7 +865,7 @@ class t_class {
 		);
 		foreach (array_merge($fields, $tr_fields) as $key => $value) {
 			if (array_key_exists($key, $_REQUEST)) {
-				if (array_key_exists($key, $tr_fields)) $tr_fields[$key] = translatable_populate($key);
+				if (array_key_exists($key, $tr_fields)) $tr_fields[$key] = translatable_populate($_REQUEST[$key]);
 				else $fields[$key] = trim(stripslashes($_REQUEST[$key]));
 			} else {
 				if (in_array($key, $mandatory_fields)) {
@@ -1007,7 +1044,7 @@ class t_class {
 	function campaign_join() {
 		global $wpdb, $options, $user_details, $gmt_offset;
 		if (empty($user_details)) {
-			$return_data = array('status' => 'WARNING', 'message' => esc_html__('Oops. Please enter your account to perform this action.', 't'));
+			$return_data = array('status' => 'WARNING', 'message' => esc_html__('Please enter your account to perform this action.', 't'));
 			echo json_encode($return_data);
 			exit;
 		}
@@ -1094,7 +1131,7 @@ class t_class {
 	function campaign_quit() {
 		global $wpdb, $options, $user_details, $gmt_offset;
 		if (empty($user_details)) {
-			$return_data = array('status' => 'WARNING', 'message' => esc_html__('Oops. Please enter your account to perform this action.', 't'));
+			$return_data = array('status' => 'WARNING', 'message' => esc_html__('Please enter your account to perform this action.', 't'));
 			echo json_encode($return_data);
 			exit;
 		}
@@ -1425,7 +1462,7 @@ class t_class {
 	function game_save() {
 		global $wpdb, $options, $user_details, $gmt_offset, $language;
 		if (empty($user_details)) {
-			$return_data = array('status' => 'WARNING', 'message' => esc_html__('Oops. Please enter your account to perform this action.', 't'));
+			$return_data = array('status' => 'WARNING', 'message' => esc_html__('Please enter your account to perform this action.', 't'));
 			echo json_encode($return_data);
 			exit;
 		}
@@ -1627,7 +1664,7 @@ class t_class {
 	function game_delete() {
 		global $wpdb, $options, $user_details, $gmt_offset;
 		if (empty($user_details)) {
-			$return_data = array('status' => 'WARNING', 'message' => esc_html__('Oops. Please enter your account to perform this action.', 't'));
+			$return_data = array('status' => 'WARNING', 'message' => esc_html__('Please enter your account to perform this action.', 't'));
 			echo json_encode($return_data);
 			exit;
 		}
@@ -1754,7 +1791,7 @@ class t_class {
 	function participant_delete() {
 		global $wpdb, $options, $user_details, $gmt_offset;
 		if (empty($user_details)) {
-			$return_data = array('status' => 'WARNING', 'message' => esc_html__('Oops. Please enter your account to perform this action.', 't'));
+			$return_data = array('status' => 'WARNING', 'message' => esc_html__('Please enter your account to perform this action.', 't'));
 			echo json_encode($return_data);
 			exit;
 		}
@@ -2052,7 +2089,7 @@ class t_class {
 		global $wpdb, $options, $user_details;
 
 		if (empty($user_details)) {
-			$return_data = array('status' => 'WARNING', 'message' => esc_html__('Oops. Please enter your account to perform this action.', 't'));
+			$return_data = array('status' => 'WARNING', 'message' => esc_html__('Please enter your account to perform this action.', 't'));
 			echo json_encode($return_data);
 			exit;
 		}
@@ -2888,7 +2925,52 @@ class t_class {
 
 		$wpdb->query("DELETE t1 FROM ".$wpdb->prefix."t_campaigns t1
 			WHERE t1.owner_id = '".esc_sql($user_details['id'])."'");
+	}
 
+	function membership_options_html($_content, $_membership_id) {
+		global $wpdb;
+		$membership_options = $this->default_membership_options;
+		if ($_membership_id !== null) {
+			$mo = $wpdb->get_row("SELECT * FROM ".$wpdb->prefix."t_membership_options WHERE membership_id = '".esc_sql($_membership_id)."'", ARRAY_A);
+			if (empty($mo)) $membership_options = $this->default_membership_options;
+			else {
+				$membership_options = json_decode($mo['options'], true);
+				if (!empty($membership_options)) $membership_options = array_merge($this->default_membership_options, $membership_options);
+				else $membership_options = $this->default_membership_options;
+			}
+		}
+		$output = '
+		<div class="totalizator-membership-options-options">
+			<div class="input-box">
+				<div class="checkbox-toggle-container">
+					<input class="checkbox-toggle" type="checkbox" value="on" id="totalizator-create-private-totalizator" name="totalizator-create-private-totalizator"'.($membership_options['create-private-totalizator'] == 'on' ? ' checked="checked"' : '').'>
+					<label for="totalizator-create-private-totalizator"></label>
+					<span>'.esc_html__('Create private totalizators', 't').'</span>
+				</div>
+			</div>
+		</div>';
+		return $_content.$output;
+	}
+
+	function membership_options_check($_errors) {
+		return $_errors;
+	}
+
+	function membership_options_save($_membership_id) {
+		global $wpdb;
+		$mo = $wpdb->get_row("SELECT * FROM ".$wpdb->prefix."t_membership_options WHERE membership_id = '".esc_sql($_membership_id)."'", ARRAY_A);
+		if (!empty($mo)) {
+			$membership_options = json_decode($mo['options'], true);
+			if (!empty($membership_options)) $membership_options = array_merge($this->default_membership_options, $membership_options);
+			else $membership_options = $this->default_membership_options;
+		} else $membership_options = $this->default_membership_options;
+		if (array_key_exists('options', $_REQUEST) && array_key_exists('totalizator-create-private-totalizator', $_REQUEST['options'])) $membership_options['create-private-totalizator'] = 'on';
+		else $membership_options['create-private-totalizator'] = 'off';
+		if (!empty($mo)) {
+			$wpdb->query("UPDATE ".$wpdb->prefix."t_membership_options SET options = '".esc_sql(json_encode($membership_options))."' WHERE membership_id = '".esc_sql($mo['membership_id'])."'");
+		} else {
+			$wpdb->query("INSERT INTO ".$wpdb->prefix."t_membership_options (membership_id, options) VALUES ('".esc_sql($_membership_id)."', '".esc_sql(json_encode($membership_options))."')");
+		}
 	}
 }
 $t = new t_class();

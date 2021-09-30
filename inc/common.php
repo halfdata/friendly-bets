@@ -1,11 +1,14 @@
 <?php
 session_start();
-//error_reporting(-1);
-error_reporting(0);
+error_reporting(-1);
+//error_reporting(0);
 define('INTEGRITY', true);
-define('VERSION', 1);
+define('VERSION', 1.03);
 define('RECORDS_PER_PAGE', 50);
+define('MEMBERSHIP_ENABLE', false);
+define('PERMALINKS_ENABLE', false);
 define('MAX_USER_IMAGE_SIZE', 256*1024);
+define('ABSPATH', dirname(dirname(__FILE__)));
 
 include_once(dirname(__FILE__).'/php-po-parser/init.php');
 
@@ -40,6 +43,11 @@ $default_options = array(
 	'smtp-password' => '',
 	'smtp-from-name' => esc_html__('Friendly Bets', 'fb'),
 	'smtp-from-email' => 'noreply@'.str_replace("www.", "", $_SERVER["SERVER_NAME"]),
+	'stripe-enable' => 'off',
+	'stripe-public-key' => '',
+	'stripe-secret-key' => '',
+	'stripe-webhook-secret' => '',
+	'stripe-uuid' => uuid_v4(),
 	'google-enable' => 'off',
 	'google-client-id' => '',
 	'google-client-secret' => '',
@@ -48,7 +56,8 @@ $default_options = array(
 	'facebook-client-secret' => '',
 	'vk-enable' => 'off',
 	'vk-client-id' => '',
-	'vk-client-secret' => ''
+	'vk-client-secret' => '',
+	'membership-grace-period' => '2'
 );
 $mail_methods = array('mail' => 'PHP Mail()', 'smtp' => 'SMTP');
 $smtp_secures = array('none' => 'None', 'ssl' => 'SSL', 'tls' => 'TLS');
@@ -57,6 +66,7 @@ $folders = array();
 if (!file_exists(dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR.'content'.DIRECTORY_SEPARATOR.'plugins')) mkdir(dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR.'content'.DIRECTORY_SEPARATOR.'plugins', 0777, true);
 if (!file_exists(dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR.'content'.DIRECTORY_SEPARATOR.'data')) mkdir(dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR.'content'.DIRECTORY_SEPARATOR.'data', 0777, true);
 if (!file_exists(dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR.'content'.DIRECTORY_SEPARATOR.'data'.DIRECTORY_SEPARATOR.'temp')) mkdir(dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR.'content'.DIRECTORY_SEPARATOR.'data'.DIRECTORY_SEPARATOR.'temp', 0777, true);
+
 
 if (!is_writable(dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR.'content'.DIRECTORY_SEPARATOR.'plugins')) {
 	$folders[] = dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR.'content'.DIRECTORY_SEPARATOR.'plugins';
@@ -130,6 +140,12 @@ if (array_key_exists('fb-auth', $_COOKIE)) {
 		$wpdb->query("UPDATE ".$wpdb->prefix."sessions SET registered = '".esc_sql(time())."', ip = '".esc_sql($_SERVER['REMOTE_ADDR'])."' WHERE session_id = '".esc_sql($session_id)."'");
 		$user_details = $wpdb->get_row("SELECT * FROM ".$wpdb->prefix."users WHERE id = '".esc_sql($session_details['user_id'])."' AND deleted != '1'", ARRAY_A);
 		if (!empty($user_details)) {
+			if (MEMBERSHIP_ENABLE) {
+				if ($user_details['membership_id'] > 0 && $user_details['membership_expires'] > 0 && $user_details['membership_expires'] < time()) {
+					$user_details['membership_id'] = 0;
+					$wpdb->query("UPDATE ".$wpdb->prefix."users SET membership_id = '0', membership_txn_id = '0' WHERE id = '".esc_sql($user_details['id'])."'");
+				}
+			}
 			if (array_key_exists('fb-auth-admin', $_COOKIE)) {
 				$admin_session_id = preg_replace('/[^a-zA-Z0-9-]/', '', $_COOKIE['fb-auth-admin']);
 				$admin_session_details = $wpdb->get_row("SELECT * FROM ".$wpdb->prefix."sessions WHERE session_id = '".esc_sql($admin_session_id)."' AND registered + valid_period > '".esc_sql(time())."'", ARRAY_A);
@@ -161,10 +177,10 @@ if (array_key_exists('fb-auth', $_COOKIE)) {
 								'86400'
 							)");
 						$session_details = $wpdb->get_row("SELECT * FROM ".$wpdb->prefix."sessions WHERE id = '".esc_sql($wpdb->insert_id)."'", ARRAY_A);
-						if (PHP_VERSION_ID < 70300) setcookie('fb-auth', $session_id, time()+3600, '; samesite=lax');
-						else setcookie('fb-auth', $session_id, array('expires' => time()+3600, 'samesite' => 'Lax'));
-						if (PHP_VERSION_ID < 70300) setcookie('fb-auth-admin', $admin_session_id, time()+3600*24*60, '; samesite=lax');
-						else setcookie('fb-auth-admin', $admin_session_id, array('expires' => time()+3600*24*60, 'samesite' => 'Lax'));
+						if (PHP_VERSION_ID < 70300) setcookie('fb-auth', $session_id, time()+3600, parse_url($options['url'], PHP_URL_PATH).'; samesite=lax');
+						else setcookie('fb-auth', $session_id, array('expires' => time()+3600, 'samesite' => 'Lax', 'path' => parse_url($options['url'], PHP_URL_PATH)));
+						if (PHP_VERSION_ID < 70300) setcookie('fb-auth-admin', $admin_session_id, time()+3600*24*60, parse_url($options['url'], PHP_URL_PATH).'; samesite=lax');
+						else setcookie('fb-auth-admin', $admin_session_id, array('expires' => time()+3600*24*60, 'samesite' => 'Lax', 'path' => parse_url($options['url'], PHP_URL_PATH)));
 					}
 				}
 			}
@@ -192,8 +208,8 @@ if (empty($options['language'])) {
 		$hl = preg_replace('/[^a-z]/', '', trim(stripslashes($_GET['hl'])));
 		if (!empty($hl) && array_key_exists($hl, $languages)) {
 			$language = $hl;
-			if (PHP_VERSION_ID < 70300) setcookie('fb-language', $language, time()+3600*24*365, '; samesite=lax');
-			else setcookie('fb-language', $language, array('lifetime' => time()+3600*24*365, 'samesite' => 'Lax'));
+			if (PHP_VERSION_ID < 70300) setcookie('fb-language', $language, time()+3600*24*365, parse_url($options['url'], PHP_URL_PATH).'; samesite=lax');
+			else setcookie('fb-language', $language, array('lifetime' => time()+3600*24*365, 'samesite' => 'Lax', 'path' => parse_url($options['url'], PHP_URL_PATH)));
 		} else if (array_key_exists('fb-language', $_COOKIE) && array_key_exists($_COOKIE['fb-language'], $languages)) {
 			$language = $_COOKIE['fb-language'];
 		}
@@ -203,8 +219,40 @@ if (empty($options['language'])) {
 } else if (array_key_exists($options['language'], $languages)) {
 	$language = $options['language'];
 }
-//$languages = array('en' => 'EN');
 load_translation('fb', $language, dirname(dirname(__FILE__)).'/languages/');
 
+$default_free_membership = array(
+	'title' => esc_html__('Free', 'fb'),
+	'description' => esc_html__('All basic features are available for free account.', 'fb'),
+	'footer' => esc_html__('Free', 'fb'),
+	'features' => array()
+);
+$free_membership = get_options('membership-free', $default_free_membership);
+$membership_billing_periods = array(
+	'day' => array('label' => esc_html__('Daily', 'fb'), 'per-label' => esc_html__('/ day', 'fb')),
+	'week' => array('label' => esc_html__('Weekly', 'fb'), 'per-label' => esc_html__('/ week', 'fb')),
+	'month' => array('label' => esc_html__('Monthly', 'fb'), 'per-label' => esc_html__('/ month', 'fb')),
+	'quarter' => array('label' => esc_html__('Every 3 months', 'fb'), 'per-label' => esc_html__('/ 3 months', 'fb')),
+	'semiannual' => array('label' => esc_html__('Every 6 months', 'fb'), 'per-label' => esc_html__('/ 6 months', 'fb')),
+	'year' => array('label' => esc_html__('Yearly', 'fb'), 'per-label' => esc_html__('/ year', 'fb')),
+	'single' => array('label' => esc_html__('Single payment', 'fb'), 'per-label' => '')
+);
+$membership_price_statuses = array(
+	'new' => esc_html__('New', 'fb'),
+	'active' => esc_html__('Active', 'fb'),
+	'archive' => esc_html__('Archive', 'fb')
+);
+$membership_colors = array('orange', 'yellow', 'green', 'blue', 'purple', 'gray');
+$membership_feature_bullets = array('check', 'plus', 'times', 'minus', 'no');
+$currency_list = array("USD", "AED", "AFN", "ALL", "AMD", "ANG", "AOA", "ARS", "AUD", "AWG", "AZN", "BAM", "BBD", "BDT", "BGN", "BIF", "BMD", "BND", "BOB", "BRL", "BSD", "BWP", "BZD", "CAD", "CDF", "CHF", "CLP", "CNY", "COP", "CRC", "CVE", "CZK", "DJF", "DKK", "DOP", "DZD", "EEK", "EGP", "ETB", "EUR", "FJD", "FKP", "GBP", "GEL", "GIP", "GMD", "GNF", "GTQ", "GYD", "HKD", "HNL", "HRK", "HTG", "HUF", "IDR", "ILS", "INR", "ISK", "JMD", "JPY", "KES", "KGS", "KHR", "KMF", "KRW", "KYD", "KZT", "LAK", "LBP", "LKR", "LRD", "LSL", "LTL", "LVL", "MAD", "MDL", "MGA", "MKD", "MNT", "MOP", "MRO", "MUR", "MVR", "MWK", "MXN", "MYR", "MZN", "NAD", "NGN", "NIO", "NOK", "NPR", "NZD", "PAB", "PEN", "PGK", "PHP", "PKR", "PLN", "PYG", "QAR", "RON", "RSD", "RUB", "RWF", "SAR", "SBD", "SCR", "SEK", "SGD", "SHP", "SLL", "SOS", "SRD", "STD", "SVC", "SZL", "THB", "TJS", "TOP", "TRY", "TTD", "TWD", "TZS", "UAH", "UGX", "UYU", "UZS", "VND", "VUV", "WST", "XAF", "XCD", "XOF", "XPF", "YER", "ZAR", "ZMW");
+$stripe_no_100 = array("JPY");
+
+if (!empty($user_details) && $user_details['role'] == 'admin') {
+	include_once(dirname(__FILE__).'/admin.php');
+}
+if (!empty($user_details)) {
+	include_once(dirname(__FILE__).'/user.php');
+}
 include_once('inc/plugins.php');
+$__URL = url_parse();
 ?>

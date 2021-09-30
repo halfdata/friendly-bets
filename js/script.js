@@ -170,378 +170,23 @@ function vk_disconnect(_object) {
 	});
 	return false;
 }
-function toggle_mail_method(_object) {
-	if (jQuery(_object).val() == "smtp") {
-		jQuery("#mail-method-mail-content").fadeOut(250, function() {
-			jQuery("#mail-method-smtp-content").fadeIn(250);
-		});
-	} else {
-		jQuery("#mail-method-smtp-content").fadeOut(250, function() {
-			jQuery("#mail-method-mail-content").fadeIn(250);
-		});
-	}
-}
-function test_mailing(_object) {
-	if (busy) return;
-	busy = true;
-	jQuery(_object).find("i").attr("class", "fas fa-spin fa-spinner");
-	jQuery("#test-mailing-message").slideUp(200);
-	var form = jQuery(_object).closest(".sender-details");
-	jQuery(form).find(".element-error").fadeOut(300, function(){
-		jQuery(this).remove();
-	});
-	jQuery.ajax({
-		url		:	ajax_url, 
-		data	:	jQuery(".sender-details").find("input, textarea, select").serialize()+"&action=test-mailing",
-		method	:	"post",
-		//dataType:	"json",
-		async	:	true,
-		success	:	function(return_data) {
-			var data;
-			if (typeof return_data == 'object') data = return_data;
-			else {
-				var temp = /<fb-debug>(.*?)<\/fb-debug>/g.exec(return_data);
-				if (temp) return_data = temp[1];
-                data = jQuery.parseJSON(return_data);
-            }
-			if (data.status == "OK") {
-                global_message_show('success', data.message);
-			} else if (data.status == "ERROR") {
-                jQuery("#test-mailing-message").html(data.message);
-                jQuery("#test-mailing-message").slideDown(200);
-			} else if (data.status == "WARNING") {
-                global_message_show('danger', data.message);
-			} else {
-                global_message_show('danger', "Internal Error.");
-			}
-			jQuery(_object).find("i").attr("class", "far fa-envelope");
-			busy = false;
-		},
-		error	:	function(XMLHttpRequest, textStatus, errorThrown) {
-            global_message_show('danger', "Invalid server response: " + textStatus);
-			jQuery(_object).find("i").attr("class", "far fa-envelope");
-			busy = false;
-		}
-	});
-	return false;
-}
-function user_delete(_object) {
-	dialog_open({
-		echo_html:		function() {
-			this.html("<div class='dialog-message'>"+esc_html__("Please confirm that you want to delete the user.", "fb")+"</div>");
-			this.show();
-		},
-		ok_label:		'Delete',
-		ok_function:	function(e){
-			_user_delete(_object);
-			dialog_close();
-		}
-	});
-	return false;
-}
-function _user_delete(_object) {
-	if (busy) return false;
-	busy = true;
-	var user_id = jQuery(_object).attr("data-id");
-	var doing_label = jQuery(_object).attr("data-doing");
-	var do_label = jQuery(_object).html();
-	jQuery(_object).html("<i class='fas fa-spinner fa-spin'></i> "+doing_label);
-	var post_data = {"action" : "user-delete", "user-id" : user_id};
-	jQuery.ajax({
-		url		:	ajax_url, 
-		data	: 	post_data,
-		method	:	"post",
-		dataType:	"json",
-		async	:	true,
-		success	: function(return_data) {
-			try {
-				var data;
-				if (typeof return_data == 'object') data = return_data;
-				else data = jQuery.parseJSON(return_data);
-				var table = jQuery(_object).closest("table");
-				if (data.status == "OK") {
-					jQuery(_object).closest("tr").fadeOut(300, function(){
-						jQuery(_object).closest("tr").remove();
-						if (jQuery(table).find("tr").length <= 2) {
-							jQuery(table).find(".table-empty").fadeIn(300);
-						}
-					});
-					global_message_show("success", data.message);
-				} else if (data.status == "ERROR" || data.status == "WARNING") {
-					global_message_show("danger", data.message);
-				} else {
-					global_message_show("danger", esc_html__("Something went wrong. We got unexpected server response."));
-				}
-			} catch(error) {
-				global_message_show("danger", esc_html__("Something went wrong. We got unexpected server response."));
-			}
-			jQuery(_object).html(do_label);
-			busy = false;
-		},
-		error	: function(XMLHttpRequest, textStatus, errorThrown) {
-			jQuery(_object).html(do_label);
-			global_message_show("danger", esc_html__("Something went wrong. We got unexpected server response."));
-			busy = false;
-		}
-	});
-	return false;
-}
-function user_status_toggle(_object) {
-	if (busy) return false;
-	busy = true;
-	var user_id = jQuery(_object).attr("data-id");
-	var user_status = jQuery(_object).attr("data-status");
-	var doing_label = jQuery(_object).attr("data-doing");
-	var do_label = jQuery(_object).html();
-	jQuery(_object).html("<i class='fas fa-spinner fa-spin'></i> "+doing_label);
-	var post_data = {"action" : "user-status-toggle", "user-id" : user_id, "status" : user_status};
-	jQuery.ajax({
-		url		:	ajax_url, 
-		data	: 	post_data,
-		method	:	"post",
-		dataType:	"json",
-		async	:	true,
-		success	: function(return_data) {
-			jQuery(_object).html(do_label);
-			try {
-				var data;
-				if (typeof return_data == 'object') data = return_data;
-				else data = jQuery.parseJSON(return_data);
-				if (data.status == "OK") {
-					jQuery(_object).html(data.user_action);
-					jQuery(_object).attr("data-status", data.user_status);
-					jQuery(_object).attr("data-doing", data.user_action_doing);
-					if (data.user_status == "active") jQuery(_object).closest("tr").find(".table-badge-status").html("");
-					else jQuery(_object).closest("tr").find(".table-badge-status").html("<span class='badge badge-danger'>"+data.user_status_label+"</span>");
-					global_message_show("success", data.message);
-				} else if (data.status == "ERROR" || data.status == "WARNING") {
-					jQuery(_object).html(do_label);
-					global_message_show("danger", data.message);
-				} else {
-					jQuery(_object).html(do_label);
-					global_message_show("danger", esc_html__("Something went wrong. We got unexpected server response."));
-				}
-			} catch(error) {
-				jQuery(_object).html(do_label);
-				global_message_show("danger", esc_html__("Something went wrong. We got unexpected server response."));
-			}
-			busy = false;
-		},
-		error	: function(XMLHttpRequest, textStatus, errorThrown) {
-			jQuery(_object).html(do_label);
-			global_message_show("danger", esc_html__("Something went wrong. We got unexpected server response."));
-			busy = false;
-		}
-	});
-	return false;
-}
-function users_bulk_delete(_object) {
-	dialog_open({
-		echo_html:		function() {
-			this.html("<div class='dialog-message'>"+esc_html__("Please confirm that you want to delete users.", "fb")+"</div>");
-			this.show();
-		},
-		ok_label:		'Delete',
-		ok_function:	function(e){
-			users_bulk_action(_object);
-			dialog_close();
-		}
-	});
-	return false;
-}
-function users_bulk_action(_object) {
-	if (busy) return false;
-	busy = true;
-	var doing_label = jQuery(_object).attr("data-doing");
-	var do_label = jQuery(_object).html();
-	jQuery(_object).html("<i class='fas fa-spinner fa-spin'></i> "+doing_label);
-	jQuery.ajax({
-		url		:	ajax_url, 
-		data	: 	jQuery(".table").find("input").serialize()+"&action=users-"+jQuery(_object).attr("data-action"),
-		method	:	"post",
-		dataType:	"json",
-		async	:	true,
-		success	: function(return_data) {
-			try {
-				var data;
-				if (typeof return_data == 'object') data = return_data;
-				else data = jQuery.parseJSON(return_data);
-				var table = jQuery(_object).closest("table");
-				if (data.status == "OK") {
-					global_message_show("success", data.message);
-					location.reload();
-				} else if (data.status == "ERROR" || data.status == "WARNING") {
-					global_message_show("danger", data.message);
-				} else {
-					global_message_show("danger", esc_html__("Something went wrong. We got unexpected server response."));
-				}
-			} catch(error) {
-				global_message_show("danger", esc_html__("Something went wrong. We got unexpected server response."));
-			}
-			jQuery(_object).html(do_label);
-			busy = false;
-		},
-		error	: function(XMLHttpRequest, textStatus, errorThrown) {
-			jQuery(_object).html(do_label);
-			global_message_show("danger", esc_html__("Something went wrong. We got unexpected server response."));
-			busy = false;
-		}
-	});
-	return false;
-}
-function session_delete(_object) {
-	dialog_open({
-		echo_html:		function() {
-			this.html("<div class='dialog-message'>"+esc_html__("Please confirm that you want to close this session.", "fb")+"</div>");
-			this.show();
-		},
-		ok_label:		'Close',
-		ok_function:	function(e){
-			_session_delete(_object);
-			dialog_close();
-		}
-	});
-	return false;
-}
-function _session_delete(_object) {
-	if (busy) return false;
-	busy = true;
-	var session_id = jQuery(_object).attr("data-id");
-	var doing_label = jQuery(_object).attr("data-doing");
-	var do_label = jQuery(_object).html();
-	jQuery(_object).html("<i class='fas fa-spinner fa-spin'></i> "+doing_label);
-	var post_data = {"action" : "session-delete", "session-id" : session_id};
-	jQuery.ajax({
-		url		:	ajax_url, 
-		data	: 	post_data,
-		method	:	"post",
-		dataType:	"json",
-		async	:	true,
-		success	: function(return_data) {
-			try {
-				var data;
-				if (typeof return_data == 'object') data = return_data;
-				else data = jQuery.parseJSON(return_data);
-				var table = jQuery(_object).closest("table");
-				if (data.status == "OK") {
-					jQuery(_object).closest("tr").fadeOut(300, function(){
-						jQuery(_object).closest("tr").remove();
-						if (jQuery(table).find("tr").length <= 2) {
-							jQuery(table).find(".table-empty").fadeIn(300);
-						}
-					});
-					global_message_show("success", data.message);
-				} else if (data.status == "ERROR" || data.status == "WARNING") {
-					global_message_show("danger", data.message);
-				} else {
-					global_message_show("danger", esc_html__("Something went wrong. We got unexpected server response."));
-				}
-			} catch(error) {
-				global_message_show("danger", esc_html__("Something went wrong. We got unexpected server response."));
-			}
-			jQuery(_object).html(do_label);
-			busy = false;
-		},
-		error	: function(XMLHttpRequest, textStatus, errorThrown) {
-			jQuery(_object).html(do_label);
-			global_message_show("danger", esc_html__("Something went wrong. We got unexpected server response."));
-			busy = false;
-		}
-	});
-	return false;
-}
-function sessions_bulk_delete(_object) {
-	dialog_open({
-		echo_html:		function() {
-			this.html("<div class='dialog-message'>"+esc_html__("Please confirm that you want to close selected sessions.", "fb")+"</div>");
-			this.show();
-		},
-		ok_label:		'Close',
-		ok_function:	function(e){
-			_sessions_bulk_delete(_object);
-			dialog_close();
-		}
-	});
-	return false;
-}
-function _sessions_bulk_delete(_object) {
-	if (busy) return false;
-	busy = true;
-	var doing_label = jQuery(_object).attr("data-doing");
-	var do_label = jQuery(_object).html();
-	jQuery(_object).html("<i class='fas fa-spinner fa-spin'></i> "+doing_label);
-	jQuery.ajax({
-		url		:	ajax_url, 
-		data	: 	jQuery(".table").find("input").serialize()+"&action=sessions-delete",
-		method	:	"post",
-		dataType:	"json",
-		async	:	true,
-		success	: function(return_data) {
-			try {
-				var data;
-				if (typeof return_data == 'object') data = return_data;
-				else data = jQuery.parseJSON(return_data);
-				var table = jQuery(_object).closest("table");
-				if (data.status == "OK") {
-					global_message_show("success", data.message);
-					location.reload();
-				} else if (data.status == "ERROR" || data.status == "WARNING") {
-					global_message_show("danger", data.message);
-				} else {
-					global_message_show("danger", esc_html__("Something went wrong. We got unexpected server response."));
-				}
-			} catch(error) {
-				global_message_show("danger", esc_html__("Something went wrong. We got unexpected server response."));
-			}
-			jQuery(_object).html(do_label);
-			busy = false;
-		},
-		error	: function(XMLHttpRequest, textStatus, errorThrown) {
-			jQuery(_object).html(do_label);
-			global_message_show("danger", esc_html__("Something went wrong. We got unexpected server response."));
-			busy = false;
-		}
-	});
-	return false;
-}
 
 var file_uploading = false;
-function image_uploader_start(_object) {
-	var iframe = jQuery(_object).parent().find("iframe");
-	var button = jQuery(_object).parent().find(".image-uploader-button");
-	jQuery(iframe).attr("data-loading", "true");
-	jQuery(button).find("label").text(jQuery(button).attr("data-loading"));
-	jQuery(button).find("i").attr("class", "fas fa-spinner fa-spin");
-}
-function image_uploader_finish(_object) {
-	if (jQuery(_object).attr("data-loading") != "true") return false;
-	jQuery(_object).attr("data-loading", "false");
-	var button = jQuery(_object).parent().find(".image-uploader-button");
-	jQuery(button).find("label").text(jQuery(button).attr("data-label"));
-	jQuery(button).find("i").attr("class", "fas fa-upload");
-	var return_data = jQuery(_object).contents().find("html").text();
-	try {
-		var data;
-		if (typeof return_data == 'object') data = return_data;
-		else data = jQuery.parseJSON(return_data);
-		if (data.status == "OK") {
-			jQuery(_object).parent().find(".image-uploader-preview img").attr("src", data.url);
+function image_uploader_select(_object) {
+	upload_select(_object, function(){
+		var selected_element = jQuery(".upload-container").find(".upload-element-selected");
+		if (selected_element) {
+			jQuery(_object).parent().find(".image-uploader-preview img").attr("src", jQuery(selected_element).attr("data-thumbnail"));
 			jQuery(_object).parent().find(".image-uploader-preview span").fadeIn(200);
 			jQuery(_object).parent().find(".image-uploader-preview").slideDown(200);
-			jQuery(_object).parent().parent().find("input[name='"+jQuery(_object).attr("data-name")+"']").val(data.file_uid);
-			global_message_show("success", data.message);
-		} else if (data.status == "ERROR") {
-			global_message_show("danger", data.message);
-		} else {
-			global_message_show("danger", esc_html__("Something went wrong. We got unexpected server response."));
+			jQuery(_object).parent().parent().find("input[name='"+jQuery(_object).parent().attr("data-name")+"']").val(jQuery(selected_element).attr("data-id"));
 		}
-	} catch(error) {
-		global_message_show("danger", esc_html__("Something went wrong. We got unexpected server response."));
-	}
+	});
+	return false;
 }
 function image_uploader_delete(_object) {
 	var default_image = jQuery(_object).parent().find("img").attr("data-default");
-	var input_name = jQuery(_object).parent().parent().parent().find("iframe").attr("data-name");
+	var input_name = jQuery(_object).parent().parent().attr("data-name");
 	jQuery(_object).fadeOut(200);
 	jQuery(_object).parent().parent().parent().find("input[name='"+input_name+"']").val("");
 	if (default_image == "") {
@@ -551,6 +196,14 @@ function image_uploader_delete(_object) {
 	}
 }
 
+function memberships_expand_prices(_object) {
+	jQuery(_object).hide();
+	var panel = jQuery(_object).closest(".membership-panel");
+	jQuery(panel).find(".membership-panel-footer-standard-label").hide();
+	jQuery(panel).find(".membership-panel-footer-prices-label").show();
+	jQuery(panel).find(".membership-panel-footer-prices").slideDown(200);
+	return false;
+}
 /* Dialog Popup - begin */
 var dialog_buttons_disable = false;
 function dialog_open(_settings) {
@@ -561,13 +214,19 @@ function dialog_open(_settings) {
 		close_enable:		true,
 		ok_enable:			true,
 		cancel_enable:		true,
+		ok_disabled:		false,
+		cancel_disabled:	false,
 		ok_label:			esc_html__('Yes'),
 		cancel_label:		esc_html__('Cancel'),
 		echo_html:			function() {this.html(esc_html__('Do you really want to continue?')); this.show();},
-		ok_function:		function() {dialog_close();},
-		cancel_function:	function() {dialog_close();},
+		ok_function:		function() {if (!jQuery("#dialog .dialog-button-ok").hasClass("dialog-button-disabled")) dialog_close();},
+		cancel_function:	function() {if (!jQuery("#dialog .dialog-button-cancel").hasClass("dialog-button-disabled")) dialog_close();},
 		html:				function(_html) {jQuery("#dialog .dialog-content-html").html(_html);},
-		show:				function() {jQuery("#dialog .dialog-loading").fadeOut(300);}
+		show:				function() {jQuery("#dialog .dialog-loading").fadeOut(100);},
+		custom_button:		function(_button_html) {
+			jQuery("#dialog").removeClass("dialog-no-buttons");
+			jQuery("#dialog .dialog-buttons").prepend(_button_html);
+		},
 	}
 	var objects = [settings, _settings],
     settings = objects.reduce(function (r, o) {
@@ -588,14 +247,17 @@ function dialog_open(_settings) {
 	var window_width = Math.min(Math.min(Math.max(2*parseInt((jQuery(window).width() - 300)/2, 10), 880), 960), settings.width);
 	jQuery("#dialog").height(window_height);
 	jQuery("#dialog").width(window_width);
-	jQuery("#dialog .dialog-inner").height(window_height);
-	jQuery("#dialog .dialog-content").height(window_height - 104);
 	
 	jQuery("#dialog .dialog-button").off("click");
 	jQuery("#dialog .dialog-button").removeClass("dialog-button-disabled");
 
+	if (settings.ok_enable || settings.cancel_enable) jQuery("#dialog").removeClass("dialog-no-buttons");
+	else jQuery("#dialog").addClass("dialog-no-buttons");
+
 	if (settings.ok_enable) {
-		jQuery("#dialog .dialog-button-ok").find("label").html(settings.ok_label);
+		jQuery("#dialog .dialog-button-ok").find("span").html(settings.ok_label);
+		if (settings.ok_disabled) jQuery("#dialog .dialog-button-ok").addClass("dialog-button-disabled");
+		else jQuery("#dialog .dialog-button-ok").removeClass("dialog-button-disabled");
 		jQuery("#dialog .dialog-button-ok").on("click", function(e){
 			e.preventDefault();
 			if (!dialog_buttons_disable && typeof settings.ok_function == "function") {
@@ -606,7 +268,9 @@ function dialog_open(_settings) {
 	} else jQuery("#dialog .dialog-button-ok").hide();
 	
 	if (settings.cancel_enable) {
-		jQuery("#dialog .dialog-button-cancel").find("label").html(settings.cancel_label);
+		jQuery("#dialog .dialog-button-cancel").find("span").html(settings.cancel_label);
+		if (settings.cancel_disabled) jQuery("#dialog .dialog-button-cancel").addClass("dialog-button-disabled");
+		else jQuery("#dialog .dialog-button-cancel").removeClass("dialog-button-disabled");
 		jQuery("#dialog .dialog-button-cancel").on("click", function(e){
 			e.preventDefault();
 			if (!dialog_buttons_disable && typeof settings.cancel_function == "function") {
@@ -616,12 +280,15 @@ function dialog_open(_settings) {
 		jQuery("#dialog .dialog-button-cancel").show();
 	} else jQuery("#dialog .dialog-button-cancel").hide();
 	
+	jQuery("#dialog .dialog-button-custom").remove();
+
 	jQuery("#dialog-overlay").fadeIn(300);
 	jQuery("#dialog").css({
 		'top': 					'50%',
 		'transform': 			'translate(-50%, -50%) scale(1)',
 		'-webkit-transform': 	'translate(-50%, -50%) scale(1)'
 	});
+	return settings;
 }
 function dialog_close() {
 	jQuery("#dialog-overlay").fadeOut(300);
@@ -690,6 +357,231 @@ function account_delete(_object) {
 			busy = false;
 		}
 	});
+	return false;
+}
+function upload_delete(_object) {
+	dialog_open({
+		echo_html:		function() {
+			this.html("<div class='dialog-message'>"+esc_html__("Please confirm that you want to delete the file.", "fb")+"</div>");
+			this.show();
+		},
+		ok_label:		'Delete',
+		ok_function:	function(e){
+			_upload_delete(_object);
+			dialog_close();
+		}
+	});
+	return false;
+}
+function _upload_delete(_object) {
+	if (busy) return false;
+	busy = true;
+	var upload_id = jQuery(_object).attr("data-id");
+	jQuery(_object).html("<i class='fas fa-spinner fa-spin'></i>");
+	var post_data = {"action" : "upload-delete", "upload-id" : upload_id};
+	jQuery.ajax({
+		url		:	ajax_url, 
+		data	: 	post_data,
+		method	:	"post",
+		dataType:	"json",
+		async	:	true,
+		success	: function(return_data) {
+			try {
+				var data;
+				if (typeof return_data == 'object') data = return_data;
+				else data = jQuery.parseJSON(return_data);
+				var table = jQuery(_object).closest("table");
+				if (data.status == "OK") {
+					jQuery(_object).closest(".upload-element").fadeOut(300, function(){
+						jQuery(_object).closest(".upload-element").remove();
+					});
+					global_message_show("success", data.message);
+				} else if (data.status == "ERROR" || data.status == "WARNING") {
+					global_message_show("danger", data.message);
+				} else {
+					global_message_show("danger", esc_html__("Something went wrong. We got unexpected server response."));
+				}
+			} catch(error) {
+				global_message_show("danger", esc_html__("Something went wrong. We got unexpected server response."));
+			}
+			jQuery(_object).html("<i class='far fa-trash-alt'></i>");
+			busy = false;
+		},
+		error	: function(XMLHttpRequest, textStatus, errorThrown) {
+			jQuery(_object).html("<i class='far fa-trash-alt'></i>");
+			global_message_show("danger", esc_html__("Something went wrong. We got unexpected server response."));
+			busy = false;
+		}
+	});
+	return false;
+}
+function uploads_bulk_delete(_object) {
+	dialog_open({
+		echo_html:		function() {
+			this.html("<div class='dialog-message'>"+esc_html__("Please confirm that you want to delete selected files.", "fb")+"</div>");
+			this.show();
+		},
+		ok_label:		'Delete',
+		ok_function:	function(e){
+			uploads_bulk_action(_object);
+			dialog_close();
+		}
+	});
+	return false;
+}
+function uploads_bulk_action(_object) {
+	if (busy) return false;
+	busy = true;
+	var doing_label = jQuery(_object).attr("data-doing");
+	var do_label = jQuery(_object).html();
+	jQuery(_object).html("<i class='fas fa-spinner fa-spin'></i> "+doing_label);
+	jQuery.ajax({
+		url		:	ajax_url, 
+		data	: 	jQuery(".upload-container").find("input").serialize()+"&action=uploads-"+jQuery(_object).attr("data-action"),
+		method	:	"post",
+		dataType:	"json",
+		async	:	true,
+		success	: function(return_data) {
+			try {
+				var data;
+				if (typeof return_data == 'object') data = return_data;
+				else data = jQuery.parseJSON(return_data);
+				var table = jQuery(_object).closest("table");
+				if (data.status == "OK") {
+					global_message_show("success", data.message);
+					location.reload();
+				} else if (data.status == "ERROR" || data.status == "WARNING") {
+					global_message_show("danger", data.message);
+				} else {
+					global_message_show("danger", esc_html__("Something went wrong. We got unexpected server response."));
+				}
+			} catch(error) {
+				global_message_show("danger", esc_html__("Something went wrong. We got unexpected server response."));
+			}
+			jQuery(_object).html(do_label);
+			busy = false;
+		},
+		error	: function(XMLHttpRequest, textStatus, errorThrown) {
+			jQuery(_object).html(do_label);
+			global_message_show("danger", esc_html__("Something went wrong. We got unexpected server response."));
+			busy = false;
+		}
+	});
+	return false;
+}
+function upload_start(_object) {
+	jQuery("#upload-iframe").attr("data-loading", "true");
+	jQuery(".upload-element-template").clone().prependTo(".upload-container");
+	jQuery(".upload-container .upload-element-template").first().removeClass("upload-element-template").addClass("upload-element-uploading");
+	file_uploading = true;
+}
+function upload_finish(_object) {
+	if (jQuery(_object).attr("data-loading") != "true") return false;
+	jQuery(_object).attr("data-loading", "false");
+	file_uploading = false;
+	var return_data = jQuery(_object).contents().find("html").text();
+	try {
+		var data;
+		if (typeof return_data == 'object') data = return_data;
+		else data = jQuery.parseJSON(return_data);
+		if (data.status == "OK") {
+			jQuery(".upload-element-uploading").find(".upload-element-image img").attr("src", data.thumbnail);
+			jQuery(".upload-element-uploading").attr("data-url", data.url);
+			jQuery(".upload-element-uploading").attr("data-thumbnail", data.thumbnail);
+			jQuery(".upload-element-uploading").attr("data-id", data.file_uid);
+			jQuery(".upload-element-uploading a.upload-preview").attr("href", data.url);
+			jQuery(".upload-element-uploading").find("input[type='checkbox']").attr("id", "upload-"+data.file_uid).val(data.file_uid);
+			jQuery(".upload-element-uploading").find("input[type='checkbox']").next().attr("for", "upload-"+data.file_uid);
+			jQuery(".upload-element-uploading").find(".upload-element-actions a").attr("data-id", data.file_uid);
+			jQuery(".upload-element-uploading").removeClass("upload-element-uploading");
+			global_message_show("success", data.message);
+		} else if (data.status == "ERROR") {
+			jQuery(".upload-element-uploading").remove();
+			global_message_show("danger", data.message);
+		} else {
+			jQuery(".upload-element-uploading").remove();
+			global_message_show("danger", esc_html__("Something went wrong. We got unexpected server response."));
+		}
+		jQuery(".upload-form").find("input[type='file']").val("");
+	} catch(error) {
+		jQuery(".upload-element-uploading").remove();
+		global_message_show("danger", esc_html__("Something went wrong. We got unexpected server response."));
+	}
+}
+function upload_preview(_object) {
+	dialog_open({
+		echo_html:		function() {
+			this.html("<div class='upload-preview-container'><div class='upload-preview-image'><img src='"+jQuery(_object).attr("href")+"' alt=''></div><div class='upload-preview-info'><div class='upload-preview-link-container'><input readonly='readonly' type='text' value='"+jQuery(_object).attr("href")+"' onclick='this.focus();this.select();'><span title='Copy to clipboard' onclick='jQuery(this).parent().find(\"input\").select();document.execCommand(\"copy\");'><i class='far fa-copy'></i></span></div></div></div>");
+			this.show();
+		},
+		width:			1200,
+		height:			1200,
+		title:			'Preview',
+		ok_enable:		false,
+		cancel_enable:	false
+	});
+	return false;
+}
+function upload_select(_object, _selected_handler = null) {
+	dialog_open({
+		echo_html:		function() {
+			var dialog = this;
+			var transaction_id = jQuery(_object).attr("data-id");
+			var post_data = {"action" : "upload-select"};
+			jQuery.ajax({
+				url		:	ajax_url, 
+				data	: 	post_data,
+				method	:	"post",
+				dataType:	"json",
+				async	:	true,
+				success	: function(return_data) {
+					try {
+						var data;
+						if (typeof return_data == 'object') data = return_data;
+						else data = jQuery.parseJSON(return_data);
+						if (data.status == "OK") {
+							dialog.custom_button(data.button_html);
+							dialog.html(data.html);
+							dialog.show();
+						} else if (data.status == "ERROR" || data.status == "WARNING") {
+							dialog_close();
+							global_message_show("danger", data.message);
+						} else {
+							dialog_close();
+							global_message_show("danger", esc_html__("Something went wrong. We got unexpected server response."));
+						}
+					} catch(error) {
+						dialog_close();
+						global_message_show("danger", esc_html__("Something went wrong. We got unexpected server response."));
+					}
+				},
+				error	: function(XMLHttpRequest, textStatus, errorThrown) {
+					dialog_close();
+					global_message_show("danger", esc_html__("Something went wrong. We got unexpected server response."));
+					busy = false;
+				}
+			});
+		},
+		width:			1200,
+		height:			1200,
+		title:			'Select Image',
+		ok_enable:		true,
+		ok_disabled:	true,
+		ok_label:		'Select',
+		cancel_enable:	false,
+		ok_function:	function() {
+			if (!jQuery("#dialog .dialog-button-ok").hasClass("dialog-button-disabled")) {
+				if (_selected_handler) _selected_handler();
+				dialog_close();
+			}
+		}
+	});
+	return false;
+}
+function upload_selected(_object) {
+	jQuery(_object).closest(".upload-container").find(".upload-element-selected").removeClass("upload-element-selected");
+	jQuery(_object).closest(".upload-element").addClass("upload-element-selected");
+	jQuery("#dialog .dialog-button-ok").removeClass("dialog-button-disabled");
 	return false;
 }
 

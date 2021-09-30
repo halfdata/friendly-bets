@@ -1,0 +1,16 @@
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^ajax[\/]*$ ajax.php [NC,L]
+RewriteRule ^login[\/]*$ login.php [NC,L]
+RewriteRule ^register[\/]*$ register.php [NC,L]
+RewriteRule ^ipn[\/]*$ ipn.php [NC,L]
+RewriteRule ^auth[\/]*$ auth.php [NC,L]
+RewriteRule ^auth-vk[\/]*$ auth-vk.php [NC,L]
+
+RewriteBase /friendly-bets/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /friendly-bets/index.php [L]
+</IfModule>
