@@ -9,9 +9,11 @@ define('MEMBERSHIP_ENABLE', false);
 define('PERMALINKS_ENABLE', false);
 define('MAX_USER_IMAGE_SIZE', 256*1024);
 define('ABSPATH', dirname(dirname(__FILE__)));
+define('SALT1', 'BDJHSFVKEUYRFKEJHVDJKHFVKJHFVKSJHFVOIWYPWOIVDJBWDIF');
 
 include_once(dirname(__FILE__).'/php-po-parser/init.php');
 
+$csrf_token = '';
 $language = 'en';
 $translations = array();
 $global_warnings = array();
@@ -196,6 +198,8 @@ $gmt_offset = 0;
 if (!empty($user_details)) {
 	$gmt_offset = floatval(timezone_offset($user_details['timezone']));
 }
+$timestamp = time();
+$csrf_token = $timestamp.'-'.md5($timestamp.SALT1.(!empty($user_details) ? $user_details['uuid'] : ''));
 
 $languages = array('en' => 'English', 'es' => 'Español', 'fr' => 'Français', 'de' => 'Deutsch', 'it' => 'Italiano', 'pt' => 'Português', 'ru' => 'Русский');
 foreach ($languages as $key => $label) {
@@ -210,7 +214,7 @@ if (empty($options['language'])) {
 		if (!empty($hl) && array_key_exists($hl, $languages)) {
 			$language = $hl;
 			if (PHP_VERSION_ID < 70300) setcookie('fb-language', $language, time()+3600*24*365, parse_url($options['url'], PHP_URL_PATH).'; samesite=lax');
-			else setcookie('fb-language', $language, array('lifetime' => time()+3600*24*365, 'samesite' => 'Lax', 'path' => parse_url($options['url'], PHP_URL_PATH)));
+			else setcookie('fb-language', $language, array('expires' => time()+3600*24*365, 'samesite' => 'Lax', 'path' => parse_url($options['url'], PHP_URL_PATH)));
 		} else if (array_key_exists('fb-language', $_COOKIE) && array_key_exists($_COOKIE['fb-language'], $languages)) {
 			$language = $_COOKIE['fb-language'];
 		}

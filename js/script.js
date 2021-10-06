@@ -11,7 +11,7 @@ function save_form(_object) {
 	});
 	jQuery.ajax({
 		url		:	ajax_url, 
-		data	:	jQuery(_object).closest(".form").find("input, textarea, select").serialize(),
+		data	:	jQuery(_object).closest(".form").find("input, textarea, select").serialize()+"&_token="+jQuery("input[name='_token']").val(),
 		method	:	"post",
 		dataType:	"json",
 		async	:	true,
@@ -59,7 +59,8 @@ function google_disconnect(_object) {
 	jQuery(_object).find("i").attr("class", "fas fa-spin fa-spinner");
 	var post_data = {
 		"action"		    : "google-disconnect",
-		"hostname"		    : window.location.hostname
+		"hostname"		    : window.location.hostname,
+		"_token" 			: jQuery("input[name='_token']").val()
 	};
 	jQuery.ajax({
 		url		:	ajax_url, 
@@ -98,7 +99,8 @@ function facebook_disconnect(_object) {
 	jQuery(_object).find("i").attr("class", "fas fa-spin fa-spinner");
 	var post_data = {
 		"action"		    : "facebook-disconnect",
-		"hostname"		    : window.location.hostname
+		"hostname"		    : window.location.hostname,
+		"_token" 			: jQuery("input[name='_token']").val()
 	};
 	jQuery.ajax({
 		url		:	ajax_url, 
@@ -137,7 +139,8 @@ function vk_disconnect(_object) {
 	jQuery(_object).find("i").attr("class", "fas fa-spin fa-spinner");
 	var post_data = {
 		"action"		    : "vk-disconnect",
-		"hostname"		    : window.location.hostname
+		"hostname"		    : window.location.hostname,
+		"_token" 			: jQuery("input[name='_token']").val()
 	};
 	jQuery.ajax({
 		url		:	ajax_url, 
@@ -327,7 +330,7 @@ function account_delete(_object) {
 	jQuery(_object).find("i").attr("class", "fas fa-spin fa-spinner");
 	jQuery.ajax({
 		url		:	ajax_url, 
-		data	:	jQuery("#dialog-remove-account").find("input, textarea, select").serialize(),
+		data	:	jQuery("#dialog-remove-account").find("input, textarea, select").serialize()+"&_token="+jQuery("input[name='_token']").val(),
 		method	:	"post",
 		dataType:	"json",
 		async	:	true,
@@ -378,7 +381,7 @@ function _upload_delete(_object) {
 	busy = true;
 	var upload_id = jQuery(_object).attr("data-id");
 	jQuery(_object).html("<i class='fas fa-spinner fa-spin'></i>");
-	var post_data = {"action" : "upload-delete", "upload-id" : upload_id};
+	var post_data = {"action" : "upload-delete", "upload-id" : upload_id, "_token" : jQuery("input[name='_token']").val()};
 	jQuery.ajax({
 		url		:	ajax_url, 
 		data	: 	post_data,
@@ -437,7 +440,7 @@ function uploads_bulk_action(_object) {
 	jQuery(_object).html("<i class='fas fa-spinner fa-spin'></i> "+doing_label);
 	jQuery.ajax({
 		url		:	ajax_url, 
-		data	: 	jQuery(".upload-container").find("input").serialize()+"&action=uploads-"+jQuery(_object).attr("data-action"),
+		data	: 	jQuery(".upload-container").find("input").serialize()+"&action=uploads-"+jQuery(_object).attr("data-action")+"&_token="+jQuery("input[name='_token']").val(),
 		method	:	"post",
 		dataType:	"json",
 		async	:	true,
@@ -527,7 +530,7 @@ function upload_select(_object, _selected_handler = null) {
 		echo_html:		function() {
 			var dialog = this;
 			var transaction_id = jQuery(_object).attr("data-id");
-			var post_data = {"action" : "upload-select"};
+			var post_data = {"action" : "upload-select", "_token" : jQuery("input[name='_token']").val()};
 			jQuery.ajax({
 				url		:	ajax_url, 
 				data	: 	post_data,

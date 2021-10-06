@@ -75,6 +75,7 @@ echo '
 	<script>var ajax_url = "'.url("ajax.php").'";</script>
 </head>
 <body>
+	<input type="hidden" name="_token" value="'.esc_html($csrf_token).'" />
 	<div class="wrapper">
 		<div class="wrapper-left-column"  style="background-image: url('.(!empty($image) ? esc_html($upload_dir['baseurl'].'/'.$image['user_uid'].'/'.$image['filename']) : url('').'images/default-pattern.png').');"></div>
 		<div class="wrapper-right-column">

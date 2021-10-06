@@ -17,7 +17,8 @@ function register(_object) {
 		"password"	        : jQuery(form).find("[name='password']").val(),
 		"repeat-password"   : jQuery(form).find("[name='repeat-password']").val(),
 		"redirect"	        : jQuery(form).find("[name='redirect']").val(),
-		"hostname"		    : window.location.hostname
+		"hostname"		    : window.location.hostname,
+		"_token" 			: jQuery("input[name='_token']").val()
 	};
 	jQuery.ajax({
 		url		:	ajax_url, 
@@ -69,7 +70,8 @@ function set_password(_object) {
 		"repeat-password"   : jQuery(form).find("[name='repeat-password']").val(),
 		"reset-id"	        : jQuery(form).find("[name='reset-id']").val(),
 		"redirect"	        : jQuery(form).find("[name='redirect']").val(),
-		"hostname"		    : window.location.hostname
+		"hostname"		    : window.location.hostname,
+		"_token" 			: jQuery("input[name='_token']").val()
 	};
 	jQuery.ajax({
 		url		:	ajax_url, 

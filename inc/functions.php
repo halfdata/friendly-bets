@@ -796,6 +796,7 @@ function image_uploader_html($_input_name, $_upload_id = 0, $_default_image_url 
 	<a class="button image-uploader-button" data-label="'.esc_html__('Upload Image', 'fb').'" data-loading="'.esc_html__('Uploading...', 'fb').'" onclick="jQuery(this).next().find(\'input[type=file]\').click(); return false;"><i class="fas fa-upload"></i><span>'.esc_html__('Upload Image', 'fb').'<span></a>
 	<form class="image-uploader-form" action="'.url('ajax.php').'" method="POST" enctype="multipart/form-data" target="image-uploader-iframe-'.esc_html($uid).'" onsubmit="return image_uploader_start(this);" style="display: none !important; width: 0 !important; height: 0 !important;">
 		<input type="hidden" name="action" value="'.esc_html($_action).'" />
+		<input type="hidden" name="_token" value="'.esc_html($csrf_token).'" />
 		<input type="file" name="file" accept="image/*" onchange="jQuery(this).parent().submit();" style="display: none !important; width: 0 !important; height: 0 !important;" />
 		<input type="submit" value="Upload" style="display: none !important; width: 0 !important; height: 0 !important;" />
 	</form>											

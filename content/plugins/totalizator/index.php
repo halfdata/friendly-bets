@@ -476,7 +476,7 @@ class t_class {
 			$content .= '
 		<div class="table-funcbar">
 			<div class="table-pageswitcher">'.$switcher.'</div>
-			<div class="table-buttons"><a href="'.esc_html(url('?page=add-campaign')).'" class="button button-small"><i class="fas fa-plus"></i><span>'.esc_html__('Create New Totalizator', 't').'</span></a></div>
+			'.(!empty($user_details) ? '<div class="table-buttons"><a href="'.esc_html(url('?page=add-campaign')).'" class="button button-small"><i class="fas fa-plus"></i><span>'.esc_html__('Create New Totalizator', 't').'</span></a></div>' : '').'
 		</div>';
 			foreach ($rows as $row) {
 				$logo = $wpdb->get_row("SELECT t1.*, t2.uuid AS user_uid FROM ".$wpdb->prefix."uploads t1 
@@ -535,14 +535,14 @@ class t_class {
 			$content .= '
 			<div class="table-funcbar">
 				<div class="table-pageswitcher">'.$switcher.'</div>
-				<div class="table-buttons"><a href="'.esc_html(url('?page=add-campaign')).'" class="button button-small"><i class="fas fa-plus"></i><span>'.esc_html__('Create New Totalizator', 't').'</span></a></div>
+				'.(!empty($user_details) ? '<div class="table-buttons"><a href="'.esc_html(url('?page=add-campaign')).'" class="button button-small"><i class="fas fa-plus"></i><span>'.esc_html__('Create New Totalizator', 't').'</span></a></div>' : '').'
 			</div>';
 		} else {
 			$content .= '
 			<div class="totalizator-nocampaigns">
 				<div class="totalizator-nocampaigns-box">
 					<p>'.esc_html__('Welcome. There are no available totalizators yet.', 't').'</p>
-					<a href="'.esc_html(url('?page=add-campaign')).'" class="button2"><i class="fas fa-plus"></i><span>'.esc_html__('Create First Totalizator', 't').'</span></a>
+					'.(!empty($user_details) ? '<a href="'.esc_html(url('?page=add-campaign')).'" class="button2"><i class="fas fa-plus"></i><span>'.esc_html__('Create First Totalizator', 't').'</span></a>' : '').'
 				</div>
 			</div>';
 		}

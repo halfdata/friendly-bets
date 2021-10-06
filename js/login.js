@@ -23,7 +23,8 @@ function login(_object) {
 		"email"		        : jQuery(form).find("[name='email']").val(),
 		"password"	        : jQuery(form).find("[name='password']").val(),
 		"redirect"	        : jQuery(form).find("[name='redirect']").val(),
-		"hostname"		    : window.location.hostname
+		"hostname"		    : window.location.hostname,
+		"_token" 			: jQuery("input[name='_token']").val()
 	};
 	jQuery.ajax({
 		url		:	ajax_url, 
@@ -69,7 +70,8 @@ function reset(_object) {
 		"action"		    : "reset-password",
 		"email"		        : jQuery(form).find("[name='email']").val(),
 		"redirect"	        : jQuery(form).find("[name='redirect']").val(),
-		"hostname"		    : window.location.hostname
+		"hostname"		    : window.location.hostname,
+		"_token" 			: jQuery("input[name='_token']").val()
 	};
 	jQuery.ajax({
 		url		:	ajax_url, 

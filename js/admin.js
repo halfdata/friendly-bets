@@ -21,7 +21,7 @@ function test_mailing(_object) {
 	});
 	jQuery.ajax({
 		url		:	ajax_url, 
-		data	:	jQuery(".sender-details").find("input, textarea, select").serialize()+"&action=test-mailing",
+		data	:	jQuery(".sender-details").find("input, textarea, select").serialize()+"&action=test-mailing&_token="+jQuery("input[name='_token']").val(),
 		method	:	"post",
 		//dataType:	"json",
 		async	:	true,
@@ -75,7 +75,7 @@ function _user_delete(_object) {
 	var doing_label = jQuery(_object).attr("data-doing");
 	var do_label = jQuery(_object).html();
 	jQuery(_object).html("<i class='fas fa-spinner fa-spin'></i> "+doing_label);
-	var post_data = {"action" : "user-delete", "user-id" : user_id};
+	var post_data = {"action" : "user-delete", "user-id" : user_id, "_token" : jQuery("input[name='_token']").val()};
 	jQuery.ajax({
 		url		:	ajax_url, 
 		data	: 	post_data,
@@ -123,7 +123,7 @@ function user_status_toggle(_object) {
 	var doing_label = jQuery(_object).attr("data-doing");
 	var do_label = jQuery(_object).html();
 	jQuery(_object).html("<i class='fas fa-spinner fa-spin'></i> "+doing_label);
-	var post_data = {"action" : "user-status-toggle", "user-id" : user_id, "status" : user_status};
+	var post_data = {"action" : "user-status-toggle", "user-id" : user_id, "status" : user_status, "_token" : jQuery("input[name='_token']").val()};
 	jQuery.ajax({
 		url		:	ajax_url, 
 		data	: 	post_data,
@@ -186,7 +186,7 @@ function users_bulk_action(_object) {
 	jQuery(_object).html("<i class='fas fa-spinner fa-spin'></i> "+doing_label);
 	jQuery.ajax({
 		url		:	ajax_url, 
-		data	: 	jQuery(".table").find("input").serialize()+"&action=users-"+jQuery(_object).attr("data-action"),
+		data	: 	jQuery(".table").find("input").serialize()+"&action=users-"+jQuery(_object).attr("data-action")+"&_token="+jQuery("input[name='_token']").val(),
 		method	:	"post",
 		dataType:	"json",
 		async	:	true,
@@ -239,7 +239,7 @@ function _session_delete(_object) {
 	var doing_label = jQuery(_object).attr("data-doing");
 	var do_label = jQuery(_object).html();
 	jQuery(_object).html("<i class='fas fa-spinner fa-spin'></i> "+doing_label);
-	var post_data = {"action" : "session-delete", "session-id" : session_id};
+	var post_data = {"action" : "session-delete", "session-id" : session_id, "_token" : jQuery("input[name='_token']").val()};
 	jQuery.ajax({
 		url		:	ajax_url, 
 		data	: 	post_data,
@@ -301,7 +301,7 @@ function _sessions_bulk_delete(_object) {
 	jQuery(_object).html("<i class='fas fa-spinner fa-spin'></i> "+doing_label);
 	jQuery.ajax({
 		url		:	ajax_url, 
-		data	: 	jQuery(".table").find("input").serialize()+"&action=sessions-delete",
+		data	: 	jQuery(".table").find("input").serialize()+"&action=sessions-delete&_token="+jQuery("input[name='_token']").val(),
 		method	:	"post",
 		dataType:	"json",
 		async	:	true,
@@ -429,7 +429,8 @@ function membership_save(_object) {
 		"footer" 		: {}, 
 		"price-options" : new Array(),
 		"features"		: new Array(),
-		"options"		: {}
+		"options"		: {},
+		"_token" 		: jQuery("input[name='_token']").val()
 	};
 	var i = 0;
 	jQuery(".membership-price").each(function() {
@@ -548,7 +549,8 @@ function membership_free_save(_object) {
 		"description" 	: {}, 
 		"footer" 		: {}, 
 		"features"		: new Array(),
-		"options"		: {}
+		"options"		: {},
+		"_token" 		: jQuery("input[name='_token']").val()
 	};
 	var i = 0;
 	jQuery(".membership-feature").each(function() {
@@ -636,7 +638,8 @@ function memberships_save_list() {
 	global_message_show('info', "Saving...");
 	var post_data = {
 		"action" 		: "memberships-save-list", 
-		"memberships"	: new Array()
+		"memberships"	: new Array(),
+		"_token" 		: jQuery("input[name='_token']").val()
 	};
 	jQuery(".membership-panel").each(function() {
 		post_data["memberships"].push(jQuery(this).attr("data-id"));
@@ -685,7 +688,7 @@ function _membership_delete(_object) {
 	busy = true;
 	var membership_id = jQuery(_object).attr("data-id");
 	jQuery(_object).html("<i class='fas fa-spinner fa-spin'></i>");
-	var post_data = {"action" : "membership-delete", "membership-id" : membership_id};
+	var post_data = {"action" : "membership-delete", "membership-id" : membership_id, "_token" : jQuery("input[name='_token']").val()};
 	jQuery.ajax({
 		url		:	ajax_url, 
 		data	: 	post_data,
@@ -741,7 +744,7 @@ function _membership_archive(_object) {
 	busy = true;
 	var membership_id = jQuery(_object).attr("data-id");
 	jQuery(_object).html("<i class='fas fa-spinner fa-spin'></i>");
-	var post_data = {"action" : "membership-archive", "membership-id" : membership_id};
+	var post_data = {"action" : "membership-archive", "membership-id" : membership_id, "_token" : jQuery("input[name='_token']").val()};
 	jQuery.ajax({
 		url		:	ajax_url, 
 		data	: 	post_data,
@@ -795,7 +798,7 @@ function _membership_activate(_object) {
 	busy = true;
 	var membership_id = jQuery(_object).attr("data-id");
 	jQuery(_object).html("<i class='fas fa-spinner fa-spin'></i>");
-	var post_data = {"action" : "membership-activate", "membership-id" : membership_id};
+	var post_data = {"action" : "membership-activate", "membership-id" : membership_id, "_token" : jQuery("input[name='_token']").val()};
 	jQuery.ajax({
 		url		:	ajax_url, 
 		data	: 	post_data,
@@ -859,7 +862,7 @@ function _transaction_delete(_object) {
 	busy = true;
 	var transaction_id = jQuery(_object).attr("data-id");
 	jQuery(_object).html("<i class='fas fa-spinner fa-spin'></i>");
-	var post_data = {"action" : "transaction-delete", "transaction-id" : transaction_id};
+	var post_data = {"action" : "transaction-delete", "transaction-id" : transaction_id, "_token" : jQuery("input[name='_token']").val()};
 	jQuery.ajax({
 		url		:	ajax_url, 
 		data	: 	post_data,
@@ -921,7 +924,7 @@ function transactions_bulk_action(_object) {
 	jQuery(_object).html("<i class='fas fa-spinner fa-spin'></i> "+doing_label);
 	jQuery.ajax({
 		url		:	ajax_url, 
-		data	: 	jQuery(".table").find("input").serialize()+"&action=transactions-"+jQuery(_object).attr("data-action"),
+		data	: 	jQuery(".table").find("input").serialize()+"&action=transactions-"+jQuery(_object).attr("data-action")+"&_token="+jQuery("input[name='_token']").val(),
 		method	:	"post",
 		dataType:	"json",
 		async	:	true,
@@ -958,7 +961,7 @@ function transaction_details(_object) {
 		echo_html:		function() {
 			var dialog = this;
 			var transaction_id = jQuery(_object).attr("data-id");
-			var post_data = {"action" : "transaction-details", "transaction-id" : transaction_id};
+			var post_data = {"action" : "transaction-details", "transaction-id" : transaction_id, "_token" : jQuery("input[name='_token']").val()};
 			jQuery.ajax({
 				url		:	ajax_url, 
 				data	: 	post_data,

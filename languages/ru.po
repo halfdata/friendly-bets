@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Totalizators\n"
-"POT-Creation-Date: 2021-09-30 10:37+0500\n"
-"PO-Revision-Date: 2021-09-30 10:39+0500\n"
+"POT-Creation-Date: 2021-10-06 19:09+0500\n"
+"PO-Revision-Date: 2021-10-06 19:11+0500\n"
 "Last-Translator: \n"
 "Language-Team: Ivan Churakov\n"
 "Language: ru_RU\n"
@@ -17,107 +17,124 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: content\n"
 
-#: ajax.php:7 inc/admin.php:884
+#: ajax.php:12
+msgid "Invalid token."
+msgstr "Неверный токен."
+
+#: ajax.php:17
+msgid "Token expired. Refresh the page and try again."
+msgstr "Срок действия токена истек. Обновите страницу и попробуйте снова."
+
+#: ajax.php:22 ajax.php:27 ajax.php:32 inc/admin.php:884
 msgid "Invalid request."
 msgstr "Неверный запрос."
 
-#: ajax.php:23 ajax.php:165 inc/admin.php:657 install.php:181
+#: ajax.php:41
+msgid "Unfortunately, registration disbaled."
+msgstr "К сожалению, регистрация невозможна."
+
+#: ajax.php:53 ajax.php:195 inc/admin.php:657 install.php:181
 msgid "This is not a valid email address."
 msgstr "Неверный email адрес."
 
-#: ajax.php:24 ajax.php:166 inc/admin.php:658
+#: ajax.php:54 ajax.php:196 inc/admin.php:658
 msgid "The email address is too long."
 msgstr "Email адрес слишком длинный."
 
-#: ajax.php:28 inc/admin.php:662
+#: ajax.php:58 inc/admin.php:662
 msgid "The email already registered."
 msgstr "Этот email адрес уже зарегистрирован."
 
-#: ajax.php:31 inc/admin.php:649 inc/user.php:391
+#: ajax.php:61 inc/admin.php:649 inc/user.php:391
 msgid "The full name is too short."
 msgstr "Имя слишком короткое."
 
-#: ajax.php:32 inc/admin.php:650 inc/user.php:392
+#: ajax.php:62 inc/admin.php:650 inc/user.php:392
 msgid "The full name is too long."
 msgstr "Имя слишком длинное."
 
-#: ajax.php:34 ajax.php:211 inc/admin.php:653 inc/user.php:396
+#: ajax.php:64 ajax.php:241 inc/admin.php:653 inc/user.php:396
 msgid "The password must be at least 6 characters long."
 msgstr "Пароль должен быть не короче 6 символов."
 
-#: ajax.php:35 ajax.php:212 inc/admin.php:654 inc/user.php:397
+#: ajax.php:65 ajax.php:242 inc/admin.php:654 inc/user.php:397
 msgid "Repeat the password properly."
 msgstr "Неверный повтор пароля."
 
-#: ajax.php:38 inc/admin.php:647 inc/user.php:389
+#: ajax.php:68 inc/admin.php:647 inc/user.php:389
 msgid "Invalid timezone."
 msgstr "Неверный часовой пояс."
 
-#: ajax.php:114 ajax.php:115 ajax.php:119
+#: ajax.php:144 ajax.php:145 ajax.php:149
 msgid "Invalid email or password."
 msgstr "Неверный email или пароль."
 
-#: ajax.php:129 ajax.php:179 ajax.php:206 auth-vk.php:149 auth.php:147
-#: auth.php:363 register.php:14 register.php:40
+#: ajax.php:159 ajax.php:209 ajax.php:236 auth-vk.php:154 auth.php:152
+#: auth.php:373 register.php:14 register.php:40
 msgid "Unfortunately, your account temporarily disbaled."
 msgstr "Ваш аккаунт временно заблокирован."
 
-#: ajax.php:157
+#: ajax.php:187
 msgid "You are successfully logged in."
 msgstr "Вы успешно вошли в свой аккаунт."
 
-#: ajax.php:170
+#: ajax.php:200
 msgid "The email address is not registered."
 msgstr "Email адрес не зарегистрирован."
 
-#: ajax.php:189
+#: ajax.php:219
 msgid "Check your mailbox and follow instructions."
 msgstr "Проверьте свой email и следуйте инструкциям."
 
-#: ajax.php:200 inc/admin.php:258 inc/admin.php:292 register.php:10
+#: ajax.php:230 inc/admin.php:258 inc/admin.php:292 register.php:10
 msgid "User not found."
 msgstr "Пользователь не найден."
 
-#: ajax.php:251 inc/admin.php:245 inc/admin.php:278 inc/admin.php:332
+#: ajax.php:281 inc/admin.php:245 inc/admin.php:278 inc/admin.php:332
 #: inc/admin.php:366 inc/admin.php:399 inc/admin.php:615 inc/admin.php:875
 #: inc/admin.php:903 inc/admin.php:936 inc/admin.php:969 inc/admin.php:1297
 #: inc/admin.php:1671 inc/admin.php:1851 inc/admin.php:1880 inc/admin.php:1913
-#: inc/admin.php:2049 inc/admin.php:2082 inc/admin.php:2843 inc/admin.php:2884
+#: inc/admin.php:2049 inc/admin.php:2082 inc/admin.php:2863 inc/admin.php:2904
 #: inc/user.php:378 inc/user.php:415 inc/user.php:433 inc/user.php:451
-#: inc/user.php:569 inc/user.php:596 inc/user.php:630 inc/user.php:885
+#: inc/user.php:563 inc/user.php:590 inc/user.php:624 inc/user.php:879
 msgid "Please enter your account to perform this action."
 msgstr "Войдите в свой аккаунт, чтобы выполнить это действие."
 
-#: ajax.php:257
+#: ajax.php:287
 #, php-format
 msgid "Image is too big. Maximum allowed %skb."
 msgstr "Изображение слишком большое. Максимальный допустимый размер %sкб."
 
-#: ajax.php:269 ajax.php:340
+#: ajax.php:299 ajax.php:370
 msgid "Uploaded file is not an image."
 msgstr "Загруженный файл не является изображением."
 
-#: ajax.php:331
+#: ajax.php:361
 msgid "Image was uploaded successfully."
 msgstr "Изображение успешно загружено."
 
-#: ajax.php:334 ajax.php:350
+#: ajax.php:364 ajax.php:380
 msgid "Unable to save uploaded image."
 msgstr "Невозможно сохранить загруженный файл."
 
-#: ajax.php:345 ajax.php:355
+#: ajax.php:375 ajax.php:385
 msgid "Image was not uploaded properly."
 msgstr "Изображение не было загружено."
 
-#: auth-vk.php:26 auth.php:24 auth.php:240
+#: auth-vk.php:26 auth.php:24 auth.php:245
 msgid "Something went wrong. Please contact administrator."
 msgstr "Что-то пошло не так. Свяжитесь с администратором."
 
-#: auth-vk.php:51 auth.php:49 auth.php:265
+#: auth-vk.php:51 auth.php:49 auth.php:270
 msgid "Something went wrong. Email address was not provided."
 msgstr "Что-то пошло не так. Отсутствует email адрес."
 
-#: auth-vk.php:137
+#: auth-vk.php:66 auth.php:64 auth.php:285
+#, php-format
+msgid "Email address \"%s\" was not registered."
+msgstr "Email адрес \"%s\" не зарегистрирован."
+
+#: auth-vk.php:142
 #, php-format
 msgid ""
 "Email address \"%s\" already registered but not connected to VK. Please do "
@@ -126,20 +143,20 @@ msgstr ""
 "Email адрес \"%s\" уже зарегистрирован, но не связан с аккаунтом VK. "
 "Сделайте это в настройках аккаунта."
 
-#: auth-vk.php:145 auth-vk.php:213 auth-vk.php:218 auth.php:143 auth.php:211
-#: auth.php:216 auth.php:359 auth.php:427 auth.php:432
+#: auth-vk.php:150 auth-vk.php:218 auth-vk.php:223 auth.php:148 auth.php:216
+#: auth.php:221 auth.php:369 auth.php:437 auth.php:442
 msgid "Service temporarily not available. Try again later."
 msgstr "Сервис недоступен. Попробуйте позже."
 
-#: auth-vk.php:202
+#: auth-vk.php:207
 msgid "This VK Account is already connected to your account."
 msgstr "Этот VK аккаунт уже связан с вашим аккаунтом."
 
-#: auth-vk.php:207
+#: auth-vk.php:212
 msgid "This VK Account is already connected to another user."
 msgstr "Этот VK аккаунт уже связан с другим аккаунтом."
 
-#: auth.php:135
+#: auth.php:140
 #, php-format
 msgid ""
 "Email address \"%s\" already registered but not connected to Google. Please "
@@ -148,15 +165,15 @@ msgstr ""
 "Email адрес \"%s\" уже зарегистрирован, но не связан с аккаунтом Google. "
 "Сделайте это в настройках аккаунта."
 
-#: auth.php:200
+#: auth.php:205
 msgid "This Google Account is already connected to your account."
 msgstr "Этот Google аккаунт уже связан с вашим аккаунтом."
 
-#: auth.php:205
+#: auth.php:210
 msgid "This Google Account is already connected to another user."
 msgstr "Этот Google аккаунт уже связан с другим аккаунтом."
 
-#: auth.php:351
+#: auth.php:361
 #, php-format
 msgid ""
 "Email address \"%s\" already registered but not connected to Facebook. "
@@ -165,11 +182,11 @@ msgstr ""
 "Email адрес \"%s\" уже зарегистрирован, но не связан с аккаунтом Facebook. "
 "Сделайте это в настройках аккаунта."
 
-#: auth.php:416
+#: auth.php:426
 msgid "This Facebook Account is already connected to your account."
 msgstr "Этот Facebook аккаунт уже связан с вашим аккаунтом."
 
-#: auth.php:421
+#: auth.php:431
 msgid "This Facebook Account is already connected to another user."
 msgstr "Этот Facebook аккаунт уже связан с другим аккаунтом."
 
@@ -177,7 +194,7 @@ msgstr "Этот Facebook аккаунт уже связан с другим а�
 msgid "Administrator"
 msgstr "Администратор"
 
-#: inc/admin.php:61 inc/admin.php:155 inc/admin.php:157 inc/admin.php:3010
+#: inc/admin.php:61 inc/admin.php:155 inc/admin.php:157 inc/admin.php:3030
 msgid "Users"
 msgstr "Пользователи"
 
@@ -210,28 +227,28 @@ msgstr "Сбросить результаты поиска"
 msgid "Create New User"
 msgstr "Добавить пользователя"
 
-#: inc/admin.php:175 inc/admin.php:198 inc/admin.php:472 inc/admin.php:2620
-#: inc/admin.php:2653 inc/user.php:107 inc/user.php:773
+#: inc/admin.php:175 inc/admin.php:198 inc/admin.php:472 inc/admin.php:2640
+#: inc/admin.php:2673 inc/user.php:107 inc/user.php:767
 msgid "Email"
 msgstr "Email"
 
-#: inc/admin.php:176 inc/admin.php:199 inc/admin.php:2612 inc/admin.php:2645
-#: inc/user.php:769
+#: inc/admin.php:176 inc/admin.php:199 inc/admin.php:2632 inc/admin.php:2665
+#: inc/user.php:763
 msgid "Name"
 msgstr "Имя"
 
 #: inc/admin.php:177 inc/admin.php:200 inc/admin.php:550 inc/user.php:153
-#: inc/user.php:1090
+#: inc/user.php:1084
 msgid "Membership"
 msgstr "Уровень"
 
-#: inc/admin.php:178 inc/admin.php:201 inc/user.php:781
+#: inc/admin.php:178 inc/admin.php:201 inc/user.php:775
 msgid "Role"
 msgstr "Роль"
 
 #: inc/admin.php:179 inc/admin.php:202 inc/admin.php:1810 inc/admin.php:1823
-#: inc/admin.php:2001 inc/admin.php:2013 inc/user.php:793 inc/user.php:803
-#: inc/user.php:828 inc/user.php:852
+#: inc/admin.php:2001 inc/admin.php:2013 inc/user.php:787 inc/user.php:797
+#: inc/user.php:822 inc/user.php:846
 msgid "Created"
 msgstr "Создан"
 
@@ -300,7 +317,7 @@ msgstr "Групповые действия"
 #: inc/admin.php:403 inc/admin.php:619 inc/admin.php:879 inc/admin.php:907
 #: inc/admin.php:940 inc/admin.php:973 inc/admin.php:1301 inc/admin.php:1675
 #: inc/admin.php:1855 inc/admin.php:1884 inc/admin.php:1917 inc/admin.php:2053
-#: inc/admin.php:2086 inc/admin.php:2847 inc/admin.php:2888
+#: inc/admin.php:2086 inc/admin.php:2867 inc/admin.php:2908
 msgid "You do not have permissions to perform this action."
 msgstr "У вас нет привилегий, чтобы выполнить это действие."
 
@@ -324,7 +341,7 @@ msgstr "Пользователь успешно деактивирован."
 msgid "User successfully activated."
 msgstr "Пользователь успешно активирован."
 
-#: inc/admin.php:320 inc/common.php:242
+#: inc/admin.php:320 inc/common.php:247
 msgid "Active"
 msgstr "Активный"
 
@@ -361,7 +378,7 @@ msgid "Set user role."
 msgstr "Установить роль."
 
 #: inc/admin.php:465 inc/admin.php:1808 inc/admin.php:1821 inc/admin.php:1999
-#: inc/admin.php:2011 inc/admin.php:2708 inc/user.php:23
+#: inc/admin.php:2011 inc/admin.php:2728 inc/user.php:23
 msgid "User"
 msgstr "Пользователь"
 
@@ -369,13 +386,13 @@ msgstr "Пользователь"
 msgid "Specify email address of the user."
 msgstr "Задайте email адрес пользователя."
 
-#: inc/admin.php:481 inc/admin.php:2780 inc/admin.php:2816 login.php:115
-#: login.php:170 register.php:152
+#: inc/admin.php:481 inc/admin.php:2800 inc/admin.php:2836 login.php:116
+#: login.php:171 register.php:158
 msgid "Email address"
 msgstr "Email адрес"
 
-#: inc/admin.php:486 inc/admin.php:496 inc/admin.php:2779 inc/admin.php:2815
-#: inc/user.php:117 inc/user.php:127 register.php:142
+#: inc/admin.php:486 inc/admin.php:496 inc/admin.php:2799 inc/admin.php:2835
+#: inc/user.php:117 inc/user.php:127 register.php:148
 msgid "Full name"
 msgstr "Имя"
 
@@ -383,7 +400,7 @@ msgstr "Имя"
 msgid "Specify full name of the user."
 msgstr "Задайте полное имя пользователя."
 
-#: inc/admin.php:502 inc/user.php:133 inc/user.php:789
+#: inc/admin.php:502 inc/user.php:133 inc/user.php:783
 msgid "Timezone"
 msgstr "Часовой пояс"
 
@@ -391,8 +408,8 @@ msgstr "Часовой пояс"
 msgid "Select timezone of the user."
 msgstr "Выберите часовой пояс пользователя."
 
-#: inc/admin.php:520 inc/admin.php:532 inc/admin.php:2729 inc/admin.php:2731
-#: inc/admin.php:2861 login.php:120 register.php:157 register.php:211
+#: inc/admin.php:520 inc/admin.php:532 inc/admin.php:2749 inc/admin.php:2751
+#: inc/admin.php:2881 login.php:121 register.php:163 register.php:217
 msgid "Password"
 msgstr "Пароль"
 
@@ -400,7 +417,7 @@ msgstr "Пароль"
 msgid "Set password of the user."
 msgstr "Установите пароль для пользователя."
 
-#: inc/admin.php:537 inc/user.php:315 register.php:162 register.php:216
+#: inc/admin.php:537 inc/user.php:315 register.php:168 register.php:222
 msgid "Repeat password"
 msgstr "Повторите пароль"
 
@@ -589,7 +606,7 @@ msgstr ""
 msgid "Footer label"
 msgstr "Текст"
 
-#: inc/admin.php:1156 inc/user.php:1006
+#: inc/admin.php:1156 inc/user.php:1000
 msgid "Price options"
 msgstr "Ценовые опции"
 
@@ -670,13 +687,13 @@ msgstr "Название сайта слишком короткое."
 msgid "Title is too long."
 msgstr "Название сайта слишком длинное."
 
-#: inc/admin.php:1334 inc/admin.php:1690 inc/admin.php:2913
+#: inc/admin.php:1334 inc/admin.php:1690 inc/admin.php:2933
 msgid "The translation is too short."
 msgstr "Перевод слишком короткий."
 
 #: inc/admin.php:1335 inc/admin.php:1341 inc/admin.php:1347 inc/admin.php:1365
 #: inc/admin.php:1395 inc/admin.php:1691 inc/admin.php:1697 inc/admin.php:1703
-#: inc/admin.php:1720 inc/admin.php:2914 inc/admin.php:2920 inc/admin.php:2926
+#: inc/admin.php:1720 inc/admin.php:2934 inc/admin.php:2940 inc/admin.php:2946
 msgid "The translation is too long."
 msgstr "Перевод слишком длинный."
 
@@ -756,7 +773,7 @@ msgstr "Выбранные транзакции успешно удалены."
 msgid "Active Sessions"
 msgstr "Активные сессии"
 
-#: inc/admin.php:2000 inc/admin.php:2012 inc/user.php:800 inc/user.php:850
+#: inc/admin.php:2000 inc/admin.php:2012 inc/user.php:794 inc/user.php:844
 msgid "Source"
 msgstr "Источник"
 
@@ -800,7 +817,7 @@ msgstr "Настройки сайта"
 msgid "General"
 msgstr "Основное"
 
-#: inc/admin.php:2131 inc/user.php:186 inc/user.php:797
+#: inc/admin.php:2131 inc/user.php:186 inc/user.php:791
 msgid "Connections"
 msgstr "Социальные сети"
 
@@ -864,19 +881,31 @@ msgstr ""
 "Загрузите изображение, которое используется в левой части страницы входа и "
 "регистрации. Рекомендуется загружать бесшовное изображение."
 
-#: inc/admin.php:2249 inc/user.php:191 login.php:141 register.php:180
+#: inc/admin.php:2249
+msgid "User registration"
+msgstr "Регистрация пользователей"
+
+#: inc/admin.php:2254
+msgid "Allow users to register on website."
+msgstr "Разрешить пользователям регистрироваться на вебсайте."
+
+#: inc/admin.php:2262
+msgid "Anyone can register"
+msgstr "Любой пользователь может зарегистрироваться"
+
+#: inc/admin.php:2269 inc/user.php:191 login.php:142 register.php:186
 msgid "Google"
 msgstr "Google"
 
-#: inc/admin.php:2252 inc/admin.php:2325 inc/admin.php:2402 inc/admin.php:2477
+#: inc/admin.php:2272 inc/admin.php:2345 inc/admin.php:2422 inc/admin.php:2497
 msgid "Enable"
 msgstr "Включить"
 
-#: inc/admin.php:2257
+#: inc/admin.php:2277
 msgid "Allow users to use their Google Account to sign in."
 msgstr "Разрешить пользователям использовать Google аккаунт для входа."
 
-#: inc/admin.php:2277
+#: inc/admin.php:2297
 #, php-format
 msgid ""
 "Create new OAuth 2.0 credentials in %sGoogle Cloud Platform%s and copy-paste "
@@ -887,39 +916,39 @@ msgstr ""
 "в соответствующие поля ниже. Для создания параметров OAuth 2.0 используйте "
 "следующие данные."
 
-#: inc/admin.php:2279 inc/admin.php:2352
+#: inc/admin.php:2299 inc/admin.php:2372
 msgid "Application type"
 msgstr "Тип приложения"
 
-#: inc/admin.php:2283 inc/admin.php:2433
+#: inc/admin.php:2303 inc/admin.php:2453
 msgid "Authorized redirect URI"
 msgstr "Authorized redirect URI"
 
-#: inc/admin.php:2291 inc/admin.php:2301 inc/admin.php:2368 inc/admin.php:2378
+#: inc/admin.php:2311 inc/admin.php:2321 inc/admin.php:2388 inc/admin.php:2398
 msgid "Client ID"
 msgstr "Client ID"
 
-#: inc/admin.php:2296
+#: inc/admin.php:2316
 msgid "Enter your OAuth 2.0 Client ID."
 msgstr "Введите ваш OAuth 2.0 Client ID."
 
-#: inc/admin.php:2307 inc/admin.php:2317 inc/admin.php:2384 inc/admin.php:2394
+#: inc/admin.php:2327 inc/admin.php:2337 inc/admin.php:2404 inc/admin.php:2414
 msgid "Client Secret"
 msgstr "Client Secret"
 
-#: inc/admin.php:2312
+#: inc/admin.php:2332
 msgid "Enter your OAuth 2.0 Client Secret."
 msgstr "Введите ваш OAuth 2.0 Client Secret."
 
-#: inc/admin.php:2322 inc/user.php:221 login.php:147 register.php:186
+#: inc/admin.php:2342 inc/user.php:221 login.php:148 register.php:192
 msgid "Facebook"
 msgstr "Facebook"
 
-#: inc/admin.php:2330
+#: inc/admin.php:2350
 msgid "Allow users to use their Facebook Account to sign in."
 msgstr "Разрешить пользователям использовать Facebook аккаунт для входа."
 
-#: inc/admin.php:2350
+#: inc/admin.php:2370
 #, php-format
 msgid ""
 "Create new application in %sFacebook for Developers%s and copy-paste its "
@@ -930,31 +959,31 @@ msgstr ""
 "параметры в соответствующие поля ниже. Для создания приложения используйте "
 "следующие данные."
 
-#: inc/admin.php:2356
+#: inc/admin.php:2376
 msgid "Product"
 msgstr "Продукт"
 
-#: inc/admin.php:2360
+#: inc/admin.php:2380
 msgid "Valid OAuth Redirect URI"
 msgstr "Valid OAuth Redirect URI"
 
-#: inc/admin.php:2373
+#: inc/admin.php:2393
 msgid "Enter your Facebook Application Client ID."
 msgstr "Введите ваш Facebook Application Client ID."
 
-#: inc/admin.php:2389
+#: inc/admin.php:2409
 msgid "Enter your Facebook Application Client Secret."
 msgstr "Введите ваш Facebook Application Client Secret."
 
-#: inc/admin.php:2399 inc/user.php:251 login.php:153 register.php:192
+#: inc/admin.php:2419 inc/user.php:251 login.php:154 register.php:198
 msgid "VK"
 msgstr "VK"
 
-#: inc/admin.php:2407
+#: inc/admin.php:2427
 msgid "Allow users to use their VK Account to sign in."
 msgstr "Разрешить пользователям использовать VK аккаунт для входа."
 
-#: inc/admin.php:2427
+#: inc/admin.php:2447
 #, php-format
 msgid ""
 "Create new application in %sVK Developers%s and copy-paste its credentials "
@@ -964,35 +993,35 @@ msgstr ""
 "соответствующие поля ниже. Для создания приложения используйте следующие "
 "данные."
 
-#: inc/admin.php:2429
+#: inc/admin.php:2449
 msgid "Platform"
 msgstr "Платформа"
 
-#: inc/admin.php:2441 inc/admin.php:2451
+#: inc/admin.php:2461 inc/admin.php:2471
 msgid "App ID"
 msgstr "App ID"
 
-#: inc/admin.php:2446
+#: inc/admin.php:2466
 msgid "Enter your VK App ID."
 msgstr "Введите ваш VK App ID."
 
-#: inc/admin.php:2457 inc/admin.php:2467
+#: inc/admin.php:2477 inc/admin.php:2487
 msgid "Secure Key"
 msgstr "Secure Key"
 
-#: inc/admin.php:2462
+#: inc/admin.php:2482
 msgid "Enter your VK App Secure Key."
 msgstr "Введите ваш VK App Secure Key."
 
-#: inc/admin.php:2474
+#: inc/admin.php:2494
 msgid "Stripe"
 msgstr "Stripe"
 
-#: inc/admin.php:2482
+#: inc/admin.php:2502
 msgid "Accept payments through Stripe."
 msgstr "Принимать платежи через Stripe."
 
-#: inc/admin.php:2502
+#: inc/admin.php:2522
 #, php-format
 msgid ""
 "Create new webhook with the following URL and events in your %sStripe "
@@ -1001,49 +1030,49 @@ msgstr ""
 "Создайте новый webhook со следующими URL и событиями в вашем %sStripe "
 "Dashboard%s."
 
-#: inc/admin.php:2504
+#: inc/admin.php:2524
 msgid "Events"
 msgstr "События"
 
-#: inc/admin.php:2510
+#: inc/admin.php:2530
 msgid "Endpoint URL"
 msgstr "Конечный URL"
 
-#: inc/admin.php:2518 inc/admin.php:2529
+#: inc/admin.php:2538 inc/admin.php:2549
 msgid "Publishable key"
 msgstr "Публичный ключ"
 
-#: inc/admin.php:2523
+#: inc/admin.php:2543
 msgid "Enter your publishable key."
 msgstr "Введите ваш публичный ключ."
 
-#: inc/admin.php:2531
+#: inc/admin.php:2551
 #, php-format
 msgid "Find publishable key on %sAPI Keys%s page."
 msgstr "Найдите ваш публичный ключ на странице %sAPI Keys%s."
 
-#: inc/admin.php:2537 inc/admin.php:2548
+#: inc/admin.php:2557 inc/admin.php:2568
 msgid "Secret key"
 msgstr "Секретный ключ"
 
-#: inc/admin.php:2542
+#: inc/admin.php:2562
 msgid "Enter your secret key."
 msgstr "Введите ваш секретный ключ."
 
-#: inc/admin.php:2550
+#: inc/admin.php:2570
 #, php-format
 msgid "Find secret key on %sAPI Keys%s page."
 msgstr "Найдите ваш секретный ключ на странице %sAPI Keys%s."
 
-#: inc/admin.php:2556 inc/admin.php:2567
+#: inc/admin.php:2576 inc/admin.php:2587
 msgid "Signing secret"
 msgstr "Секретная подпись"
 
-#: inc/admin.php:2561
+#: inc/admin.php:2581
 msgid "Enter valid signing secret for webhook that you created earlier."
 msgstr "Введите секретную подпись для webhook, созданного ранее."
 
-#: inc/admin.php:2569
+#: inc/admin.php:2589
 #, php-format
 msgid ""
 "Find it on %sWebhooks%s page. Click webhook that you created earlier, and "
@@ -1052,34 +1081,34 @@ msgstr ""
 "Найдите ее на странице %sWebhooks%s. Кликните webhook, созданный ранее, и "
 "найдите параметр \"Signing secret\"."
 
-#: inc/admin.php:2576
+#: inc/admin.php:2596
 msgid "Sender parameters"
 msgstr "Параметры отправителя"
 
-#: inc/admin.php:2580
+#: inc/admin.php:2600
 msgid "Method"
 msgstr "Метод"
 
-#: inc/admin.php:2585
+#: inc/admin.php:2605
 msgid ""
 "Set mailing method. All email messages are sent using this mailing method."
 msgstr ""
 "Выберите метод отправки email. Все email сообщения будут отправляться с "
 "использованием этого метода."
 
-#: inc/admin.php:2591
+#: inc/admin.php:2611
 msgid "PHP Mail() Function"
 msgstr "Функция PHP Mail()"
 
-#: inc/admin.php:2591
+#: inc/admin.php:2611
 msgid "SMTP"
 msgstr "SMTP"
 
-#: inc/admin.php:2599 inc/admin.php:2632
+#: inc/admin.php:2619 inc/admin.php:2652
 msgid "Sender"
 msgstr "Отправитель"
 
-#: inc/admin.php:2604 inc/admin.php:2637 inc/admin.php:2713
+#: inc/admin.php:2624 inc/admin.php:2657 inc/admin.php:2733
 msgid ""
 "Set sender name and email. All email messages are sent using these "
 "credentials as \"FROM:\" header value."
@@ -1087,43 +1116,43 @@ msgstr ""
 "Введите имя и email отправителя. Все email сообщения будут отправляться с "
 "использованием этих параметров в заголовке \"FROM\"."
 
-#: inc/admin.php:2614 inc/admin.php:2647
+#: inc/admin.php:2634 inc/admin.php:2667
 msgid "Sender name"
 msgstr "Имя отправителя"
 
-#: inc/admin.php:2622 inc/admin.php:2655
+#: inc/admin.php:2642 inc/admin.php:2675
 msgid "Sender email"
 msgstr "Email отправителя"
 
-#: inc/admin.php:2663 inc/admin.php:2861
+#: inc/admin.php:2683 inc/admin.php:2881
 msgid "Server"
 msgstr "Сервер"
 
-#: inc/admin.php:2668
+#: inc/admin.php:2688
 msgid "Set encryption, mail server hostname and port."
 msgstr "Установите шифрование, почтовый сервер и порт."
 
-#: inc/admin.php:2684 inc/admin.php:2861
+#: inc/admin.php:2704 inc/admin.php:2881
 msgid "Encryption"
 msgstr "Шифрование"
 
-#: inc/admin.php:2690 inc/admin.php:2692
+#: inc/admin.php:2710 inc/admin.php:2712
 msgid "Hostname"
 msgstr "Хост"
 
-#: inc/admin.php:2698 inc/admin.php:2700 inc/admin.php:2861
+#: inc/admin.php:2718 inc/admin.php:2720 inc/admin.php:2881
 msgid "Port"
 msgstr "Порт"
 
-#: inc/admin.php:2721 inc/admin.php:2723 inc/admin.php:2861
+#: inc/admin.php:2741 inc/admin.php:2743 inc/admin.php:2881
 msgid "Username"
 msgstr "Имя пользователя"
 
-#: inc/admin.php:2748
+#: inc/admin.php:2768
 msgid "Test mailing"
 msgstr "Тестовое сообщение"
 
-#: inc/admin.php:2750
+#: inc/admin.php:2770
 #, php-format
 msgid ""
 "Press button and check your inbox (%s). If you do not see test message, "
@@ -1132,15 +1161,15 @@ msgstr ""
 "Кликните кнопку у проверьте свой email (%s). Если вы не видите там тестовое "
 "сообщение, значит, что-то не работает. Не забудьте заглянуть в спам."
 
-#: inc/admin.php:2754
+#: inc/admin.php:2774
 msgid "Confirmation email"
 msgstr "Подтверждение email адреса"
 
-#: inc/admin.php:2757 inc/admin.php:2767 inc/admin.php:2793 inc/admin.php:2803
+#: inc/admin.php:2777 inc/admin.php:2787 inc/admin.php:2813 inc/admin.php:2823
 msgid "Subject"
 msgstr "Тема письма"
 
-#: inc/admin.php:2762
+#: inc/admin.php:2782
 msgid ""
 "Newly registered users must confirm their email address to receive "
 "notifications. Specify the subject of confirmation email."
@@ -1148,11 +1177,11 @@ msgstr ""
 "Все вновь зарегистрировавшиеся пользователи должны подтвердить свой email, "
 "что получать уведомления. Укажите тему письма подтверждения."
 
-#: inc/admin.php:2773 inc/admin.php:2786 inc/admin.php:2809 inc/admin.php:2822
+#: inc/admin.php:2793 inc/admin.php:2806 inc/admin.php:2829 inc/admin.php:2842
 msgid "Message"
 msgstr "Сообщение"
 
-#: inc/admin.php:2778
+#: inc/admin.php:2798
 msgid ""
 "Specify the message of confirmation email. You can use the following "
 "shortcodes."
@@ -1160,19 +1189,19 @@ msgstr ""
 "Введите текст сообщения подтверждения. Допустимо использование следующих "
 "шорткодов."
 
-#: inc/admin.php:2781
+#: inc/admin.php:2801
 msgid "URL that is used to confirm email address."
 msgstr "URL, который используется для подтверждения email адреса."
 
-#: inc/admin.php:2790 inc/common.php:34 login.php:166
+#: inc/admin.php:2810 inc/common.php:37 login.php:167
 msgid "Reset password"
 msgstr "Сбросить пароль"
 
-#: inc/admin.php:2798
+#: inc/admin.php:2818
 msgid "Specify the subject of reset password email."
 msgstr "Введите тема письма сброса пароля."
 
-#: inc/admin.php:2814
+#: inc/admin.php:2834
 msgid ""
 "Specify the message of reset password email. You can use the following "
 "shortcodes."
@@ -1180,15 +1209,15 @@ msgstr ""
 "Введите сообщение письма сброса пароля. Вы можете использовать следующие "
 "шорткоды."
 
-#: inc/admin.php:2817
+#: inc/admin.php:2837
 msgid "URL that is used to reset the password."
 msgstr "URL, который используется для сброса пароля."
 
-#: inc/admin.php:2829 inc/admin.php:2830
+#: inc/admin.php:2849 inc/admin.php:2850
 msgid "Save Settings"
 msgstr "Сохранить"
 
-#: inc/admin.php:2859
+#: inc/admin.php:2879
 #, php-format
 msgid ""
 "This is a test message. It was sent from %s (%s) using the following mailing "
@@ -1197,179 +1226,179 @@ msgstr ""
 "Это тестовое сообщение было отправлено от %s (%s) используя следующие "
 "параметры."
 
-#: inc/admin.php:2861
+#: inc/admin.php:2881
 msgid "Method: SMTP"
 msgstr "Метод: SMTP"
 
-#: inc/admin.php:2861 inc/admin.php:2863
+#: inc/admin.php:2881 inc/admin.php:2883
 msgid "Sender Name"
 msgstr "Имя отправителя"
 
-#: inc/admin.php:2861 inc/admin.php:2863
+#: inc/admin.php:2881 inc/admin.php:2883
 msgid "Sender Email"
 msgstr "Email отправителя"
 
-#: inc/admin.php:2863
+#: inc/admin.php:2883
 msgid "Method: PHP Mail() function"
 msgstr "Метод: функция PHP Mail()"
 
-#: inc/admin.php:2866
+#: inc/admin.php:2886
 msgid "Test Message"
 msgstr "Тестовое сообщение"
 
-#: inc/admin.php:2875
+#: inc/admin.php:2895
 #, php-format
 msgid "Test message successfully sent. Please check your inbox (%s)."
 msgstr "Тестовое сообщение отправлено. Пожалуйста, проверьте свой email (%s)."
 
-#: inc/admin.php:2909
+#: inc/admin.php:2929
 msgid "The site title is too short."
 msgstr "Название сайта слишком короткое."
 
-#: inc/admin.php:2910
+#: inc/admin.php:2930
 msgid "The site title is too long."
 msgstr "Название сайта слишком длинное."
 
-#: inc/admin.php:2917
+#: inc/admin.php:2937
 msgid "The site tagline is too long."
 msgstr "Слоган слишком длинный."
 
-#: inc/admin.php:2923
+#: inc/admin.php:2943
 msgid "The site copyright is too long."
 msgstr "Текст копирайта слишком длинный."
 
-#: inc/admin.php:2933
+#: inc/admin.php:2953
 msgid "Stripe publishable key can not be empty."
 msgstr "Публичный ключ Stripe не может быть пустым."
 
-#: inc/admin.php:2934
+#: inc/admin.php:2954
 msgid "Stripe secret key can not be empty."
 msgstr "Секретный ключ Stripe не может быть пустым."
 
-#: inc/admin.php:2935
+#: inc/admin.php:2955
 msgid "Stripe signing secret can not be empty."
 msgstr "Секретная подпись Stripe не может быть пустой."
 
-#: inc/admin.php:2939
+#: inc/admin.php:2959
 msgid "Google OAuth 2.0 Client ID can not be empty."
 msgstr "Google OAuth 2.0 Client ID не может быть пустым."
 
-#: inc/admin.php:2940
+#: inc/admin.php:2960
 msgid "Google OAuth 2.0 Client Secret can not be empty."
 msgstr "Google OAuth 2.0 Client Secret не может быть пустым."
 
-#: inc/admin.php:2944
+#: inc/admin.php:2964
 msgid "Facebook Application Client ID can not be empty."
 msgstr "Facebook Application Client ID  не может быть пустым."
 
-#: inc/admin.php:2945
+#: inc/admin.php:2965
 msgid "Facebook Application Client Secret can not be empty."
 msgstr "Facebook Application Client Secret не может быть пустым."
 
-#: inc/admin.php:2949
+#: inc/admin.php:2969
 msgid "VK App ID can not be empty."
 msgstr "VK App ID не может быть пустым."
 
-#: inc/admin.php:2950
+#: inc/admin.php:2970
 msgid "VK App Secure Key can not be empty."
 msgstr "VK App Secure Key не может быть пустым."
 
-#: inc/admin.php:2954 inc/admin.php:2957
+#: inc/admin.php:2974 inc/admin.php:2977
 msgid "Invalid sender name."
 msgstr "Неверное имя отправителя."
 
-#: inc/admin.php:2955 inc/admin.php:2958
+#: inc/admin.php:2975 inc/admin.php:2978
 msgid "Invalid sender e-mail."
 msgstr "Неверный email отправителя."
 
-#: inc/admin.php:2959
+#: inc/admin.php:2979
 msgid "Invalid SMTP server."
 msgstr "Неверный SMTP сервер."
 
-#: inc/admin.php:2960
+#: inc/admin.php:2980
 msgid "Invalid SMTP port."
 msgstr "Неверный SMTP порт."
 
-#: inc/admin.php:2961
+#: inc/admin.php:2981
 msgid "Invalid SMTP username."
 msgstr "Неверное имя пользователя SMTP."
 
-#: inc/admin.php:2962
+#: inc/admin.php:2982
 msgid "Invalid SMTP password."
 msgstr "Неверный пароль пользователя SMTP."
 
-#: inc/admin.php:2965
+#: inc/admin.php:2985
 msgid "The confirmation email subject is too short."
 msgstr "Тема письма подтверждения email слишком короткое."
 
-#: inc/admin.php:2966
+#: inc/admin.php:2986
 msgid "The confirmation email subject is too long."
 msgstr "Тема письма подтверждения email слишком длинное."
 
-#: inc/admin.php:2967
+#: inc/admin.php:2987
 msgid "The confirmation email message is too short."
 msgstr "Сообщение письма подтверждения email слишком короткое."
 
-#: inc/admin.php:2969
+#: inc/admin.php:2989
 msgid "The reset password email subject is too short."
 msgstr "Тема письма сброса пароля слишком короткое."
 
-#: inc/admin.php:2970
+#: inc/admin.php:2990
 msgid "The reset password email subject is too long."
 msgstr "Тема письма сброса пароля слишком длинное."
 
-#: inc/admin.php:2971
+#: inc/admin.php:2991
 msgid "The reset password email message is too short."
 msgstr "Сообщение письма сброса пароля слишком короткое."
 
-#: inc/admin.php:2989 inc/user.php:406
+#: inc/admin.php:3009 inc/user.php:406
 msgid "Settings successfully saved."
 msgstr "Настройки сохранены."
 
-#: inc/common.php:26 inc/common.php:33 inc/common.php:37 inc/common.php:44
+#: inc/common.php:28 inc/common.php:36 inc/common.php:40 inc/common.php:47
 msgid "Friendly Bets"
 msgstr "Тотализаторы"
 
-#: inc/common.php:27
+#: inc/common.php:29
 msgid "Join any active totalizator or start your own one"
 msgstr "Присоединяйся к любому тотализатору или создай свой"
 
-#: inc/common.php:32
+#: inc/common.php:35
 msgid "Confirm email address"
 msgstr "Подтвердите email адрес"
 
-#: inc/common.php:33 inc/common.php:35
+#: inc/common.php:36 inc/common.php:38
 msgid "Dear {name},"
 msgstr "Уважаемый {name},"
 
-#: inc/common.php:33
+#: inc/common.php:36
 msgid "Click the link below to confirm email address."
 msgstr "Кликните ссылку, чтобы подтвердить email адрес."
 
-#: inc/common.php:33
+#: inc/common.php:36
 #, php-format
 msgid "If you did not sign up with %s, just ignore this message."
 msgstr "Если вы не регистрировались в %s, просто проигнорируйте это сообщение."
 
-#: inc/common.php:33 inc/common.php:35
+#: inc/common.php:36 inc/common.php:38
 msgid "Regards."
 msgstr "С уважением."
 
-#: inc/common.php:35
+#: inc/common.php:38
 msgid "Click the link below to reset the password."
 msgstr "Кликните ссылку для сброса пароля."
 
-#: inc/common.php:35
+#: inc/common.php:38
 msgid "If you did not request password reset, just ignore this message."
 msgstr ""
 "Если вы не запрашивали сброс пароля, просто проигнорируйте это сообщение."
 
-#: inc/common.php:96
+#: inc/common.php:99
 msgid "Make sure that the following folders exists and writable:"
 msgstr ""
 "Удостоверьтесь, что следующие директории существуют и доступны для записи:"
 
-#: inc/common.php:188
+#: inc/common.php:191
 #, php-format
 msgid ""
 "You are working under %s account. Click %shere%s to switch back to your "
@@ -1378,71 +1407,71 @@ msgstr ""
 "Вы работаете под аккаунтом %s. Кликните %sздесь%s, чтобы переключиться "
 "обратно в свой аккаунт."
 
-#: inc/common.php:225 inc/common.php:227
+#: inc/common.php:230 inc/common.php:232
 msgid "Free"
 msgstr "Бесплатно"
 
-#: inc/common.php:226
+#: inc/common.php:231
 msgid "All basic features are available for free account."
 msgstr "Все базовые функции доступны в бесплатном аккаунте."
 
-#: inc/common.php:232
+#: inc/common.php:237
 msgid "Daily"
 msgstr "Ежедневно"
 
-#: inc/common.php:232
+#: inc/common.php:237
 msgid "/ day"
 msgstr "/ день"
 
-#: inc/common.php:233
+#: inc/common.php:238
 msgid "Weekly"
 msgstr "Еженедельно"
 
-#: inc/common.php:233
+#: inc/common.php:238
 msgid "/ week"
 msgstr "/ неделя"
 
-#: inc/common.php:234
+#: inc/common.php:239
 msgid "Monthly"
 msgstr "Ежемесячно"
 
-#: inc/common.php:234
+#: inc/common.php:239
 msgid "/ month"
 msgstr "/ месяц"
 
-#: inc/common.php:235
+#: inc/common.php:240
 msgid "Every 3 months"
 msgstr "Каждые 3 месяца"
 
-#: inc/common.php:235
+#: inc/common.php:240
 msgid "/ 3 months"
 msgstr "/ квартал"
 
-#: inc/common.php:236
+#: inc/common.php:241
 msgid "Every 6 months"
 msgstr "Каждые 6 месяцев"
 
-#: inc/common.php:236
+#: inc/common.php:241
 msgid "/ 6 months"
 msgstr "/ полугодие"
 
-#: inc/common.php:237
+#: inc/common.php:242
 msgid "Yearly"
 msgstr "Ежегодно"
 
-#: inc/common.php:237
+#: inc/common.php:242
 msgid "/ year"
 msgstr "/ год"
 
-#: inc/common.php:238
+#: inc/common.php:243
 msgid "Single payment"
 msgstr "Разовая оплата"
 
-#: inc/common.php:241
+#: inc/common.php:246
 msgid "New"
 msgstr "Новый"
 
-#: inc/common.php:243
+#: inc/common.php:248
 msgid "Archive"
 msgstr "Архивный"
 
@@ -1463,29 +1492,29 @@ msgstr "Закрыть"
 msgid "Select Image"
 msgstr "Выберите изображение"
 
-#: inc/functions.php:815
+#: inc/functions.php:816
 msgid "page not found"
 msgstr "страница не найдена"
 
-#: inc/functions.php:891 inc/functions.php:919
+#: inc/functions.php:892 inc/functions.php:920
 msgid "Default text. It is used if translation not defined."
 msgstr "Текст отображается, если не задан перевод."
 
-#: inc/functions.php:895 inc/functions.php:923
+#: inc/functions.php:896 inc/functions.php:924
 msgid "Add translations"
 msgstr "Добавить перевод"
 
-#: inc/header.php:165
+#: inc/header.php:166
 msgid "Logout"
 msgstr "Выход"
 
-#: inc/header.php:170 login.php:47 login.php:111 login.php:128 login.php:129
-#: register.php:108
+#: inc/header.php:171 login.php:47 login.php:112 login.php:129 login.php:130
+#: register.php:114
 msgid "Sign In"
 msgstr "Вход"
 
-#: inc/header.php:171 login.php:91 register.php:64 register.php:130
-#: register.php:167 register.php:168
+#: inc/header.php:172 login.php:92 register.php:69 register.php:136
+#: register.php:173 register.php:174
 msgid "Create Account"
 msgstr "Создать аккаунт"
 
@@ -1580,7 +1609,7 @@ msgstr "Текущий пароль"
 msgid "Current password. Type it if you want to change the password."
 msgstr "Укажите текущий пароль, если вы хотите его сменить."
 
-#: inc/user.php:298 inc/user.php:310 register.php:64
+#: inc/user.php:298 inc/user.php:310 register.php:69
 msgid "New password"
 msgstr "Новый пароль"
 
@@ -1645,7 +1674,7 @@ msgstr "Аккаунт Facebook отключен."
 msgid "VK Account successfully disconnected."
 msgstr "Аккаунт VK отключен."
 
-#: inc/user.php:494 inc/user.php:553 inc/user.php:685
+#: inc/user.php:494 inc/user.php:553 inc/user.php:679
 msgid "Upload new file"
 msgstr "Загрузить файл"
 
@@ -1653,124 +1682,124 @@ msgstr "Загрузить файл"
 msgid "Delete file"
 msgstr "Удалить файл"
 
-#: inc/user.php:519 inc/user.php:659
+#: inc/user.php:519 inc/user.php:653
 msgid "Image does not exist."
 msgstr "Изображение не существует."
 
-#: inc/user.php:526 inc/user.php:666
+#: inc/user.php:526 inc/user.php:660
 msgid "Welcome. There are no available media yet."
 msgstr "Файлы отсутствуют."
 
-#: inc/user.php:578
+#: inc/user.php:572
 msgid "File not found."
 msgstr "Файл не найден."
 
-#: inc/user.php:587
+#: inc/user.php:581
 msgid "File successfully deleted."
 msgstr "Файл успешно удален."
 
-#: inc/user.php:608
+#: inc/user.php:602
 msgid "No files selected."
 msgstr "Не выбрано ни одного файла."
 
-#: inc/user.php:620 inc/user.php:621
+#: inc/user.php:614 inc/user.php:615
 msgid "Selected files successfully deleted."
 msgstr "Выбранные файлы успешно удалены."
 
-#: inc/user.php:758
+#: inc/user.php:752
 msgid "General info"
 msgstr "Основная информация"
 
-#: inc/user.php:761
+#: inc/user.php:755
 msgid "Site"
 msgstr "Сайт"
 
-#: inc/user.php:765
+#: inc/user.php:759
 msgid "URL"
 msgstr "URL"
 
-#: inc/user.php:777
+#: inc/user.php:771
 msgid "Email confirmed"
 msgstr "Email адрес подтвержден"
 
-#: inc/user.php:778 inc/user.php:811 inc/user.php:835 js/script.js:219
+#: inc/user.php:772 inc/user.php:805 inc/user.php:829 js/script.js:222
 msgid "Yes"
 msgstr "Да"
 
-#: inc/user.php:778 inc/user.php:811 inc/user.php:835
+#: inc/user.php:772 inc/user.php:805 inc/user.php:829
 msgid "No"
 msgstr "Нет"
 
-#: inc/user.php:785
+#: inc/user.php:779
 msgid "Status"
 msgstr "Статус"
 
-#: inc/user.php:801
+#: inc/user.php:795
 msgid "ID"
 msgstr "ID"
 
-#: inc/user.php:802 inc/user.php:827
+#: inc/user.php:796 inc/user.php:821
 msgid "Deleted"
 msgstr "Удален"
 
-#: inc/user.php:818 inc/user.php:842 inc/user.php:868
+#: inc/user.php:812 inc/user.php:836 inc/user.php:862
 msgid "None"
 msgstr "Нет"
 
-#: inc/user.php:823
+#: inc/user.php:817
 msgid "Uploads"
 msgstr "Загрузки"
 
-#: inc/user.php:826
+#: inc/user.php:820
 msgid "Filename"
 msgstr "Имя файла"
 
-#: inc/user.php:847
+#: inc/user.php:841
 msgid "Sessions"
 msgstr "Сессии"
 
-#: inc/user.php:851
+#: inc/user.php:845
 msgid "IP"
 msgstr "IP"
 
-#: inc/user.php:853
+#: inc/user.php:847
 msgid "Last Access"
 msgstr "Последний доступ"
 
-#: inc/user.php:875
+#: inc/user.php:869
 #, php-format
 msgid "Report cereated: %s"
 msgstr "Отчет создан: %s"
 
-#: inc/user.php:891
+#: inc/user.php:885
 msgid "Invalid email address."
 msgstr "Неверный email адрес."
 
-#: inc/user.php:896
+#: inc/user.php:890
 msgid "Administrator can not remove account."
 msgstr "Администратор не может удалять свой аккаунт."
 
-#: inc/user.php:926 inc/user.php:927
+#: inc/user.php:920 inc/user.php:921
 msgid "Account successfully removed."
 msgstr "Аккаунт успешно удален."
 
-#: inc/user.php:953
+#: inc/user.php:947
 msgid "Upgrade account"
 msgstr "Улучшить аккаунт"
 
-#: inc/user.php:1044
+#: inc/user.php:1038
 msgid "No payment gateways are configured."
 msgstr "Не установлены платежные шлюзы."
 
-#: inc/user.php:1219
+#: inc/user.php:1213
 msgid "Service temporarily not available."
 msgstr "Сервис недоступен. Попробуйте позже."
 
-#: inc/user.php:1227
+#: inc/user.php:1221
 msgid "Service temporarily not available. Please contact us."
 msgstr "Сервис недоступен. Попробуйте позже."
 
-#: inc/user.php:1256
+#: inc/user.php:1250
 msgid "Your subscription successfully cancelled."
 msgstr "Ваша подписка успешно отменена."
 
@@ -1982,14 +2011,14 @@ msgstr "Пожалуйста, подтвердите, что хотите уда
 #: js/admin.js:102 js/admin.js:105 js/admin.js:112 js/admin.js:151
 #: js/admin.js:155 js/admin.js:161 js/admin.js:205 js/admin.js:208
 #: js/admin.js:215 js/admin.js:266 js/admin.js:269 js/admin.js:276
-#: js/admin.js:320 js/admin.js:323 js/admin.js:330 js/admin.js:709
-#: js/admin.js:712 js/admin.js:719 js/admin.js:763 js/admin.js:766
-#: js/admin.js:773 js/admin.js:817 js/admin.js:820 js/admin.js:827
-#: js/admin.js:886 js/admin.js:889 js/admin.js:896 js/admin.js:940
-#: js/admin.js:943 js/admin.js:950 js/admin.js:981 js/admin.js:985
-#: js/admin.js:990 js/script.js:402 js/script.js:405 js/script.js:412
-#: js/script.js:456 js/script.js:459 js/script.js:466 js/script.js:503
-#: js/script.js:508 js/script.js:551 js/script.js:555 js/script.js:560
+#: js/admin.js:320 js/admin.js:323 js/admin.js:330 js/admin.js:712
+#: js/admin.js:715 js/admin.js:722 js/admin.js:766 js/admin.js:769
+#: js/admin.js:776 js/admin.js:820 js/admin.js:823 js/admin.js:830
+#: js/admin.js:889 js/admin.js:892 js/admin.js:899 js/admin.js:943
+#: js/admin.js:946 js/admin.js:953 js/admin.js:984 js/admin.js:988
+#: js/admin.js:993 js/script.js:405 js/script.js:408 js/script.js:415
+#: js/script.js:459 js/script.js:462 js/script.js:469 js/script.js:506
+#: js/script.js:511 js/script.js:554 js/script.js:558 js/script.js:563
 msgid "Something went wrong. We got unexpected server response."
 msgstr "Что-то пошло не так. Неверный ответ сервера."
 
@@ -2021,63 +2050,63 @@ msgstr "Пожалуйста, подтвердите, что хотите арх
 msgid "Please confirm that you want to activate price option."
 msgstr "Пожалуйста, подтвердите, что хотите активриовать ценовую опцию."
 
-#: js/admin.js:672
+#: js/admin.js:675
 msgid "Please confirm that you want to delete membership."
 msgstr "Пожалуйста, подтвердите, что хотите удалить уровень."
 
-#: js/admin.js:728
+#: js/admin.js:731
 msgid "Please confirm that you want to archive membership."
 msgstr "Пожалуйста, подтвердите, что хотите архивировать уровень."
 
-#: js/admin.js:782
+#: js/admin.js:785
 msgid "Please confirm that you want to activate membership."
 msgstr "Пожалуйста, подтвердите, что хотите активировать уровень."
 
-#: js/admin.js:846
+#: js/admin.js:849
 msgid "Please confirm that you want to delete this transaction."
 msgstr "Пожалуйста, подтвердите, что хотите удалить транзакцию."
 
-#: js/admin.js:905
+#: js/admin.js:908
 msgid "Please confirm that you want to delete transactions."
 msgstr "Пожалуйста, подтвердите, что хотите удалить транзакции."
 
-#: js/script.js:213
+#: js/script.js:216
 msgid "Confirm action"
 msgstr "Подтвердите действие"
 
-#: js/script.js:220
+#: js/script.js:223
 msgid "Cancel"
 msgstr "Отмена"
 
-#: js/script.js:221
+#: js/script.js:224
 msgid "Do you really want to continue?"
 msgstr "Вы действительно хотите продолжить?"
 
-#: js/script.js:365
+#: js/script.js:368
 msgid "Please confirm that you want to delete the file."
 msgstr "Пожалуйста, подтвердите, что хотите удалить файл."
 
-#: js/script.js:421
+#: js/script.js:424
 msgid "Please confirm that you want to delete selected files."
 msgstr "Пожалуйста, подтвердите, что хотите удалить файлы."
 
-#: login.php:124
+#: login.php:125
 msgid "Forgot password?"
 msgstr "Забыли пароль?"
 
-#: login.php:136
+#: login.php:137
 msgid "or sign in with"
 msgstr "или войдите с помощью"
 
-#: login.php:174
+#: login.php:175
 msgid "Remember password?"
 msgstr "Вспомнили пароль?"
 
-#: login.php:174
+#: login.php:175
 msgid "Sign In."
 msgstr "Войти."
 
-#: login.php:178 login.php:179
+#: login.php:179 login.php:180
 msgid "Reset"
 msgstr "Сброс"
 
@@ -2089,19 +2118,19 @@ msgstr "Email адрес уже подтвержден."
 msgid "Email address successfully confirmed."
 msgstr "Email адрес успешно подтвержден."
 
-#: register.php:137
+#: register.php:143
 msgid "Select timezone"
 msgstr "Выберите часовой пояс"
 
-#: register.php:175
+#: register.php:181
 msgid "or create account with"
 msgstr "или создайте аккаунт с помощью"
 
-#: register.php:207
+#: register.php:213
 msgid "Set new password"
 msgstr "Установить новый пароль"
 
-#: register.php:222 register.php:223
+#: register.php:228 register.php:229
 msgid "Set password"
 msgstr "Установить пароль"
 

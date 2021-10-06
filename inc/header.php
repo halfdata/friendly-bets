@@ -63,6 +63,7 @@ do_action('admin_head');
 echo '
 </head>
 <body>
+	<input type="hidden" name="_token" value="'.esc_html($csrf_token).'" />
 	<div class="wrapper">
 		<header>';
 if (!empty($global_warnings)) {

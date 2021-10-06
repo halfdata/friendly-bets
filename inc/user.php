@@ -552,13 +552,7 @@ class user_class {
 				</div>
 				<a href="#" class="button button-small" onclick="if(file_uploading==false){jQuery(\'.upload-form input[type=file]\').click();} return false;"><i class="fas fa-plus"></i><span>'.esc_html__('Upload new file', 'fb').'</span></a>
 			</div>
-		</div>
-		<form class="upload-form" action="'.url('ajax.php').'" method="POST" enctype="multipart/form-data" target="upload-iframe" onsubmit="return upload_start(this);" style="display: none !important; width: 0 !important; height: 0 !important;">
-			<input type="hidden" name="action" value="image-uploader-action" />
-			<input type="file" name="file" accept="image/*" onchange="jQuery(this).parent().submit();" style="display: none !important; width: 0 !important; height: 0 !important;" />
-			<input type="submit" value="Upload" style="display: none !important; width: 0 !important; height: 0 !important;" />
-		</form>											
-		<iframe data-loading="false" id="upload-iframe" name="upload-iframe" src="about:blank" onload="upload_finish(this);" style="display: none !important; width: 0 !important; height: 0 !important;"></iframe>';
+		</div>';
 		return array('title' => $page_title, 'content' => $content);
 	}
 

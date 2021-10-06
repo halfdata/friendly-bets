@@ -3,6 +3,31 @@ include_once(dirname(__FILE__).'/inc/functions.php');
 include_once(dirname(__FILE__).'/inc/icdb.php');
 include_once(dirname(__FILE__).'/inc/common.php');
 //header('Content-Type: application/json');
+
+if (array_key_exists('_token', $_REQUEST)) {
+	$token_parts = explode('-', trim(stripslashes($_REQUEST['_token'])), 2);
+	if (sizeof($token_parts) == 2 && is_numeric($token_parts[0])) {
+		if ($token_parts[0] + 3600*6 > time()) {
+			if (md5($token_parts[0].SALT1.(!empty($user_details) ? $user_details['uuid'] : '')) != $token_parts[1]) {
+				$return_data = array('status' => 'WARNING', 'message' => esc_html__('Invalid token.', 'fb'));
+				echo json_encode($return_data);
+				exit;
+			}
+		} else {
+			$return_data = array('status' => 'WARNING', 'message' => esc_html__('Token expired. Refresh the page and try again.', 'fb'));
+			echo json_encode($return_data);
+			exit;
+		}
+	} else {
+		$return_data = array('status' => 'WARNING', 'message' => esc_html__('Invalid request.', 'fb'));
+		echo json_encode($return_data);
+		exit;
+	}
+} else {
+	$return_data = array('status' => 'WARNING', 'message' => esc_html__('Invalid request.', 'fb'));
+	echo json_encode($return_data);
+	exit;
+}
 if (!array_key_exists('action', $_REQUEST)) {
 	$return_data = array('status' => 'FATAL', 'message' => esc_html__('Invalid request.', 'fb'));
 	echo json_encode($return_data);

@@ -21,7 +21,7 @@ function _totalizator_campaign_delete(_object) {
 	var doing_label = jQuery(_object).attr("data-doing");
 	var do_label = jQuery(_object).html();
 	jQuery(_object).html("<i class='fas fa-spinner fa-spin'></i> "+doing_label);
-	var post_data = {"action" : "totalizator-campaign-delete", "campaign-id" : campaign_id};
+	var post_data = {"action" : "totalizator-campaign-delete", "campaign-id" : campaign_id, "_token" : jQuery("input[name='_token']").val()};
 	jQuery.ajax({
 		url		:	ajax_url, 
 		data	: 	post_data,
@@ -62,7 +62,7 @@ function totalizator_campaign_status_toggle(_object) {
 	var doing_label = jQuery(_object).attr("data-doing");
 	var do_label = jQuery(_object).html();
 	jQuery(_object).html("<i class='fas fa-spinner fa-spin'></i> "+doing_label);
-	var post_data = {"action" : "totalizator-campaign-status-toggle", "campaign-id" : campaign_id, "status" : campaign_status};
+	var post_data = {"action" : "totalizator-campaign-status-toggle", "campaign-id" : campaign_id, "status" : campaign_status, "_token" : jQuery("input[name='_token']").val()};
 	jQuery.ajax({
 		url		:	ajax_url, 
 		data	: 	post_data,
@@ -125,7 +125,7 @@ function _totalizator_campaign_quit(_object) {
 	var doing_label = jQuery(_object).attr("data-doing");
 	var do_label = jQuery(_object).html();
 	jQuery(_object).html("<i class='fas fa-spinner fa-spin'></i> "+doing_label);
-	var post_data = {"action" : "totalizator-campaign-quit", "cid" : campaign_id};
+	var post_data = {"action" : "totalizator-campaign-quit", "cid" : campaign_id, "_token" : jQuery("input[name='_token']").val()};
 	jQuery.ajax({
 		url		:	ajax_url, 
 		data	: 	post_data,
@@ -180,7 +180,7 @@ function _totalizator_game_delete(_object) {
 	var doing_label = jQuery(_object).attr("data-doing");
 	var do_label = jQuery(_object).html();
 	jQuery(_object).html("<i class='fas fa-spinner fa-spin'></i> "+doing_label);
-	var post_data = {"action" : "totalizator-game-delete", "game-id" : game_uid, "cid" : campaign_uid};
+	var post_data = {"action" : "totalizator-game-delete", "game-id" : game_uid, "cid" : campaign_uid, "_token" : jQuery("input[name='_token']").val()};
 	jQuery.ajax({
 		url		:	ajax_url, 
 		data	: 	post_data,
@@ -234,7 +234,7 @@ function _totalizator_participant_delete(_object) {
 	var participant_uid = jQuery(_object).attr("data-id");
 	var campaign_uid = jQuery(_object).attr("data-cid");
 	jQuery(_object).html("<i class='fas fa-spinner fa-spin'></i>");
-	var post_data = {"action" : "totalizator-participant-delete", "participant-id" : participant_uid, "cid" : campaign_uid};
+	var post_data = {"action" : "totalizator-participant-delete", "participant-id" : participant_uid, "cid" : campaign_uid, "_token" : jQuery("input[name='_token']").val()};
 	jQuery.ajax({
 		url		:	ajax_url, 
 		data	: 	post_data,

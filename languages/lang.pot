@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2021-09-30 10:36+0500\n"
+"POT-Creation-Date: 2021-10-06 19:09+0500\n"
 "PO-Revision-Date: 2021-09-02 11:52+0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -17,153 +17,170 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: content\n"
 
-#: ajax.php:7 inc/admin.php:884
+#: ajax.php:12
+msgid "Invalid token."
+msgstr ""
+
+#: ajax.php:17
+msgid "Token expired. Refresh the page and try again."
+msgstr ""
+
+#: ajax.php:22 ajax.php:27 ajax.php:32 inc/admin.php:884
 msgid "Invalid request."
 msgstr ""
 
-#: ajax.php:23 ajax.php:165 inc/admin.php:657 install.php:181
+#: ajax.php:41
+msgid "Unfortunately, registration disbaled."
+msgstr ""
+
+#: ajax.php:53 ajax.php:195 inc/admin.php:657 install.php:181
 msgid "This is not a valid email address."
 msgstr ""
 
-#: ajax.php:24 ajax.php:166 inc/admin.php:658
+#: ajax.php:54 ajax.php:196 inc/admin.php:658
 msgid "The email address is too long."
 msgstr ""
 
-#: ajax.php:28 inc/admin.php:662
+#: ajax.php:58 inc/admin.php:662
 msgid "The email already registered."
 msgstr ""
 
-#: ajax.php:31 inc/admin.php:649 inc/user.php:391
+#: ajax.php:61 inc/admin.php:649 inc/user.php:391
 msgid "The full name is too short."
 msgstr ""
 
-#: ajax.php:32 inc/admin.php:650 inc/user.php:392
+#: ajax.php:62 inc/admin.php:650 inc/user.php:392
 msgid "The full name is too long."
 msgstr ""
 
-#: ajax.php:34 ajax.php:211 inc/admin.php:653 inc/user.php:396
+#: ajax.php:64 ajax.php:241 inc/admin.php:653 inc/user.php:396
 msgid "The password must be at least 6 characters long."
 msgstr ""
 
-#: ajax.php:35 ajax.php:212 inc/admin.php:654 inc/user.php:397
+#: ajax.php:65 ajax.php:242 inc/admin.php:654 inc/user.php:397
 msgid "Repeat the password properly."
 msgstr ""
 
-#: ajax.php:38 inc/admin.php:647 inc/user.php:389
+#: ajax.php:68 inc/admin.php:647 inc/user.php:389
 msgid "Invalid timezone."
 msgstr ""
 
-#: ajax.php:114 ajax.php:115 ajax.php:119
+#: ajax.php:144 ajax.php:145 ajax.php:149
 msgid "Invalid email or password."
 msgstr ""
 
-#: ajax.php:129 ajax.php:179 ajax.php:206 auth-vk.php:149 auth.php:147
-#: auth.php:363 register.php:14 register.php:40
+#: ajax.php:159 ajax.php:209 ajax.php:236 auth-vk.php:154 auth.php:152
+#: auth.php:373 register.php:14 register.php:40
 msgid "Unfortunately, your account temporarily disbaled."
 msgstr ""
 
-#: ajax.php:157
+#: ajax.php:187
 msgid "You are successfully logged in."
 msgstr ""
 
-#: ajax.php:170
+#: ajax.php:200
 msgid "The email address is not registered."
 msgstr ""
 
-#: ajax.php:189
+#: ajax.php:219
 msgid "Check your mailbox and follow instructions."
 msgstr ""
 
-#: ajax.php:200 inc/admin.php:258 inc/admin.php:292 register.php:10
+#: ajax.php:230 inc/admin.php:258 inc/admin.php:292 register.php:10
 msgid "User not found."
 msgstr ""
 
-#: ajax.php:251 inc/admin.php:245 inc/admin.php:278 inc/admin.php:332
+#: ajax.php:281 inc/admin.php:245 inc/admin.php:278 inc/admin.php:332
 #: inc/admin.php:366 inc/admin.php:399 inc/admin.php:615 inc/admin.php:875
 #: inc/admin.php:903 inc/admin.php:936 inc/admin.php:969 inc/admin.php:1297
 #: inc/admin.php:1671 inc/admin.php:1851 inc/admin.php:1880 inc/admin.php:1913
-#: inc/admin.php:2049 inc/admin.php:2082 inc/admin.php:2843 inc/admin.php:2884
+#: inc/admin.php:2049 inc/admin.php:2082 inc/admin.php:2863 inc/admin.php:2904
 #: inc/user.php:378 inc/user.php:415 inc/user.php:433 inc/user.php:451
-#: inc/user.php:569 inc/user.php:596 inc/user.php:630 inc/user.php:885
+#: inc/user.php:563 inc/user.php:590 inc/user.php:624 inc/user.php:879
 msgid "Please enter your account to perform this action."
 msgstr ""
 
-#: ajax.php:257
+#: ajax.php:287
 #, php-format
 msgid "Image is too big. Maximum allowed %skb."
 msgstr ""
 
-#: ajax.php:269 ajax.php:340
+#: ajax.php:299 ajax.php:370
 msgid "Uploaded file is not an image."
 msgstr ""
 
-#: ajax.php:331
+#: ajax.php:361
 msgid "Image was uploaded successfully."
 msgstr ""
 
-#: ajax.php:334 ajax.php:350
+#: ajax.php:364 ajax.php:380
 msgid "Unable to save uploaded image."
 msgstr ""
 
-#: ajax.php:345 ajax.php:355
+#: ajax.php:375 ajax.php:385
 msgid "Image was not uploaded properly."
 msgstr ""
 
-#: auth-vk.php:26 auth.php:24 auth.php:240
+#: auth-vk.php:26 auth.php:24 auth.php:245
 msgid "Something went wrong. Please contact administrator."
 msgstr ""
 
-#: auth-vk.php:51 auth.php:49 auth.php:265
+#: auth-vk.php:51 auth.php:49 auth.php:270
 msgid "Something went wrong. Email address was not provided."
 msgstr ""
 
-#: auth-vk.php:137
+#: auth-vk.php:66 auth.php:64 auth.php:285
+#, php-format
+msgid "Email address \"%s\" was not registered."
+msgstr ""
+
+#: auth-vk.php:142
 #, php-format
 msgid ""
 "Email address \"%s\" already registered but not connected to VK. Please do "
 "it on Account Settings."
 msgstr ""
 
-#: auth-vk.php:145 auth-vk.php:213 auth-vk.php:218 auth.php:143 auth.php:211
-#: auth.php:216 auth.php:359 auth.php:427 auth.php:432
+#: auth-vk.php:150 auth-vk.php:218 auth-vk.php:223 auth.php:148 auth.php:216
+#: auth.php:221 auth.php:369 auth.php:437 auth.php:442
 msgid "Service temporarily not available. Try again later."
 msgstr ""
 
-#: auth-vk.php:202
+#: auth-vk.php:207
 msgid "This VK Account is already connected to your account."
 msgstr ""
 
-#: auth-vk.php:207
+#: auth-vk.php:212
 msgid "This VK Account is already connected to another user."
 msgstr ""
 
-#: auth.php:135
+#: auth.php:140
 #, php-format
 msgid ""
 "Email address \"%s\" already registered but not connected to Google. Please "
 "do it on Account Settings."
 msgstr ""
 
-#: auth.php:200
+#: auth.php:205
 msgid "This Google Account is already connected to your account."
 msgstr ""
 
-#: auth.php:205
+#: auth.php:210
 msgid "This Google Account is already connected to another user."
 msgstr ""
 
-#: auth.php:351
+#: auth.php:361
 #, php-format
 msgid ""
 "Email address \"%s\" already registered but not connected to Facebook. "
 "Please do it on Account Settings."
 msgstr ""
 
-#: auth.php:416
+#: auth.php:426
 msgid "This Facebook Account is already connected to your account."
 msgstr ""
 
-#: auth.php:421
+#: auth.php:431
 msgid "This Facebook Account is already connected to another user."
 msgstr ""
 
@@ -171,7 +188,7 @@ msgstr ""
 msgid "Administrator"
 msgstr ""
 
-#: inc/admin.php:61 inc/admin.php:155 inc/admin.php:157 inc/admin.php:3010
+#: inc/admin.php:61 inc/admin.php:155 inc/admin.php:157 inc/admin.php:3030
 msgid "Users"
 msgstr ""
 
@@ -204,28 +221,28 @@ msgstr ""
 msgid "Create New User"
 msgstr ""
 
-#: inc/admin.php:175 inc/admin.php:198 inc/admin.php:472 inc/admin.php:2620
-#: inc/admin.php:2653 inc/user.php:107 inc/user.php:773
+#: inc/admin.php:175 inc/admin.php:198 inc/admin.php:472 inc/admin.php:2640
+#: inc/admin.php:2673 inc/user.php:107 inc/user.php:767
 msgid "Email"
 msgstr ""
 
-#: inc/admin.php:176 inc/admin.php:199 inc/admin.php:2612 inc/admin.php:2645
-#: inc/user.php:769
+#: inc/admin.php:176 inc/admin.php:199 inc/admin.php:2632 inc/admin.php:2665
+#: inc/user.php:763
 msgid "Name"
 msgstr ""
 
 #: inc/admin.php:177 inc/admin.php:200 inc/admin.php:550 inc/user.php:153
-#: inc/user.php:1090
+#: inc/user.php:1084
 msgid "Membership"
 msgstr ""
 
-#: inc/admin.php:178 inc/admin.php:201 inc/user.php:781
+#: inc/admin.php:178 inc/admin.php:201 inc/user.php:775
 msgid "Role"
 msgstr ""
 
 #: inc/admin.php:179 inc/admin.php:202 inc/admin.php:1810 inc/admin.php:1823
-#: inc/admin.php:2001 inc/admin.php:2013 inc/user.php:793 inc/user.php:803
-#: inc/user.php:828 inc/user.php:852
+#: inc/admin.php:2001 inc/admin.php:2013 inc/user.php:787 inc/user.php:797
+#: inc/user.php:822 inc/user.php:846
 msgid "Created"
 msgstr ""
 
@@ -294,7 +311,7 @@ msgstr ""
 #: inc/admin.php:403 inc/admin.php:619 inc/admin.php:879 inc/admin.php:907
 #: inc/admin.php:940 inc/admin.php:973 inc/admin.php:1301 inc/admin.php:1675
 #: inc/admin.php:1855 inc/admin.php:1884 inc/admin.php:1917 inc/admin.php:2053
-#: inc/admin.php:2086 inc/admin.php:2847 inc/admin.php:2888
+#: inc/admin.php:2086 inc/admin.php:2867 inc/admin.php:2908
 msgid "You do not have permissions to perform this action."
 msgstr ""
 
@@ -318,7 +335,7 @@ msgstr ""
 msgid "User successfully activated."
 msgstr ""
 
-#: inc/admin.php:320 inc/common.php:242
+#: inc/admin.php:320 inc/common.php:247
 msgid "Active"
 msgstr ""
 
@@ -355,7 +372,7 @@ msgid "Set user role."
 msgstr ""
 
 #: inc/admin.php:465 inc/admin.php:1808 inc/admin.php:1821 inc/admin.php:1999
-#: inc/admin.php:2011 inc/admin.php:2708 inc/user.php:23
+#: inc/admin.php:2011 inc/admin.php:2728 inc/user.php:23
 msgid "User"
 msgstr ""
 
@@ -363,13 +380,13 @@ msgstr ""
 msgid "Specify email address of the user."
 msgstr ""
 
-#: inc/admin.php:481 inc/admin.php:2780 inc/admin.php:2816 login.php:115
-#: login.php:170 register.php:152
+#: inc/admin.php:481 inc/admin.php:2800 inc/admin.php:2836 login.php:116
+#: login.php:171 register.php:158
 msgid "Email address"
 msgstr ""
 
-#: inc/admin.php:486 inc/admin.php:496 inc/admin.php:2779 inc/admin.php:2815
-#: inc/user.php:117 inc/user.php:127 register.php:142
+#: inc/admin.php:486 inc/admin.php:496 inc/admin.php:2799 inc/admin.php:2835
+#: inc/user.php:117 inc/user.php:127 register.php:148
 msgid "Full name"
 msgstr ""
 
@@ -377,7 +394,7 @@ msgstr ""
 msgid "Specify full name of the user."
 msgstr ""
 
-#: inc/admin.php:502 inc/user.php:133 inc/user.php:789
+#: inc/admin.php:502 inc/user.php:133 inc/user.php:783
 msgid "Timezone"
 msgstr ""
 
@@ -385,8 +402,8 @@ msgstr ""
 msgid "Select timezone of the user."
 msgstr ""
 
-#: inc/admin.php:520 inc/admin.php:532 inc/admin.php:2729 inc/admin.php:2731
-#: inc/admin.php:2861 login.php:120 register.php:157 register.php:211
+#: inc/admin.php:520 inc/admin.php:532 inc/admin.php:2749 inc/admin.php:2751
+#: inc/admin.php:2881 login.php:121 register.php:163 register.php:217
 msgid "Password"
 msgstr ""
 
@@ -394,7 +411,7 @@ msgstr ""
 msgid "Set password of the user."
 msgstr ""
 
-#: inc/admin.php:537 inc/user.php:315 register.php:162 register.php:216
+#: inc/admin.php:537 inc/user.php:315 register.php:168 register.php:222
 msgid "Repeat password"
 msgstr ""
 
@@ -580,7 +597,7 @@ msgstr ""
 msgid "Footer label"
 msgstr ""
 
-#: inc/admin.php:1156 inc/user.php:1006
+#: inc/admin.php:1156 inc/user.php:1000
 msgid "Price options"
 msgstr ""
 
@@ -658,13 +675,13 @@ msgstr ""
 msgid "Title is too long."
 msgstr ""
 
-#: inc/admin.php:1334 inc/admin.php:1690 inc/admin.php:2913
+#: inc/admin.php:1334 inc/admin.php:1690 inc/admin.php:2933
 msgid "The translation is too short."
 msgstr ""
 
 #: inc/admin.php:1335 inc/admin.php:1341 inc/admin.php:1347 inc/admin.php:1365
 #: inc/admin.php:1395 inc/admin.php:1691 inc/admin.php:1697 inc/admin.php:1703
-#: inc/admin.php:1720 inc/admin.php:2914 inc/admin.php:2920 inc/admin.php:2926
+#: inc/admin.php:1720 inc/admin.php:2934 inc/admin.php:2940 inc/admin.php:2946
 msgid "The translation is too long."
 msgstr ""
 
@@ -744,7 +761,7 @@ msgstr ""
 msgid "Active Sessions"
 msgstr ""
 
-#: inc/admin.php:2000 inc/admin.php:2012 inc/user.php:800 inc/user.php:850
+#: inc/admin.php:2000 inc/admin.php:2012 inc/user.php:794 inc/user.php:844
 msgid "Source"
 msgstr ""
 
@@ -788,7 +805,7 @@ msgstr ""
 msgid "General"
 msgstr ""
 
-#: inc/admin.php:2131 inc/user.php:186 inc/user.php:797
+#: inc/admin.php:2131 inc/user.php:186 inc/user.php:791
 msgid "Connections"
 msgstr ""
 
@@ -850,19 +867,31 @@ msgid ""
 "recommended to upload seamless pattern image."
 msgstr ""
 
-#: inc/admin.php:2249 inc/user.php:191 login.php:141 register.php:180
+#: inc/admin.php:2249
+msgid "User registration"
+msgstr ""
+
+#: inc/admin.php:2254
+msgid "Allow users to register on website."
+msgstr ""
+
+#: inc/admin.php:2262
+msgid "Anyone can register"
+msgstr ""
+
+#: inc/admin.php:2269 inc/user.php:191 login.php:142 register.php:186
 msgid "Google"
 msgstr ""
 
-#: inc/admin.php:2252 inc/admin.php:2325 inc/admin.php:2402 inc/admin.php:2477
+#: inc/admin.php:2272 inc/admin.php:2345 inc/admin.php:2422 inc/admin.php:2497
 msgid "Enable"
 msgstr ""
 
-#: inc/admin.php:2257
+#: inc/admin.php:2277
 msgid "Allow users to use their Google Account to sign in."
 msgstr ""
 
-#: inc/admin.php:2277
+#: inc/admin.php:2297
 #, php-format
 msgid ""
 "Create new OAuth 2.0 credentials in %sGoogle Cloud Platform%s and copy-paste "
@@ -870,39 +899,39 @@ msgid ""
 "credentials."
 msgstr ""
 
-#: inc/admin.php:2279 inc/admin.php:2352
+#: inc/admin.php:2299 inc/admin.php:2372
 msgid "Application type"
 msgstr ""
 
-#: inc/admin.php:2283 inc/admin.php:2433
+#: inc/admin.php:2303 inc/admin.php:2453
 msgid "Authorized redirect URI"
 msgstr ""
 
-#: inc/admin.php:2291 inc/admin.php:2301 inc/admin.php:2368 inc/admin.php:2378
+#: inc/admin.php:2311 inc/admin.php:2321 inc/admin.php:2388 inc/admin.php:2398
 msgid "Client ID"
 msgstr ""
 
-#: inc/admin.php:2296
+#: inc/admin.php:2316
 msgid "Enter your OAuth 2.0 Client ID."
 msgstr ""
 
-#: inc/admin.php:2307 inc/admin.php:2317 inc/admin.php:2384 inc/admin.php:2394
+#: inc/admin.php:2327 inc/admin.php:2337 inc/admin.php:2404 inc/admin.php:2414
 msgid "Client Secret"
 msgstr ""
 
-#: inc/admin.php:2312
+#: inc/admin.php:2332
 msgid "Enter your OAuth 2.0 Client Secret."
 msgstr ""
 
-#: inc/admin.php:2322 inc/user.php:221 login.php:147 register.php:186
+#: inc/admin.php:2342 inc/user.php:221 login.php:148 register.php:192
 msgid "Facebook"
 msgstr ""
 
-#: inc/admin.php:2330
+#: inc/admin.php:2350
 msgid "Allow users to use their Facebook Account to sign in."
 msgstr ""
 
-#: inc/admin.php:2350
+#: inc/admin.php:2370
 #, php-format
 msgid ""
 "Create new application in %sFacebook for Developers%s and copy-paste its "
@@ -910,494 +939,494 @@ msgid ""
 "application."
 msgstr ""
 
-#: inc/admin.php:2356
+#: inc/admin.php:2376
 msgid "Product"
 msgstr ""
 
-#: inc/admin.php:2360
+#: inc/admin.php:2380
 msgid "Valid OAuth Redirect URI"
 msgstr ""
 
-#: inc/admin.php:2373
+#: inc/admin.php:2393
 msgid "Enter your Facebook Application Client ID."
 msgstr ""
 
-#: inc/admin.php:2389
+#: inc/admin.php:2409
 msgid "Enter your Facebook Application Client Secret."
 msgstr ""
 
-#: inc/admin.php:2399 inc/user.php:251 login.php:153 register.php:192
+#: inc/admin.php:2419 inc/user.php:251 login.php:154 register.php:198
 msgid "VK"
 msgstr ""
 
-#: inc/admin.php:2407
+#: inc/admin.php:2427
 msgid "Allow users to use their VK Account to sign in."
 msgstr ""
 
-#: inc/admin.php:2427
+#: inc/admin.php:2447
 #, php-format
 msgid ""
 "Create new application in %sVK Developers%s and copy-paste its credentials "
 "into fields below. Use the following parameters to create an application."
 msgstr ""
 
-#: inc/admin.php:2429
+#: inc/admin.php:2449
 msgid "Platform"
 msgstr ""
 
-#: inc/admin.php:2441 inc/admin.php:2451
+#: inc/admin.php:2461 inc/admin.php:2471
 msgid "App ID"
 msgstr ""
 
-#: inc/admin.php:2446
+#: inc/admin.php:2466
 msgid "Enter your VK App ID."
 msgstr ""
 
-#: inc/admin.php:2457 inc/admin.php:2467
+#: inc/admin.php:2477 inc/admin.php:2487
 msgid "Secure Key"
 msgstr ""
 
-#: inc/admin.php:2462
+#: inc/admin.php:2482
 msgid "Enter your VK App Secure Key."
 msgstr ""
 
-#: inc/admin.php:2474
+#: inc/admin.php:2494
 msgid "Stripe"
 msgstr ""
 
-#: inc/admin.php:2482
+#: inc/admin.php:2502
 msgid "Accept payments through Stripe."
 msgstr ""
 
-#: inc/admin.php:2502
+#: inc/admin.php:2522
 #, php-format
 msgid ""
 "Create new webhook with the following URL and events in your %sStripe "
 "Dashboard%s."
 msgstr ""
 
-#: inc/admin.php:2504
+#: inc/admin.php:2524
 msgid "Events"
 msgstr ""
 
-#: inc/admin.php:2510
+#: inc/admin.php:2530
 msgid "Endpoint URL"
 msgstr ""
 
-#: inc/admin.php:2518 inc/admin.php:2529
+#: inc/admin.php:2538 inc/admin.php:2549
 msgid "Publishable key"
 msgstr ""
 
-#: inc/admin.php:2523
+#: inc/admin.php:2543
 msgid "Enter your publishable key."
 msgstr ""
 
-#: inc/admin.php:2531
+#: inc/admin.php:2551
 #, php-format
 msgid "Find publishable key on %sAPI Keys%s page."
 msgstr ""
 
-#: inc/admin.php:2537 inc/admin.php:2548
+#: inc/admin.php:2557 inc/admin.php:2568
 msgid "Secret key"
 msgstr ""
 
-#: inc/admin.php:2542
+#: inc/admin.php:2562
 msgid "Enter your secret key."
 msgstr ""
 
-#: inc/admin.php:2550
+#: inc/admin.php:2570
 #, php-format
 msgid "Find secret key on %sAPI Keys%s page."
 msgstr ""
 
-#: inc/admin.php:2556 inc/admin.php:2567
+#: inc/admin.php:2576 inc/admin.php:2587
 msgid "Signing secret"
 msgstr ""
 
-#: inc/admin.php:2561
+#: inc/admin.php:2581
 msgid "Enter valid signing secret for webhook that you created earlier."
 msgstr ""
 
-#: inc/admin.php:2569
+#: inc/admin.php:2589
 #, php-format
 msgid ""
 "Find it on %sWebhooks%s page. Click webhook that you created earlier, and "
 "find \"Signing secret\" parameter."
 msgstr ""
 
-#: inc/admin.php:2576
+#: inc/admin.php:2596
 msgid "Sender parameters"
 msgstr ""
 
-#: inc/admin.php:2580
+#: inc/admin.php:2600
 msgid "Method"
 msgstr ""
 
-#: inc/admin.php:2585
+#: inc/admin.php:2605
 msgid ""
 "Set mailing method. All email messages are sent using this mailing method."
 msgstr ""
 
-#: inc/admin.php:2591
+#: inc/admin.php:2611
 msgid "PHP Mail() Function"
 msgstr ""
 
-#: inc/admin.php:2591
+#: inc/admin.php:2611
 msgid "SMTP"
 msgstr ""
 
-#: inc/admin.php:2599 inc/admin.php:2632
+#: inc/admin.php:2619 inc/admin.php:2652
 msgid "Sender"
 msgstr ""
 
-#: inc/admin.php:2604 inc/admin.php:2637 inc/admin.php:2713
+#: inc/admin.php:2624 inc/admin.php:2657 inc/admin.php:2733
 msgid ""
 "Set sender name and email. All email messages are sent using these "
 "credentials as \"FROM:\" header value."
 msgstr ""
 
-#: inc/admin.php:2614 inc/admin.php:2647
+#: inc/admin.php:2634 inc/admin.php:2667
 msgid "Sender name"
 msgstr ""
 
-#: inc/admin.php:2622 inc/admin.php:2655
+#: inc/admin.php:2642 inc/admin.php:2675
 msgid "Sender email"
 msgstr ""
 
-#: inc/admin.php:2663 inc/admin.php:2861
+#: inc/admin.php:2683 inc/admin.php:2881
 msgid "Server"
 msgstr ""
 
-#: inc/admin.php:2668
+#: inc/admin.php:2688
 msgid "Set encryption, mail server hostname and port."
 msgstr ""
 
-#: inc/admin.php:2684 inc/admin.php:2861
+#: inc/admin.php:2704 inc/admin.php:2881
 msgid "Encryption"
 msgstr ""
 
-#: inc/admin.php:2690 inc/admin.php:2692
+#: inc/admin.php:2710 inc/admin.php:2712
 msgid "Hostname"
 msgstr ""
 
-#: inc/admin.php:2698 inc/admin.php:2700 inc/admin.php:2861
+#: inc/admin.php:2718 inc/admin.php:2720 inc/admin.php:2881
 msgid "Port"
 msgstr ""
 
-#: inc/admin.php:2721 inc/admin.php:2723 inc/admin.php:2861
+#: inc/admin.php:2741 inc/admin.php:2743 inc/admin.php:2881
 msgid "Username"
 msgstr ""
 
-#: inc/admin.php:2748
+#: inc/admin.php:2768
 msgid "Test mailing"
 msgstr ""
 
-#: inc/admin.php:2750
+#: inc/admin.php:2770
 #, php-format
 msgid ""
 "Press button and check your inbox (%s). If you do not see test message, "
 "something does not work. Do not forget to check SPAM folder."
 msgstr ""
 
-#: inc/admin.php:2754
+#: inc/admin.php:2774
 msgid "Confirmation email"
 msgstr ""
 
-#: inc/admin.php:2757 inc/admin.php:2767 inc/admin.php:2793 inc/admin.php:2803
+#: inc/admin.php:2777 inc/admin.php:2787 inc/admin.php:2813 inc/admin.php:2823
 msgid "Subject"
 msgstr ""
 
-#: inc/admin.php:2762
+#: inc/admin.php:2782
 msgid ""
 "Newly registered users must confirm their email address to receive "
 "notifications. Specify the subject of confirmation email."
 msgstr ""
 
-#: inc/admin.php:2773 inc/admin.php:2786 inc/admin.php:2809 inc/admin.php:2822
+#: inc/admin.php:2793 inc/admin.php:2806 inc/admin.php:2829 inc/admin.php:2842
 msgid "Message"
 msgstr ""
 
-#: inc/admin.php:2778
+#: inc/admin.php:2798
 msgid ""
 "Specify the message of confirmation email. You can use the following "
 "shortcodes."
 msgstr ""
 
-#: inc/admin.php:2781
+#: inc/admin.php:2801
 msgid "URL that is used to confirm email address."
 msgstr ""
 
-#: inc/admin.php:2790 inc/common.php:34 login.php:166
+#: inc/admin.php:2810 inc/common.php:37 login.php:167
 msgid "Reset password"
 msgstr ""
 
-#: inc/admin.php:2798
+#: inc/admin.php:2818
 msgid "Specify the subject of reset password email."
 msgstr ""
 
-#: inc/admin.php:2814
+#: inc/admin.php:2834
 msgid ""
 "Specify the message of reset password email. You can use the following "
 "shortcodes."
 msgstr ""
 
-#: inc/admin.php:2817
+#: inc/admin.php:2837
 msgid "URL that is used to reset the password."
 msgstr ""
 
-#: inc/admin.php:2829 inc/admin.php:2830
+#: inc/admin.php:2849 inc/admin.php:2850
 msgid "Save Settings"
 msgstr ""
 
-#: inc/admin.php:2859
+#: inc/admin.php:2879
 #, php-format
 msgid ""
 "This is a test message. It was sent from %s (%s) using the following mailing "
 "parameters."
 msgstr ""
 
-#: inc/admin.php:2861
+#: inc/admin.php:2881
 msgid "Method: SMTP"
 msgstr ""
 
-#: inc/admin.php:2861 inc/admin.php:2863
+#: inc/admin.php:2881 inc/admin.php:2883
 msgid "Sender Name"
 msgstr ""
 
-#: inc/admin.php:2861 inc/admin.php:2863
+#: inc/admin.php:2881 inc/admin.php:2883
 msgid "Sender Email"
 msgstr ""
 
-#: inc/admin.php:2863
+#: inc/admin.php:2883
 msgid "Method: PHP Mail() function"
 msgstr ""
 
-#: inc/admin.php:2866
+#: inc/admin.php:2886
 msgid "Test Message"
 msgstr ""
 
-#: inc/admin.php:2875
+#: inc/admin.php:2895
 #, php-format
 msgid "Test message successfully sent. Please check your inbox (%s)."
 msgstr ""
 
-#: inc/admin.php:2909
+#: inc/admin.php:2929
 msgid "The site title is too short."
 msgstr ""
 
-#: inc/admin.php:2910
+#: inc/admin.php:2930
 msgid "The site title is too long."
 msgstr ""
 
-#: inc/admin.php:2917
+#: inc/admin.php:2937
 msgid "The site tagline is too long."
 msgstr ""
 
-#: inc/admin.php:2923
+#: inc/admin.php:2943
 msgid "The site copyright is too long."
 msgstr ""
 
-#: inc/admin.php:2933
+#: inc/admin.php:2953
 msgid "Stripe publishable key can not be empty."
 msgstr ""
 
-#: inc/admin.php:2934
+#: inc/admin.php:2954
 msgid "Stripe secret key can not be empty."
 msgstr ""
 
-#: inc/admin.php:2935
+#: inc/admin.php:2955
 msgid "Stripe signing secret can not be empty."
 msgstr ""
 
-#: inc/admin.php:2939
+#: inc/admin.php:2959
 msgid "Google OAuth 2.0 Client ID can not be empty."
 msgstr ""
 
-#: inc/admin.php:2940
+#: inc/admin.php:2960
 msgid "Google OAuth 2.0 Client Secret can not be empty."
 msgstr ""
 
-#: inc/admin.php:2944
+#: inc/admin.php:2964
 msgid "Facebook Application Client ID can not be empty."
 msgstr ""
 
-#: inc/admin.php:2945
+#: inc/admin.php:2965
 msgid "Facebook Application Client Secret can not be empty."
 msgstr ""
 
-#: inc/admin.php:2949
+#: inc/admin.php:2969
 msgid "VK App ID can not be empty."
 msgstr ""
 
-#: inc/admin.php:2950
+#: inc/admin.php:2970
 msgid "VK App Secure Key can not be empty."
 msgstr ""
 
-#: inc/admin.php:2954 inc/admin.php:2957
+#: inc/admin.php:2974 inc/admin.php:2977
 msgid "Invalid sender name."
 msgstr ""
 
-#: inc/admin.php:2955 inc/admin.php:2958
+#: inc/admin.php:2975 inc/admin.php:2978
 msgid "Invalid sender e-mail."
 msgstr ""
 
-#: inc/admin.php:2959
+#: inc/admin.php:2979
 msgid "Invalid SMTP server."
 msgstr ""
 
-#: inc/admin.php:2960
+#: inc/admin.php:2980
 msgid "Invalid SMTP port."
 msgstr ""
 
-#: inc/admin.php:2961
+#: inc/admin.php:2981
 msgid "Invalid SMTP username."
 msgstr ""
 
-#: inc/admin.php:2962
+#: inc/admin.php:2982
 msgid "Invalid SMTP password."
 msgstr ""
 
-#: inc/admin.php:2965
+#: inc/admin.php:2985
 msgid "The confirmation email subject is too short."
 msgstr ""
 
-#: inc/admin.php:2966
+#: inc/admin.php:2986
 msgid "The confirmation email subject is too long."
 msgstr ""
 
-#: inc/admin.php:2967
+#: inc/admin.php:2987
 msgid "The confirmation email message is too short."
 msgstr ""
 
-#: inc/admin.php:2969
+#: inc/admin.php:2989
 msgid "The reset password email subject is too short."
 msgstr ""
 
-#: inc/admin.php:2970
+#: inc/admin.php:2990
 msgid "The reset password email subject is too long."
 msgstr ""
 
-#: inc/admin.php:2971
+#: inc/admin.php:2991
 msgid "The reset password email message is too short."
 msgstr ""
 
-#: inc/admin.php:2989 inc/user.php:406
+#: inc/admin.php:3009 inc/user.php:406
 msgid "Settings successfully saved."
 msgstr ""
 
-#: inc/common.php:26 inc/common.php:33 inc/common.php:37 inc/common.php:44
+#: inc/common.php:28 inc/common.php:36 inc/common.php:40 inc/common.php:47
 msgid "Friendly Bets"
 msgstr ""
 
-#: inc/common.php:27
+#: inc/common.php:29
 msgid "Join any active totalizator or start your own one"
 msgstr ""
 
-#: inc/common.php:32
+#: inc/common.php:35
 msgid "Confirm email address"
 msgstr ""
 
-#: inc/common.php:33 inc/common.php:35
+#: inc/common.php:36 inc/common.php:38
 msgid "Dear {name},"
 msgstr ""
 
-#: inc/common.php:33
+#: inc/common.php:36
 msgid "Click the link below to confirm email address."
 msgstr ""
 
-#: inc/common.php:33
+#: inc/common.php:36
 #, php-format
 msgid "If you did not sign up with %s, just ignore this message."
 msgstr ""
 
-#: inc/common.php:33 inc/common.php:35
+#: inc/common.php:36 inc/common.php:38
 msgid "Regards."
 msgstr ""
 
-#: inc/common.php:35
+#: inc/common.php:38
 msgid "Click the link below to reset the password."
 msgstr ""
 
-#: inc/common.php:35
+#: inc/common.php:38
 msgid "If you did not request password reset, just ignore this message."
 msgstr ""
 
-#: inc/common.php:96
+#: inc/common.php:99
 msgid "Make sure that the following folders exists and writable:"
 msgstr ""
 
-#: inc/common.php:188
+#: inc/common.php:191
 #, php-format
 msgid ""
 "You are working under %s account. Click %shere%s to switch back to your "
 "account."
 msgstr ""
 
-#: inc/common.php:225 inc/common.php:227
+#: inc/common.php:230 inc/common.php:232
 msgid "Free"
 msgstr ""
 
-#: inc/common.php:226
+#: inc/common.php:231
 msgid "All basic features are available for free account."
 msgstr ""
 
-#: inc/common.php:232
+#: inc/common.php:237
 msgid "Daily"
 msgstr ""
 
-#: inc/common.php:232
+#: inc/common.php:237
 msgid "/ day"
 msgstr ""
 
-#: inc/common.php:233
+#: inc/common.php:238
 msgid "Weekly"
 msgstr ""
 
-#: inc/common.php:233
+#: inc/common.php:238
 msgid "/ week"
 msgstr ""
 
-#: inc/common.php:234
+#: inc/common.php:239
 msgid "Monthly"
 msgstr ""
 
-#: inc/common.php:234
+#: inc/common.php:239
 msgid "/ month"
 msgstr ""
 
-#: inc/common.php:235
+#: inc/common.php:240
 msgid "Every 3 months"
 msgstr ""
 
-#: inc/common.php:235
+#: inc/common.php:240
 msgid "/ 3 months"
 msgstr ""
 
-#: inc/common.php:236
+#: inc/common.php:241
 msgid "Every 6 months"
 msgstr ""
 
-#: inc/common.php:236
+#: inc/common.php:241
 msgid "/ 6 months"
 msgstr ""
 
-#: inc/common.php:237
+#: inc/common.php:242
 msgid "Yearly"
 msgstr ""
 
-#: inc/common.php:237
+#: inc/common.php:242
 msgid "/ year"
 msgstr ""
 
-#: inc/common.php:238
+#: inc/common.php:243
 msgid "Single payment"
 msgstr ""
 
-#: inc/common.php:241
+#: inc/common.php:246
 msgid "New"
 msgstr ""
 
-#: inc/common.php:243
+#: inc/common.php:248
 msgid "Archive"
 msgstr ""
 
@@ -1418,29 +1447,29 @@ msgstr ""
 msgid "Select Image"
 msgstr ""
 
-#: inc/functions.php:815
+#: inc/functions.php:816
 msgid "page not found"
 msgstr ""
 
-#: inc/functions.php:891 inc/functions.php:919
+#: inc/functions.php:892 inc/functions.php:920
 msgid "Default text. It is used if translation not defined."
 msgstr ""
 
-#: inc/functions.php:895 inc/functions.php:923
+#: inc/functions.php:896 inc/functions.php:924
 msgid "Add translations"
 msgstr ""
 
-#: inc/header.php:165
+#: inc/header.php:166
 msgid "Logout"
 msgstr ""
 
-#: inc/header.php:170 login.php:47 login.php:111 login.php:128 login.php:129
-#: register.php:108
+#: inc/header.php:171 login.php:47 login.php:112 login.php:129 login.php:130
+#: register.php:114
 msgid "Sign In"
 msgstr ""
 
-#: inc/header.php:171 login.php:91 register.php:64 register.php:130
-#: register.php:167 register.php:168
+#: inc/header.php:172 login.php:92 register.php:69 register.php:136
+#: register.php:173 register.php:174
 msgid "Create Account"
 msgstr ""
 
@@ -1535,7 +1564,7 @@ msgstr ""
 msgid "Current password. Type it if you want to change the password."
 msgstr ""
 
-#: inc/user.php:298 inc/user.php:310 register.php:64
+#: inc/user.php:298 inc/user.php:310 register.php:69
 msgid "New password"
 msgstr ""
 
@@ -1594,7 +1623,7 @@ msgstr ""
 msgid "VK Account successfully disconnected."
 msgstr ""
 
-#: inc/user.php:494 inc/user.php:553 inc/user.php:685
+#: inc/user.php:494 inc/user.php:553 inc/user.php:679
 msgid "Upload new file"
 msgstr ""
 
@@ -1602,124 +1631,124 @@ msgstr ""
 msgid "Delete file"
 msgstr ""
 
-#: inc/user.php:519 inc/user.php:659
+#: inc/user.php:519 inc/user.php:653
 msgid "Image does not exist."
 msgstr ""
 
-#: inc/user.php:526 inc/user.php:666
+#: inc/user.php:526 inc/user.php:660
 msgid "Welcome. There are no available media yet."
 msgstr ""
 
-#: inc/user.php:578
+#: inc/user.php:572
 msgid "File not found."
 msgstr ""
 
-#: inc/user.php:587
+#: inc/user.php:581
 msgid "File successfully deleted."
 msgstr ""
 
-#: inc/user.php:608
+#: inc/user.php:602
 msgid "No files selected."
 msgstr ""
 
-#: inc/user.php:620 inc/user.php:621
+#: inc/user.php:614 inc/user.php:615
 msgid "Selected files successfully deleted."
 msgstr ""
 
-#: inc/user.php:758
+#: inc/user.php:752
 msgid "General info"
 msgstr ""
 
-#: inc/user.php:761
+#: inc/user.php:755
 msgid "Site"
 msgstr ""
 
-#: inc/user.php:765
+#: inc/user.php:759
 msgid "URL"
 msgstr ""
 
-#: inc/user.php:777
+#: inc/user.php:771
 msgid "Email confirmed"
 msgstr ""
 
-#: inc/user.php:778 inc/user.php:811 inc/user.php:835 js/script.js:219
+#: inc/user.php:772 inc/user.php:805 inc/user.php:829 js/script.js:222
 msgid "Yes"
 msgstr ""
 
-#: inc/user.php:778 inc/user.php:811 inc/user.php:835
+#: inc/user.php:772 inc/user.php:805 inc/user.php:829
 msgid "No"
 msgstr ""
 
-#: inc/user.php:785
+#: inc/user.php:779
 msgid "Status"
 msgstr ""
 
-#: inc/user.php:801
+#: inc/user.php:795
 msgid "ID"
 msgstr ""
 
-#: inc/user.php:802 inc/user.php:827
+#: inc/user.php:796 inc/user.php:821
 msgid "Deleted"
 msgstr ""
 
-#: inc/user.php:818 inc/user.php:842 inc/user.php:868
+#: inc/user.php:812 inc/user.php:836 inc/user.php:862
 msgid "None"
 msgstr ""
 
-#: inc/user.php:823
+#: inc/user.php:817
 msgid "Uploads"
 msgstr ""
 
-#: inc/user.php:826
+#: inc/user.php:820
 msgid "Filename"
 msgstr ""
 
-#: inc/user.php:847
+#: inc/user.php:841
 msgid "Sessions"
 msgstr ""
 
-#: inc/user.php:851
+#: inc/user.php:845
 msgid "IP"
 msgstr ""
 
-#: inc/user.php:853
+#: inc/user.php:847
 msgid "Last Access"
 msgstr ""
 
-#: inc/user.php:875
+#: inc/user.php:869
 #, php-format
 msgid "Report cereated: %s"
 msgstr ""
 
-#: inc/user.php:891
+#: inc/user.php:885
 msgid "Invalid email address."
 msgstr ""
 
-#: inc/user.php:896
+#: inc/user.php:890
 msgid "Administrator can not remove account."
 msgstr ""
 
-#: inc/user.php:926 inc/user.php:927
+#: inc/user.php:920 inc/user.php:921
 msgid "Account successfully removed."
 msgstr ""
 
-#: inc/user.php:953
+#: inc/user.php:947
 msgid "Upgrade account"
 msgstr ""
 
-#: inc/user.php:1044
+#: inc/user.php:1038
 msgid "No payment gateways are configured."
 msgstr ""
 
-#: inc/user.php:1219
+#: inc/user.php:1213
 msgid "Service temporarily not available."
 msgstr ""
 
-#: inc/user.php:1227
+#: inc/user.php:1221
 msgid "Service temporarily not available. Please contact us."
 msgstr ""
 
-#: inc/user.php:1256
+#: inc/user.php:1250
 msgid "Your subscription successfully cancelled."
 msgstr ""
 
@@ -1903,14 +1932,14 @@ msgstr ""
 #: js/admin.js:102 js/admin.js:105 js/admin.js:112 js/admin.js:151
 #: js/admin.js:155 js/admin.js:161 js/admin.js:205 js/admin.js:208
 #: js/admin.js:215 js/admin.js:266 js/admin.js:269 js/admin.js:276
-#: js/admin.js:320 js/admin.js:323 js/admin.js:330 js/admin.js:709
-#: js/admin.js:712 js/admin.js:719 js/admin.js:763 js/admin.js:766
-#: js/admin.js:773 js/admin.js:817 js/admin.js:820 js/admin.js:827
-#: js/admin.js:886 js/admin.js:889 js/admin.js:896 js/admin.js:940
-#: js/admin.js:943 js/admin.js:950 js/admin.js:981 js/admin.js:985
-#: js/admin.js:990 js/script.js:402 js/script.js:405 js/script.js:412
-#: js/script.js:456 js/script.js:459 js/script.js:466 js/script.js:503
-#: js/script.js:508 js/script.js:551 js/script.js:555 js/script.js:560
+#: js/admin.js:320 js/admin.js:323 js/admin.js:330 js/admin.js:712
+#: js/admin.js:715 js/admin.js:722 js/admin.js:766 js/admin.js:769
+#: js/admin.js:776 js/admin.js:820 js/admin.js:823 js/admin.js:830
+#: js/admin.js:889 js/admin.js:892 js/admin.js:899 js/admin.js:943
+#: js/admin.js:946 js/admin.js:953 js/admin.js:984 js/admin.js:988
+#: js/admin.js:993 js/script.js:405 js/script.js:408 js/script.js:415
+#: js/script.js:459 js/script.js:462 js/script.js:469 js/script.js:506
+#: js/script.js:511 js/script.js:554 js/script.js:558 js/script.js:563
 msgid "Something went wrong. We got unexpected server response."
 msgstr ""
 
@@ -1942,63 +1971,63 @@ msgstr ""
 msgid "Please confirm that you want to activate price option."
 msgstr ""
 
-#: js/admin.js:672
+#: js/admin.js:675
 msgid "Please confirm that you want to delete membership."
 msgstr ""
 
-#: js/admin.js:728
+#: js/admin.js:731
 msgid "Please confirm that you want to archive membership."
 msgstr ""
 
-#: js/admin.js:782
+#: js/admin.js:785
 msgid "Please confirm that you want to activate membership."
 msgstr ""
 
-#: js/admin.js:846
+#: js/admin.js:849
 msgid "Please confirm that you want to delete this transaction."
 msgstr ""
 
-#: js/admin.js:905
+#: js/admin.js:908
 msgid "Please confirm that you want to delete transactions."
 msgstr ""
 
-#: js/script.js:213
+#: js/script.js:216
 msgid "Confirm action"
 msgstr ""
 
-#: js/script.js:220
+#: js/script.js:223
 msgid "Cancel"
 msgstr ""
 
-#: js/script.js:221
+#: js/script.js:224
 msgid "Do you really want to continue?"
 msgstr ""
 
-#: js/script.js:365
+#: js/script.js:368
 msgid "Please confirm that you want to delete the file."
 msgstr ""
 
-#: js/script.js:421
+#: js/script.js:424
 msgid "Please confirm that you want to delete selected files."
 msgstr ""
 
-#: login.php:124
+#: login.php:125
 msgid "Forgot password?"
 msgstr ""
 
-#: login.php:136
+#: login.php:137
 msgid "or sign in with"
 msgstr ""
 
-#: login.php:174
+#: login.php:175
 msgid "Remember password?"
 msgstr ""
 
-#: login.php:174
+#: login.php:175
 msgid "Sign In."
 msgstr ""
 
-#: login.php:178 login.php:179
+#: login.php:179 login.php:180
 msgid "Reset"
 msgstr ""
 
@@ -2010,18 +2039,18 @@ msgstr ""
 msgid "Email address successfully confirmed."
 msgstr ""
 
-#: register.php:137
+#: register.php:143
 msgid "Select timezone"
 msgstr ""
 
-#: register.php:175
+#: register.php:181
 msgid "or create account with"
 msgstr ""
 
-#: register.php:207
+#: register.php:213
 msgid "Set new password"
 msgstr ""
 
-#: register.php:222 register.php:223
+#: register.php:228 register.php:229
 msgid "Set password"
 msgstr ""
