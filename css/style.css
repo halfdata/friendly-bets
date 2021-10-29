@@ -202,12 +202,13 @@ footer {
 }
 .top-menu>li.top-submenu:hover>span::after, .top-menu>li.top-submenu:hover>a::after {
 	position: absolute;
-	height: 2px;
+	height: 4px;
 	left: 2px;
 	right: 2px;
 	bottom: 0;
 	border: 1px solid #fff;
-	margin: -2px 0 0 0;
+	background-color: #fff;
+	margin: -3px 0 0 0;
 	z-index: 100;
 	content: '.';
 	display: block;
